@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pharmacy Portal - Kobujoi Mission Hospital</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    .pharmacy-form {
+      margin-top: 20px;
+      padding: 20px;
+      background-color: var(--neutral-light);
+      border-radius: var(--radius);
+    }
+
+    .pharmacy-form input {
+      padding: 8px;
+      margin: 8px;
+      width: 200px;
+    }
+
+    .pharmacy-form button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: var(--primary-green);
+      color: white;
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+    }
+
+    .medicine-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    .medicine-table th, .medicine-table td {
+      border: 1px solid var(--neutral-gray);
+      padding: 10px;
+      font-size: 14px;
+    }
+
+    .medicine-table th {
+      background-color: var(--neutral-light);
+    }
+
+    .empty-message {
+      margin-top: 20px;
+      text-align: center;
+      color: var(--neutral-dark);
+      font-style: italic;
+    }
+
+    .action-buttons button {
+      margin: 2px;
+      padding: 6px 12px;
+      font-size: 13px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .action-buttons button:first-child {
+      background-color: var(--primary-blue);
+      color: white;
+    }
+
+    .action-buttons button:last-child {
+      background-color: var(--secondary-red);
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <header class="top-header">
+    <div class="container">
+      <h1><img src="../images/pharmacy.png" class="icon"> Pharmacy Portal</h1>
+      <p>Manage medicine inventory and track usage</p>
+    </div>
+  </header>
+
+  <nav class="navbar">
+    <div class="container">
+      <h1>Pharmacist Portal</h1>
+
+  <a href="portal.html">Dashboard</a>
+  <a href="inventory.html">Inventory</a>
+  <a href="dispense.html">Dispense Medication</a>
+  <a href="../index.html">Logout</a>
+
+    </div>
+  </nav>
+
+  <main class="container">
+    <section class="pharmacy-form">
+      <h2>Add Medicine</h2>
+      <form id="medicineForm">
+        <input type="text" id="name" placeholder="Medicine Name" required />
+        <input type="text" id="dosage" placeholder="Dosage (e.g. 500mg)" required />
+        <input type="number" id="quantity" placeholder="Quantity Present" required />
+        <input type="number" id="reorder" placeholder="Reorder Level" required />
+        <input type="number" id="price" placeholder="Price (KES)" required />
+        <input type="date" id="expiry" placeholder="Expiry Date" required />
+        <button type="submit">Add Medicine</button>
+      </form>
+    </section>
+
+    <section class="pharmacy-list">
+      <h2>Available Medicines</h2>
+      <p class="empty-message" id="noMedsMsg">No medicines added yet.</p>
+
+      <table class="medicine-table" id="medicineTable" style="display: none;">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Dosage</th>
+            <th>Quantity</th>
+            <th>Reorder Level</th>
+            <th>Price (KES)</th>
+            <th>Expiry Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="medicineTableBody"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer class="footer container">
+    <p>&copy; 2025 Kobujoi Mission Hospital. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById("medicineForm");
+    const table = document.getElementById("medicineTable");
+    const body = document.getElementById("medicineTableBody");
+    const emptyMsg = document.getElementById("noMedsMsg");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const dosage = document.getElementById("dosage").value;
+      const quantity = document.getElementById("quantity").value;
+      const reorder = document.getElementById("reorder").value;
+      const price = document.getElementById("price").value;
+      const expiry = document.getElementById("expiry").value;
+
+      const row = document.createElement("tr");
+
+      row.innerHTML = `
+        <td>${name}</td>
+        <td>${dosage}</td>
+        <td>${quantity}</td>
+        <td>${reorder}</td>
+        <td>${price}</td>
+        <td>${expiry}</td>
+        <td class="action-buttons">
+          <button onclick="editRow(this)">Edit</button>
+          <button onclick="deleteRow(this)">Delete</button>
+        </td>
+      `;
+
+      body.appendChild(row);
+      table.style.display = "table";
+      emptyMsg.style.display = "none";
+      form.reset();
+    });
+
+    function deleteRow(button) {
+      const row = button.parentElement.parentElement;
+      row.remove();
+
+      if (body.children.length === 0) {
+        table.style.display = "none";
+        emptyMsg.style.display = "block";
+      }
+    }
+
+    function editRow(button) {
+      const row = button.parentElement.parentElement;
+      const cells = row.querySelectorAll("td");
+
+      const name = cells[0].innerText;
+      const dosage = cells[1].innerText;
+      const quantity = cells[2].innerText;
+      const reorder = cells[3].innerText;
+      const price = cells[4].innerText;
+      const expiry = cells[5].innerText;
+
+      cells[0].innerHTML = `<input type="text" value="${name}">`;
+      cells[1].innerHTML = `<input type="text" value="${dosage}">`;
+      cells[2].innerHTML = `<input type="number" value="${quantity}">`;
+      cells[3].innerHTML = `<input type="number" value="${reorder}">`;
+      cells[4].innerHTML = `<input type="number" value="${price}">`;
+      cells[5].innerHTML = `<input type="date" value="${expiry}">`;
+      cells[6].innerHTML = `<button onclick="saveRow(this)">Save</button>`;
+    }
+
+    function saveRow(button) {
+      const row = button.parentElement.parentElement;
+      const inputs = row.querySelectorAll("input");
+
+      const name = inputs[0].value;
+      const dosage = inputs[1].value;
+      const quantity = inputs[2].value;
+      const reorder = inputs[3].value;
+      const price = inputs[4].value;
+      const expiry = inputs[5].value;
+
+      row.innerHTML = `
+        <td>${name}</td>
+        <td>${dosage}</td>
+        <td>${quantity}</td>
+        <td>${reorder}</td>
+        <td>${price}</td>
+        <td>${expiry}</td>
+        <td class="action-buttons">
+          <button onclick="editRow(this)">Edit</button>
+          <button onclick="deleteRow(this)">Delete</button>
+        </td>
+      `;
+    }
+  </script>
+</body>
+</html>

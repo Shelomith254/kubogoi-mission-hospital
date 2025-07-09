@@ -1,0 +1,59 @@
+<!-- patient/billing.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Billing - Kobujoi Mission Hospital</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <header class="top-header">
+    <div class="container">
+      <h1><img src="../images/bills.svg" class="icon"> My Bills</h1>
+      <p>View hospital bills added by hospital staff</p>
+    </div>
+  </header>
+
+  <nav class="navbar">
+    <div class="container">
+      <h3><a href="portal.html">Dashboard</a></h3>
+      <h3><a href="profile.html">Profile</a></h3>
+      <h3><a href="bills.html" class="active">Bills</a></h3>
+      <h3><a href="notifications.html">Notifications</a></h3>
+      <h3><a href="../login.html">Logout</a></h3>
+    </div>
+  </nav>
+
+  <main class="container">
+    <div class="section">
+      <h2>Billing Records</h2>
+
+      <div id="billing-status">
+        <p>You have no bills yet. Please check again later or contact hospital staff.</p>
+        <img src="../images/no-bills.svg" alt="No bills" class="empty-icon">
+      </div>
+
+      <!-- Placeholder for dynamic bills (added by staff) -->
+      <div id="bills-table-container" style="display: none;">
+        <table class="bills-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Service</th>
+              <th>Amount (KES)</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="bills-table-body">
+            <!-- Bills will be inserted here dynamically -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer container">
+    <p>&copy; 2025 Kobujoi Mission Hospital. All rights reserved.</p>
+  </footer>
+</body>
+</html>

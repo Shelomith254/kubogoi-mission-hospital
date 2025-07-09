@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Inpatient Portal - Kobujoi Mission Hospital</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <style>
+    .inpatient-form {
+      background-color: var(--neutral-light);
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: var(--radius);
+    }
+
+    .inpatient-form input, .inpatient-form select {
+      margin: 10px;
+      padding: 10px;
+      width: 200px;
+    }
+
+    .inpatient-form button {
+      padding: 10px 20px;
+      background-color: var(--primary-green);
+      color: white;
+      border: none;
+      border-radius: var(--radius);
+    }
+
+    .inpatient-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    .inpatient-table th, .inpatient-table td {
+      border: 1px solid var(--neutral-gray);
+      padding: 10px;
+      font-size: 14px;
+    }
+
+    .inpatient-table th {
+      background-color: var(--neutral-light);
+    }
+
+    .empty-msg {
+      text-align: center;
+      font-style: italic;
+      color: var(--neutral-dark);
+      margin-top: 30px;
+    }
+
+    .action-buttons button {
+      padding: 6px 12px;
+      font-size: 13px;
+      margin: 2px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <header class="top-header">
+    <div class="container">
+      <h1><img src="../images/inpatient.png" class="icon"> Inpatient Portal</h1>
+      <p>Manage admitted patients, beds, and status</p>
+    </div>
+  </header>
+
+  <nav class="navbar">
+    <div class="container">
+      <h3><a href="../index.html">Home</a></h3>
+      <h3><a href="../patient/portal.html">Patient Dashboard</a></h3>
+      <h3><a href="portal.html" class="active">Inpatient</a></h3>
+      <h3><a href="../login.html">Logout</a></h3>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section class="inpatient-form">
+      <h2>Add Inpatient Record</h2>
+      <form id="inpatientForm">
+        <input type="text" id="patientName" placeholder="Patient Name" required>
+        <input type="text" id="patientID" placeholder="Patient ID" required>
+        <input type="text" id="ward" placeholder="Ward" required>
+        <input type="text" id="bed" placeholder="Bed Number" required>
+        <input type="date" id="admissionDate" required>
+        <input type="date" id="dischargeDate">
+        <select id="status" required>
+          <option value="">-- Status --</option>
+          <option value="Admitted">Admitted</option>
+          <option value="Discharged">Discharged</option>
+        </select>
+        <button type="submit">Add Record</button>
+      </form>
+    </section>
+
+    <section class="inpatient-list">
+      <h2>Current Inpatients</h2>
+      <p class="empty-msg" id="noInpatients">No inpatients added yet.</p>
+
+      <table class="inpatient-table" id="inpatientTable" style="display: none;">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>ID</th>
+            <th>Ward</th>
+            <th>Bed</th>
+            <th>Admission</th>
+            <th>Discharge</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="inpatientBody"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer class="footer container">
+    <p>&copy; 2025 Kobujoi Mission Hospital. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById("inpatientForm");
+    const table = document.getElementById("inpatientTable");
+    const body = document.getElementById("inpatientBody");
+    const noMsg = document.getElementById("noInpatients");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById("patientName").value;
+      const id = document.getElementById("patientID").value;
+      const ward = document.getElementById("ward").value;
+      const bed = document.getElementById("bed").value;
+      const admit = document.getElementById("admissionDate").value;
+      const discharge = document.getElementById("dischargeDate").value;
+      const status = document.getElementById("status").value;
+
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td>${name}</td>
+        <td>${id}</td>
+        <td>${ward}</td>
+        <td>${bed}</td>
+        <td>${admit}</td>
+        <td>${discharge}</td>
+        <td>${status}</td>
+        <td class="action-buttons">
+          <button onclick="editRow(this)">Edit</button>
+          <button onclick="deleteRow(this)">Delete</button>
+        </td>
+      `;
+
+      body.appendChild(row);
+      table.style.display = "table";
+      noMsg.style.display = "none";
+      form.reset();
+    });
+
+    function deleteRow(button) {
+      const row = button.parentElement.parentElement;
+      row.remove();
+      if (body.children.length === 0) {
+        table.style.display = "none";
+        noMsg.style.display = "block";
+      }
+    }
+
+    function editRow(button) {
+      const row = button.parentElement.parentElement;
+      const cells = row.querySelectorAll("td");
+
+      const name = cells[0].innerText;
+      const id = cells[1].innerText;
+      const ward = cells[2].innerText;
+      const bed = cells[3].innerText;
+      const admit = cells[4].innerText;
+      const discharge = cells[5].innerText;
+      const status = cells[6].innerText;
+
+      cells[0].innerHTML = `<input type="text" value="${name}">`;
+      cells[1].innerHTML = `<input type="text" value="${id}">`;
+      cells[2].innerHTML = `<input type="text" value="${ward}">`;
+      cells[3].innerHTML = `<input type="text" value="${bed}">`;
+      cells[4].innerHTML = `<input type="date" value="${admit}">`;
+      cells[5].innerHTML = `<input type="date" value="${discharge}">`;
+      cells[6].innerHTML = `
+        <select>
+          <option value="Admitted" ${status === "Admitted" ? "selected" : ""}>Admitted</option>
+          <option value="Discharged" ${status === "Discharged" ? "selected" : ""}>Discharged</option>
+        </select>`;
+      cells[7].innerHTML = `<button onclick="saveRow(this)">Save</button>`;
+    }
+
+    function saveRow(button) {
+      const row = button.parentElement.parentElement;
+      const inputs = row.querySelectorAll("input, select");
+
+      const name = inputs[0].value;
+      const id = inputs[1].value;
+      const ward = inputs[2].value;
+      const bed = inputs[3].value;
+      const admit = inputs[4].value;
+      const discharge = inputs[5].value;
+      const status = inputs[6].value;
+
+      row.innerHTML = `
+        <td>${name}</td>
+        <td>${id}</td>
+        <td>${ward}</td>
+        <td>${bed}</td>
+        <td>${admit}</td>
+        <td>${discharge}</td>
+        <td>${status}</td>
+        <td class="action-buttons">
+          <button onclick="editRow(this)">Edit</button>
+          <button onclick="deleteRow(this)">Delete</button>
+        </td>
+      `;
+    }
+  </script>
+</body>
+</html>

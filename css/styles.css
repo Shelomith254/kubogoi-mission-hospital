@@ -1,0 +1,429 @@
+/* === Global Styles === */
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--neutral-white);
+  margin: 0;
+  padding: 0;
+}
+
+/* === Root Variables === */
+:root {
+  --primary-blue: #1e40af;
+  --primary-green: #15803d;
+  --secondary-red: #dc2626;
+  --secondary-yellow: #d97706;
+  --neutral-white: #ffffff;
+  --neutral-light: #f4f4f4;
+  --neutral-gray: #e8ecef;
+  --neutral-dark: #333333;
+  --accent-navy: #1e3a8a;
+  --accent-orange: #f97316;
+  --radius: 8px;
+}
+
+/* === Header === */
+.top-header {
+  background-color: var(--primary-blue);
+  color: white;
+  padding: 30px 20px;
+  text-align: center; /* ✅ Center all content */
+}
+
+.top-header h1 {
+  font-size: 28px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* ✅ Horizontal center with flex */
+  gap: 10px;
+}
+
+.top-header h1 img {
+  width: 30px;        
+  height: auto;       
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+
+.top-header p {
+  margin: 10px 0 0;
+  font-style: italic;
+  font-size: 16px;
+}
+
+
+/* === Navigation === */
+/* Center the navbar */
+.center-nav {
+  text-align: center;
+  background-color: #f5f5f5;
+  padding: 10px 0;
+}
+
+.center-nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: inline-flex;
+  gap: 20px;
+}
+
+.center-nav ul li {
+  display: inline;
+}
+
+.center-nav ul li a {
+  text-decoration: none;
+  color: #ac6e11;
+  font-weight: bold; /* 🔥 Make text bold */
+  padding: 8px 12px;
+  transition: background 0.3s ease;
+}
+
+.center-nav ul li a:hover {
+  background-color: #ddd;
+  border-radius: 5px;
+}
+
+
+/* === Section Headings === */
+.section-title {
+  text-align: center;
+  font-size: 24px;
+  margin: 40px 0 20px;
+  color: var(--primary-blue);
+}
+
+/* === Sections === */
+.services,
+.news,
+.telemedicine {
+  padding: 20px;
+  background-color: var(--neutral-light);
+  margin: 30px auto;
+  border-radius: var(--radius);
+  width: 90%;
+  max-width: 800px;
+}
+
+/* === Cards === */
+.card {
+  background: var(--neutral-white);
+  padding: 15px;
+  border: 1px solid var(--neutral-gray);
+  border-radius: var(--radius);
+  margin-bottom: 15px;
+}
+
+/* === Telemedicine Form === */
+form input,
+form textarea {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid var(--neutral-gray);
+  border-radius: 5px;
+}
+
+form button {
+  background-color: var(--primary-green);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+form button:hover {
+  background-color: #11632f;
+  transform: scale(1.03);
+}
+
+/* === Chatbot Widget === */
+.chatbot-widget {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #1e40af;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.chatbot-widget:hover {
+  background: #172554;
+}
+
+/* === Footer === */
+.footer {
+  background-color: var(--neutral-gray);
+  color: var(--neutral-dark);
+  text-align: center;
+  padding: 15px;
+  margin-top: 50px;
+}
+.chatbox {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 300px;
+  background-color: white;
+  border: 1px solid var(--neutral-gray);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+}
+
+.chatbox-header {
+  background-color: var(--primary-blue);
+  color: white;
+  padding: 10px;
+  border-radius: 10px 10px 0 0;
+  font-weight: bold;
+}
+
+.chatbox-body {
+  padding: 10px;
+}
+
+.chatbox-body input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 10px;
+  border: 1px solid var(--neutral-gray);
+  border-radius: 6px;
+}
+.navbar {
+  background-color: var(--neutral-gray);
+  padding: 10px 0;
+  text-align: center; /* ✅ Center contents */
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: center; /* ✅ Align nav links to center */
+  flex-wrap: wrap;
+  gap: 26px; /* Optional: space between links */
+}
+
+.navbar .container h3 {
+  margin: 0;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: var(--primary-blue);
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: var(--primary-green);
+}
+.principles {
+  margin-top: 30px;
+  text-align: left;
+}
+
+.principle-item {
+  background-color: var(--neutral-light);
+  padding: 15px;
+  margin: 15px 0;
+  border: 1px solid var(--neutral-gray);
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+.principle-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.toggle-btn {
+  font-size: 24px;
+  color: var(--primary-blue);
+  margin-left: 10px;
+}
+
+.principle-body {
+  display: none;
+  margin-top: 10px;
+  color: #444;
+}
+
+/* === Contact Page === */
+.contact-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.contact-details,
+.contact-form,
+.map-container {
+  background-color: var(--neutral-light);
+  padding: 20px;
+  border-radius: var(--radius);
+  margin-bottom: 20px;
+}
+
+.contact-details p {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.contact-form form input,
+.contact-form form textarea {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 10px;
+  border: 1px solid var(--neutral-gray);
+  border-radius: 5px;
+}
+
+.contact-form form button {
+  background-color: var(--primary-green);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.contact-form form button:hover {
+  background-color: #11632f;
+  transform: scale(1.03);
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 350px;
+  border: 0;
+  border-radius: var(--radius);
+}
+/* === Our Team Section === */
+.team-section {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.team-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.team-member {
+  background-color: var(--neutral-light);
+  padding: 20px;
+  width: 220px;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.team-member:hover {
+  transform: scale(1.03);
+}
+
+.team-member img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+
+.team-member h3 {
+  margin: 10px 0 5px;
+  color: var(--primary-blue);
+}
+
+.team-member p {
+  font-size: 14px;
+  color: var(--neutral-dark);
+}
+.about-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.about-content ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 20px;
+}
+
+.about-content ul li {
+  background-color: var(--neutral-light);
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: var(--radius);
+  text-align: left;
+  border: 1px solid var(--neutral-gray);
+}
+/* === Patient Dashboard Styling === */
+.portal-dashboard {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.portal-dashboard .section-title {
+  font-size: 24px;
+  margin-bottom: 30px;
+  color: var(--primary-blue);
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+}
+
+.feature-box {
+  background-color: var(--neutral-light);
+  border: 1px solid var(--neutral-gray);
+  border-radius: var(--radius);
+  padding: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  text-decoration: none;
+  color: inherit;
+}
+
+.feature-box:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  background-color: #fff;
+}
+
+.feature-box .icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+.feature-box h3 {
+  margin: 10px 0 5px;
+  color: var(--primary-blue);
+}
+
+.feature-box p {
+  font-size: 14px;
+  color: var(--neutral-dark);
+}
+
+
+

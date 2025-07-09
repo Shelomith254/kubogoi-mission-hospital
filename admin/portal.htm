@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Portal - Kobujoi Mission Hospital</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <style>
+    .admin-form {
+      background-color: var(--neutral-light);
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: var(--radius);
+    }
+
+    .admin-form input, .admin-form select {
+      margin: 10px;
+      padding: 10px;
+      width: 200px;
+    }
+
+    .admin-form button {
+      padding: 10px 20px;
+      background-color: var(--primary-green);
+      color: white;
+      border: none;
+      border-radius: var(--radius);
+    }
+
+    .admin-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    .admin-table th, .admin-table td {
+      border: 1px solid var(--neutral-gray);
+      padding: 10px;
+      font-size: 14px;
+    }
+
+    .admin-table th {
+      background-color: var(--neutral-light);
+    }
+
+    .empty-msg {
+      text-align: center;
+      font-style: italic;
+      color: var(--neutral-dark);
+      margin-top: 30px;
+    }
+
+    .action-buttons button {
+      padding: 6px 12px;
+      font-size: 13px;
+      margin: 2px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <header class="top-header">
+    <div class="container">
+      <h1><img src="../images/icons8-user-30.png" class="icon"> Admin Portal</h1>
+      <p>Manage user accounts and hospital staff</p>
+    </div>
+  </header>
+
+  <nav class="navbar">
+    <div class="container">
+     <h1>Admin Dashboard</h1>
+  <a href="portal.html">Dashboard</a>
+  <a href="users.html">Manage Users</a>
+  <a href="settings.html">System Settings</a>
+  <a href="../index.html">Logout</a>
+
+    </div>
+  </nav>
+
+  <main class="container">
+    <section class="admin-form">
+      <h2>Add User</h2>
+      <form id="adminForm">
+        <input type="text" id="fullName" placeholder="Full Name" required>
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <select id="role" required>
+          <option value="">-- Role --</option>
+          <option value="Doctor">Doctor</option>
+          <option value="Nurse">Nurse</option>
+          <option value="Pharmacist">Pharmacist</option>
+          <option value="Lab Technician">Lab Technician</option>
+          <option value="Receptionist">Receptionist</option>
+        </select>
+        <select id="status" required>
+          <option value="">-- Status --</option>
+          <option value="Active">Active</option>
+          <option value="Disabled">Disabled</option>
+        </select>
+        <button type="submit">Add User</button>
+      </form>
+    </section>
+
+    <section class="admin-list">
+      <h2>User Accounts</h2>
+      <p class="empty-msg" id="noUsers">No users added yet.</p>
+
+      <table class="admin-table" id="adminTable" style="display: none;">
+        <thead>
+          <tr>
+            <th>Full Name</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="adminBody"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer class="footer container">
+    <p>&copy; 2025 Kobujoi Mission Hospital. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById("adminForm");
+    const table = document.getElementById("adminTable");
+    const body = document.getElementById("adminBody");
+    const noMsg = document.getElementById("noUsers");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const fullName = document.getElementById("fullName").value;
+      const username = document.getElementById("username").value;
+      const email = document.getElementById("email").value;
+      const role = document.getElementById("role").value;
+      const status = document.getElementById("status").value;
+
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td>${fullName}</td>
+        <td>${username}</td>
+        <td>${email}</td>
+        <td>${role}</td>
+        <td>${status}</td>
+        <td class="action-buttons">
+          <button onclick="editRow(this)">Edit</button>
+          <button onclick="deleteRow(this)">Delete</button>
+        </td>
+      `;
+
+      body.appendChild(row);
+      table.style.display = "table";
+      noMsg.style.display = "none";
+      form.reset();
+    });
+
+    function deleteRow(button) {
+      const row = button.parentElement.parentElement;
+      row.remove();
+      if (body.children.length === 0) {
+        table.style.display = "none";
+        noMsg.style.display = "block";
+      }
+    }
+
+    function editRow(button) {
+      const row = button.parentElement.parentElement;
+      const cells = row.querySelectorAll("td");
+
+      const fullName = cells[0].innerText;
+      const username = cells[1].innerText;
+      const email = cells[2].innerText;
+      const role = cells[3].innerText;
+      const status = cells[4].innerText;
+
+      cells[0].innerHTML = `<input type="text" value="${fullName}">`;
+      cells[1].innerHTML = `<input type="text" value="${username}">`;
+      cells[2].innerHTML = `<input type="email" value="${email}">`;
+      cells[3].innerHTML = `
+        <select>
+          <option value="Doctor" ${role === "Doctor" ? "selected" : ""}>Doctor</option>
+          <option value="Nurse" ${role === "Nurse" ? "selected" : ""}>Nurse</option>
+          <option value="Pharmacist" ${role === "Pharmacist" ? "selected" : ""}>Pharmacist</option>
+          <o
