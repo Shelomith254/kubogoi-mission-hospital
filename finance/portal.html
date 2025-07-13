@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Finance Dashboard - Kobujoi Mission Hospital</title>
+  <style>
+    :root {
+      --primary-blue: #1e40af;
+      --primary-green: #15803d;
+      --neutral-light: #f4f4f4;
+      --neutral-white: #ffffff;
+      --text-dark: #333;
+      --radius: 8px;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: var(--neutral-light);
+      margin: 0;
+    }
+
+    header {
+      background-color: var(--primary-blue);
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    nav {
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      padding: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--primary-blue);
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: var(--primary-green);
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background-color: var(--neutral-white);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: var(--primary-blue);
+      font-size: 18px;
+    }
+
+    .card p {
+      font-size: 24px;
+      font-weight: bold;
+      color: var(--text-dark);
+    }
+
+    .actions {
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .actions a {
+      flex: 1;
+      min-width: 150px;
+      text-align: center;
+      padding: 12px;
+      background-color: var(--primary-green);
+      color: white;
+      text-decoration: none;
+      border-radius: var(--radius);
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .actions a:hover {
+      background-color: #11632f;
+    }
+
+    footer {
+      background-color: #e8ecef;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Finance Officer Dashboard</h1>
+    <p>Welcome back, John Kiptoo</p>
+  </header>
+
+  <nav>
+    <a href="portal.html">Dashboard</a>
+    <a href="payments.html">Payments</a>
+    <a href="claims.html">Claims</a>
+    <a href="profile.html">My Profile</a>
+    <a href="../login.html">Logout</a>
+  </nav>
+
+  <main>
+    <section class="dashboard-grid">
+      <div class="card">
+        <h3>Total Payments</h3>
+        <p>KES 1,200,000</p>
+      </div>
+      <div class="card">
+        <h3>Pending Claims</h3>
+        <p>12</p>
+      </div>
+      <div class="card">
+        <h3>Approved Claims</h3>
+        <p>86</p>
+      </div>
+      <div class="card">
+        <h3>Monthly Expenditure</h3>
+        <p>KES 340,000</p>
+      </div>
+    </section>
+
+    <section class="actions">
+      <a href="payments.html">View Payments</a>
+      <a href="claims.html">Manage Claims</a>
+      <a href="profile.html">Edit Profile</a>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Kobujoi Mission Hospital. All rights reserved.
+  </footer>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inpatient Bed Management</title>
+  <style>
+    :root {
+      --primary-blue: #1e40af;
+      --primary-green: #15803d;
+      --secondary-red: #dc2626;
+      --neutral-light: #f4f4f4;
+      --neutral-white: #ffffff;
+      --text-dark: #333;
+      --radius: 8px;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: var(--neutral-light);
+      margin: 0;
+    }
+
+    header {
+      background-color: var(--primary-blue);
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    nav {
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      padding: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--primary-blue);
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: var(--primary-green);
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 40px auto;
+      background-color: var(--neutral-white);
+      padding: 30px;
+      border-radius: var(--radius);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: var(--primary-blue);
+      margin-bottom: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 12px;
+      text-align: center;
+    }
+
+    th {
+      background-color: var(--primary-blue);
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    .available {
+      color: var(--primary-green);
+      font-weight: bold;
+    }
+
+    .occupied {
+      color: var(--secondary-red);
+      font-weight: bold;
+    }
+
+    .cleaning {
+      color: #d97706;
+      font-weight: bold;
+    }
+
+    footer {
+      background-color: #e8ecef;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Inpatient Bed Management</h1>
+    <p>Monitor and assign beds for admitted patients</p>
+  </header>
+
+  <nav>
+    <a href="portal.html">Dashboard</a>
+    <a href="beds.html">Beds</a>
+    <a href="admissions.html">Admitted Patients</a>
+    <a href="notifications.html">Notifications</a>
+  </nav>
+
+  <main>
+    <h2>Ward Bed Status</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Ward</th>
+          <th>Bed Number</th>
+          <th>Status</th>
+          <th>Patient Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Ward A</td>
+          <td>1</td>
+          <td class="occupied">Occupied</td>
+          <td>Jane Chepkirui</td>
+        </tr>
+        <tr>
+          <td>Ward A</td>
+          <td>2</td>
+          <td class="available">Available</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td>Ward B</td>
+          <td>1</td>
+          <td class="cleaning">Cleaning</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td>Ward B</td>
+          <td>2</td>
+          <td class="occupied">Occupied</td>
+          <td>David Kipruto</td>
+        </tr>
+        <tr>
+          <td>Ward C</td>
+          <td>3</td>
+          <td class="available">Available</td>
+          <td>-</td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+
+  <footer>
+    &copy; 2025 Kobujoi Mission Hospital. All rights reserved.
+  </footer>
+</body>
+</html>

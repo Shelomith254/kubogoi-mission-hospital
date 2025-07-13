@@ -1,0 +1,132 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lab Results - Kobujoi Mission Hospital</title>
+  <style>
+    :root {
+      --primary-blue: #1e40af;
+      --primary-green: #15803d;
+      --neutral-white: #ffffff;
+      --neutral-light: #f4f4f4;
+      --text-dark: #333;
+      --radius: 8px;
+    }body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--neutral-light);
+}
+
+header {
+  background-color: var(--primary-blue);
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+nav {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--primary-blue);
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: var(--primary-green);
+}
+
+main {
+  max-width: 700px;
+  margin: 40px auto;
+  background: var(--neutral-white);
+  padding: 30px;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+h2 {
+  color: var(--primary-blue);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input, textarea, select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: var(--radius);
+  font-size: 14px;
+}
+
+button {
+  background-color: var(--primary-green);
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #11632f;
+}
+
+footer {
+  background-color: #e8ecef;
+  text-align: center;
+  padding: 15px;
+  font-size: 14px;
+  margin-top: 40px;
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Lab Results Upload</h1>
+    <p>Submit and record completed test results</p>
+  </header>  <nav>
+    <a href="portal.html">Dashboard</a>
+    <a href="tests.html">Test Requests</a>
+    <a href="results.html">Upload Results</a>
+   
+  </nav>  <main>
+    <h2>Upload Test Result</h2>
+    <form>
+      <label for="patient">Patient Name:</label>
+      <select id="patient" required>
+        <option value="">-- Select Patient --</option>
+        <option value="jane">Jane Achieng</option>
+        <option value="brian">Brian Otieno</option>
+      </select><label for="test">Test Type:</label>
+  <input type="text" id="test" placeholder="e.g. Blood CBC" required />
+
+  <label for="result">Result Summary:</label>
+  <textarea id="result" rows="5" placeholder="Enter summary of findings..." required></textarea>
+
+  <button type="submit">Submit Result</button>
+</form>
+
+  </main>  <footer>
+    &copy; 2025 Kobujoi Mission Hospital. All rights reserved.
+  </footer>
+</body>
+</html>

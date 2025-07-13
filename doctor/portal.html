@@ -5,6 +5,14 @@
   <title>Doctor Portal - Kobujoi Mission Hospital</title>
   <link rel="stylesheet" href="../css/styles.css">
   <style>
+    :root {
+      --primary-green: #15803d;
+      --neutral-light: #f4f4f4;
+      --neutral-gray: #ddd;
+      --neutral-dark: #333;
+      --radius: 8px;
+    }
+
     .doctor-form {
       background-color: var(--neutral-light);
       padding: 20px;
@@ -15,7 +23,7 @@
     .doctor-form input, .doctor-form select {
       margin: 10px;
       padding: 10px;
-      width: 200px;
+      width: 220px;
     }
 
     .doctor-form button {
@@ -55,6 +63,25 @@
       margin: 2px;
       border-radius: 5px;
     }
+
+    nav {
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 12px;
+      font-weight: bold;
+      border-bottom: 1px solid var(--neutral-gray);
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #1e40af;
+    }
+
+    nav a:hover {
+      color: var(--primary-green);
+    }
   </style>
 </head>
 <body>
@@ -65,20 +92,12 @@
     </div>
   </header>
 
-  <nav class="navbar">
-    <div class="container">
-    <h1>Doctor Dashboard</h1>
-<h1>Doctor Dashboard</h1>
-
-  <a href="portal.html">Dashboard</a>
-  <a href="history.html">Patient History</a>
-  <a href="telemedicine.html">Telemedicine</a>
-  <a href="../index.html">Logout</a>
-</nav>
-
-
-
-    </div>
+  <nav>
+    <a href="portal.html">Dashboard</a>
+    <a href="patients.html">Patients</a>
+    <a href="notifications.html">Notifications</a>
+    <a href="profile.html">Profile</a>
+    <a href="../login.html">Logout</a>
   </nav>
 
   <main class="container">
@@ -113,9 +132,15 @@
             <th>Actions</th>
           </tr>
         </thead>
-        <tbody id="doctorBody"></tbody>
+        <tbody id="doctorBody">
+          <!-- JS will populate rows here -->
+        </tbody>
       </table>
     </section>
   </main>
 
-  <footer class="footer container
+  <footer class="footer container">
+    <p>&copy; 2025 Kobujoi Mission Hospital. All rights reserved.</p>
+  </footer>
+</body>
+</html>

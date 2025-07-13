@@ -2,47 +2,128 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Patient Portal - Kobujoi Mission Hospital</title>
-  <link rel="stylesheet" href="../css/styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Patient Dashboard - Kobujoi Mission Hospital</title>
+  <style>
+    :root {
+      --primary-blue: #1e40af;
+      --primary-green: #15803d;
+      --neutral-light: #f4f4f4;
+      --neutral-white: #ffffff;
+      --text-dark: #333;
+      --radius: 8px;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: var(--neutral-light);
+    }
+
+    header {
+      background-color: var(--primary-blue);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+      gap: 15px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--primary-blue);
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: var(--primary-green);
+    }
+
+    .dashboard {
+      padding: 30px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--neutral-white);
+      padding: 20px;
+      border-radius: var(--radius);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      color: var(--primary-blue);
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--text-dark);
+    }
+
+    footer {
+      background-color: #e8ecef;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
 </head>
 <body>
-  <header class="top-header">
-    <div class="container">
-      <h1><img src="../images/hospital.png" class="icon" alt=""> Patient Portal</h1>
-      <p>Welcome, valued patient!</p>
-    </div>
+
+  <header>
+    <h1>Welcome, Patient</h1>
+    <p>Your Health Dashboard - Kobujoi Mission Hospital</p>
   </header>
 
-  <nav class="navbar">
-    <div class="container">
-      <nav>
+  <nav>
     <a href="portal.html">Dashboard</a>
-    <a href="profile.html">Profile</a>
-    <a href="bills.html">Billing</a>
+    <a href="profile.html">My Profile</a>
+    <a href="appointments.html">Appointments</a>
+    <a href="billing.html">Billing</a>
+    <a href="prescriptions.html">Prescriptions</a>
     <a href="notifications.html">Notifications</a>
-    <a href="../index.html">Logout</a>
   </nav>
+
+  <main class="dashboard">
+    <div class="card">
+      <h3>Upcoming Appointments</h3>
+      <p>2 appointments this week</p>
     </div>
-  </nav>
+    <div class="card">
+      <h3>Outstanding Bills</h3>
+      <p>KES 1,500 due</p>
+    </div>
+    <div class="card">
+      <h3>Recent Prescriptions</h3>
+      <p>3 active medications</p>
+    </div>
+    <div class="card">
+      <h3>New Notifications</h3>
+      <p>1 unread message</p>
+    </div>
+  </main>
 
-  <main class="portal-dashboard container">
-    <h2 class="section-title">Your Dashboard</h2>
+  <footer>
+    &copy; 2025 Kobujoi Mission Hospital. All rights reserved.
+  </footer>
 
-    <div class="dashboard-grid">
-      <a href="../book-appointment.html" class="feature-box">
-        <img src="../images/booking.png" class="icon" alt="">
-        <h3>Appointments</h3>
-        <p>View and manage your appointment bookings.</p>
-      </a>
-
-      <a href="bills.html" class="feature-box">
-        <img src="../images/invoice.png" class="icon" alt="">
-        <h3>Billing</h3>
-        <p>See your billing statements and payment status.</p>
-      </a>
-
-      <a href="profile.html" class="feature-box">
-        <img src="../images/user.png" class="icon" alt="">
-        <h3>My Profile</h3>
-        <p>Update your contact info and medical history.</p>
-      </a>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emergency Cases - Kobujoi Mission Hospital</title>
+  <style>
+    :root {
+      --primary-blue: #1e40af;
+      --primary-green: #15803d;
+      --neutral-white: #ffffff;
+      --neutral-light: #f4f4f4;
+      --text-dark: #333;
+      --radius: 8px;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: var(--neutral-light);
+      margin: 0;
+    }
+
+    header {
+      background-color: var(--primary-blue);
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    nav {
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      padding: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--primary-blue);
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: var(--primary-green);
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 40px auto;
+      background-color: var(--neutral-white);
+      padding: 30px;
+      border-radius: var(--radius);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: var(--primary-blue);
+      margin-bottom: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+    }
+
+    th {
+      background-color: var(--neutral-light);
+      color: var(--primary-blue);
+    }
+
+    .btn {
+      padding: 6px 12px;
+      font-size: 14px;
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+    }
+
+    .btn-attend {
+      background-color: var(--primary-green);
+      color: white;
+    }
+
+    .btn-escalate {
+      background-color: #dc2626;
+      color: white;
+    }
+
+    footer {
+      background-color: #e8ecef;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Emergency Case Log</h1>
+    <p>Real-time tracking of critical emergency cases</p>
+  </header>
+
+  <nav>
+    <a href="portal.html">Dashboard</a>
+    <a href="cases.html">Emergency Cases</a>
+    <a href="ambulance.html">Ambulance </a>
+   
+     <a href="../login.html">Logout</a>
+  </nav>
+
+  <main>
+    <h2>Active Emergency Cases</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Time</th>
+          <th>Patient</th>
+          <th>Condition</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>10:15 AM</td>
+          <td>Sarah Kiptoo</td>
+          <td>Severe Asthma Attack</td>
+          <td>Unstable</td>
+          <td>
+            <button class="btn btn-attend">Attend</button>
+            <button class="btn btn-escalate">Escalate</button>
+          </td>
+        </tr>
+        <tr>
+          <td>10:50 AM</td>
+          <td>James Odhiambo</td>
+          <td>Road Accident Trauma</td>
+          <td>Critical</td>
+          <td>
+            <button class="btn btn-attend">Attend</button>
+            <button class="btn btn-escalate">Escalate</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+
+  <footer>
+    &copy; 2025 Kobujoi Mission Hospital. All rights reserved.
+  </footer>
+</body>
+</html>

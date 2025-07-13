@@ -1,0 +1,70 @@
+<!-- appointment.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Book Appointment | Kobujoi Mission Hospital</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="top-header">
+    <div class="container">
+      <h1>Kobujoi Mission Hospital</h1>
+      <p>Book your appointment with us today</p>
+    </div>
+  </header>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html">Home</a>
+      <a href="login.html">Login</a>
+      <a href="about.html">About</a>
+      <a href="departments.html">Departments</a>
+      <a href="appointment.html">Book Appointment</a>
+      <a href="our-team.html">Our Team</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Appointment Form -->
+  <section class="appointment container">
+    <h2 class="section-title">Book an Appointment</h2>
+    <form>
+      <input type="text" placeholder="Full Name" required />
+      <input type="email" placeholder="Email Address" required />
+      <input type="tel" placeholder="Phone Number" required />
+
+      <select required>
+        <option value="">Select Department</option>
+        <option value="lab">Laboratory</option>
+        <option value="pharmacy">Pharmacy</option>
+        <option value="outpatient">Outpatient</option>
+        <option value="maternity">Maternity</option>
+        <option value="dental">Dental</option>
+      </select>
+
+      <select required>
+        <option value="">Appointment Type</option>
+        <option value="physical">Physical Visit</option>
+        <option value="telemedicine">Telemedicine</option>
+      </select>
+
+      <input type="date" required />
+      <input type="time" required />
+
+      <textarea rows="4" placeholder="Brief description of your concern..." required></textarea>
+
+      <button type="submit">Submit Appointment</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer container">
+    <p>&copy; 2025 Kobujoi Mission Hospital. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

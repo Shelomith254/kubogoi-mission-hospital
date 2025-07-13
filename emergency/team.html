@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emergency Team - Kobujoi Mission Hospital</title>
+  <style>
+    :root {
+      --primary-blue: #1e40af;
+      --primary-green: #15803d;
+      --neutral-white: #ffffff;
+      --neutral-light: #f4f4f4;
+      --neutral-gray: #ddd;
+      --radius: 8px;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: var(--neutral-light);
+      margin: 0;
+    }
+
+    header {
+      background-color: var(--primary-blue);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+      gap: 15px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+
+    nav a {
+      color: var(--primary-blue);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: var(--primary-green);
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: var(--neutral-white);
+      border-radius: var(--radius);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: var(--primary-blue);
+    }
+
+    .team-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .team-member {
+      background-color: var(--neutral-light);
+      padding: 20px;
+      width: 220px;
+      border-radius: var(--radius);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+
+    .team-member img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: var(--radius);
+    }
+
+    .team-member h3 {
+      margin: 10px 0 5px;
+      color: var(--primary-blue);
+    }
+
+    .team-member p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    footer {
+      background-color: #e8ecef;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Emergency Response Team</h1>
+    <p>Meet our frontline heroes on call 24/7</p>
+  </header>
+
+  <nav>
+    <a href="portal.html">Dashboard</a>
+    <a href="cases.html">Emergency Cases</a>
+    <a href="ambulance.html">Ambulance</a>
+    <a href="team.html">Our Team</a>
+    <a href="../login.html">Logout</a>
+  </nav>
+
+  <main>
+    <h2>Emergency Staff Profiles</h2>
+    <div class="team-grid">
+      <div class="team-member">
+        <img src="../images/team/er_doctor.jpg" alt="Dr. Mercy M.">
+        <h3>Dr. Mercy Muli</h3>
+        <p>Lead Emergency Physician - 10 years in trauma care and ER management.</p>
+      </div>
+      <div class="team-member">
+        <img src="../images/team/paramedic.jpg" alt="Paramedic Tom">
+        <h3>Tom Wafula</h3>
+        <p>Senior Paramedic - Experienced in on-site stabilization and rescue operations.</p>
+      </div>
+      <div class="team-member">
+        <img src="../images/team/nurse_emergency.jpg" alt="Nurse Lydia">
+        <h3>Lydia Chebet</h3>
+        <p>ER Nurse - Quick-response triage nurse with critical care background.</p>
+      </div>
+      <div class="team-member">
+        <img src="../images/team/driver.jpg" alt="Driver Musa">
+        <h3>Musa Kiplangat</h3>
+        <p>Ambulance Driver - Expert in rapid response and safe emergency transport.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Kobujoi Mission Hospital. All rights reserved.
+  </footer>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pharmacy Inventory - Kobujoi Mission Hospital</title>
+  <style>
+    :root {
+      --primary-blue: #1e40af;
+      --primary-green: #15803d;
+      --neutral-white: #ffffff;
+      --neutral-light: #f4f4f4;
+      --text-dark: #333;
+      --radius: 8px;
+    }body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: var(--neutral-light);
+}
+
+header {
+  background-color: var(--primary-blue);
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+nav {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  gap: 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--primary-blue);
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: var(--primary-green);
+}
+
+main {
+  max-width: 900px;
+  margin: 40px auto;
+  background-color: var(--neutral-white);
+  padding: 30px;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+h2 {
+  color: var(--primary-blue);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: var(--neutral-light);
+  color: var(--primary-blue);
+}
+
+.low-stock {
+  color: red;
+  font-weight: bold;
+}
+
+.sufficient {
+  color: green;
+}
+
+.actions button {
+  margin-right: 6px;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.edit-btn {
+  background-color: var(--primary-blue);
+  color: white;
+}
+
+.delete-btn {
+  background-color: #dc2626;
+  color: white;
+}
+
+footer {
+  background-color: #e8ecef;
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+  font-size: 14px;
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Pharmacy Inventory</h1>
+    <p>Track and manage available stock</p>
+  </header>  <nav>
+    <a href="portal.html">Dashboard</a>
+    <a href="inventory.html">Inventory</a>
+    <a href="prescriptions.html">Prescriptions</a>
+    <a href="orders.html">Orders</a>
+    <a href="notifications.html">Notifications</a>
+  </nav>  <main>
+    <h2>Current Medicine Stock</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Medicine</th>
+          <th>Quantity</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Paracetamol 500mg</td>
+          <td>180</td>
+          <td class="sufficient">In Stock</td>
+          <td class="actions">
+            <button class="edit-btn">Edit</button>
+            <button class="delete-btn">Delete</button>
+          </td>
+        </tr>
+        <tr>
+          <td>Amoxicillin 250mg</td>
+          <td>25</td>
+          <td class="low-stock">Low Stock</td>
+          <td class="actions">
+            <button class="edit-btn">Edit</button>
+            <button class="delete-btn">Delete</button>
+          </td>
+        </tr>
+        <tr>
+          <td>Cough Syrup</td>
+          <td>90</td>
+          <td class="sufficient">In Stock</td>
+          <td class="actions">
+            <button class="edit-btn">Edit</button>
+            <button class="delete-btn">Delete</button>
+          </td>
+        </tr>
+        <tr>
+          <td>Insulin</td>
+          <td>8</td>
+          <td class="low-stock">Low Stock</td>
+          <td class="actions">
+            <button class="edit-btn">Edit</button>
+            <button class="delete-btn">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </main>  <footer>
+    &copy; 2025 Kobujoi Mission Hospital. All rights reserved.
+  </footer>
+</body>
+</html>

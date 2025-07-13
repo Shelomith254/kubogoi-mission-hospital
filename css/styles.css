@@ -1,11 +1,3 @@
-/* === Global Styles === */
-body {
-  font-family: Arial, sans-serif;
-  background-color: var(--neutral-white);
-  margin: 0;
-  padding: 0;
-}
-
 /* === Root Variables === */
 :root {
   --primary-blue: #1e40af;
@@ -21,12 +13,36 @@ body {
   --radius: 8px;
 }
 
+/* === Global Styles === */
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--neutral-white);
+  margin: 0;
+  padding: 0;
+}
+@media (max-width: 768px) {
+  .contact-container {
+    padding: 10px;
+  }
+
+  .contact-details,
+  .contact-form,
+  .map-container {
+    padding: 15px;
+  }
+
+  .contact-form form input,
+  .contact-form form textarea {
+    font-size: 14px;
+  }
+}
+
 /* === Header === */
 .top-header {
   background-color: var(--primary-blue);
   color: white;
   padding: 30px 20px;
-  text-align: center; /* ✅ Center all content */
+  text-align: center;
 }
 
 .top-header h1 {
@@ -34,17 +50,16 @@ body {
   margin: 0;
   display: flex;
   align-items: center;
-  justify-content: center; /* ✅ Horizontal center with flex */
+  justify-content: center;
   gap: 10px;
 }
 
 .top-header h1 img {
-  width: 30px;        
-  height: auto;       
+  width: 30px;
+  height: auto;
   vertical-align: middle;
   margin-right: 8px;
 }
-
 
 .top-header p {
   margin: 10px 0 0;
@@ -52,40 +67,67 @@ body {
   font-size: 16px;
 }
 
-
 /* === Navigation === */
-/* Center the navbar */
-.center-nav {
-  text-align: center;
-  background-color: #f5f5f5;
+.navbar {
+  background-color: var(--neutral-gray);
   padding: 10px 0;
+  text-align: center;
 }
 
-.center-nav ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  display: inline-flex;
-  gap: 20px;
+.navbar .container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 26px;
 }
 
-.center-nav ul li {
-  display: inline;
-}
-
-.center-nav ul li a {
+.navbar a {
   text-decoration: none;
-  color: #ac6e11;
-  font-weight: bold; /* 🔥 Make text bold */
-  padding: 8px 12px;
-  transition: background 0.3s ease;
+  color: var(--primary-blue);
+  font-weight: bold;
+  transition: color 0.3s ease;
 }
 
-.center-nav ul li a:hover {
-  background-color: #ddd;
-  border-radius: 5px;
+.navbar a:hover {
+  color: var(--primary-green);
 }
 
+/* === Banner === */
+.banner {
+  background-image: url('../images/kubojoi.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 100px 20px;
+  color: var(--primary-blue);
+  text-align: center;
+}
+
+.banner-content h2 {
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.banner-content p {
+  font-size: 20px;
+  margin-bottom: 25px;
+}
+
+.banner-btn {
+  background-color: var(--primary-green);
+  color: white;
+  padding: 12px 24px;
+  font-size: 16px;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.banner-btn:hover {
+  background-color: var(--primary-blue);
+  transform: scale(1.05);
+}
 
 /* === Section Headings === */
 .section-title {
@@ -95,7 +137,7 @@ body {
   color: var(--primary-blue);
 }
 
-/* === Sections === */
+/* === Services, News, Telemedicine Sections === */
 .services,
 .news,
 .telemedicine {
@@ -116,37 +158,65 @@ body {
   margin-bottom: 15px;
 }
 
-/* === Telemedicine Form === */
-form input,
-form textarea {
-  width: 100%;
-  margin: 10px 0;
-  padding: 10px;
-  border: 1px solid var(--neutral-gray);
-  border-radius: 5px;
+/* === Appointment Page === */
+.appointment {
+  padding: 40px 20px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  margin: 40px auto;
+  max-width: 700px;
 }
 
-form button {
-  background-color: var(--primary-green);
+.appointment h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.appointment form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.appointment input,
+.appointment select,
+.appointment textarea {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.appointment button {
+  padding: 12px;
+  font-weight: bold;
+  background-color: var(--primary-blue);
   color: white;
-  padding: 10px 20px;
   border: none;
-  border-radius: var(--radius);
+  border-radius: 6px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
-form button:hover {
-  background-color: #11632f;
-  transform: scale(1.03);
+.appointment button:hover {
+  background-color: var(--primary-green);
 }
 
-/* === Chatbot Widget === */
+/* === Footer === */
+.footer {
+  background-color: var(--neutral-gray);
+  color: var(--neutral-dark);
+  text-align: center;
+  padding: 15px;
+  margin-top: 50px;
+}
+
+/* === Chatbot === */
 .chatbot-widget {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: #1e40af;
+  background: var(--primary-blue);
   color: white;
   padding: 12px 18px;
   border-radius: 50px;
@@ -158,14 +228,6 @@ form button:hover {
   background: #172554;
 }
 
-/* === Footer === */
-.footer {
-  background-color: var(--neutral-gray);
-  color: var(--neutral-dark);
-  text-align: center;
-  padding: 15px;
-  margin-top: 50px;
-}
 .chatbox {
   position: fixed;
   bottom: 80px;
@@ -197,32 +259,112 @@ form button:hover {
   border: 1px solid var(--neutral-gray);
   border-radius: 6px;
 }
-.navbar {
-  background-color: var(--neutral-gray);
-  padding: 10px 0;
-  text-align: center; /* ✅ Center contents */
-}
 
-.navbar .container {
+/* === Login Page (Scoped) === */
+.login-page {
+  background: #e8ecef;
   display: flex;
-  justify-content: center; /* ✅ Align nav links to center */
-  flex-wrap: wrap;
-  gap: 26px; /* Optional: space between links */
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-.navbar .container h3 {
-  margin: 0;
+.login-box {
+  background: #e8ecef;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 400px;
 }
 
-.navbar a {
-  text-decoration: none;
-  color: var(--primary-blue);
+.login-box h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #000000;
+}
+
+.login-box input,
+.login-box select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.login-box input[type="submit"] {
+  background: #5aa0d6;
+  color: white;
   font-weight: bold;
-  transition: color 0.3s ease;
+  border: none;
+  cursor: pointer;
 }
 
-.navbar a:hover {
-  color: var(--primary-green);
+.login-box input[type="submit"]:hover {
+  background: #9bb3c5;
+}
+
+.login-box .links {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.login-box .links a {
+  color: var(--accent-orange);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.error {
+  color: var(--secondary-yellow);
+  text-align: center;
+}
+
+/* === Responsive Styles for Mobile === */
+@media (max-width: 768px) {
+  .navbar .container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .top-header h1 {
+    font-size: 20px;
+    flex-direction: column;
+  }
+
+  .banner-content h2 {
+    font-size: 24px;
+  }
+
+  .banner-content p {
+    font-size: 16px;
+  }
+
+  .appointment {
+    padding: 20px 15px;
+  }
+
+  .login-box {
+    padding: 20px;
+    width: 90%;
+  }
+
+  .chatbot-widget {
+    padding: 10px 14px;
+    font-size: 14px;
+  }
+
+  .card {
+    font-size: 14px;
+  }
+
+  .footer {
+    font-size: 14px;
+    padding: 10px;
+
+  }
+  /* === about styles === */
 }
 .principles {
   margin-top: 30px;
@@ -250,14 +392,123 @@ form button:hover {
   font-size: 24px;
   color: var(--primary-blue);
   margin-left: 10px;
+  user-select: none;
 }
 
 .principle-body {
-  display: none;
+  display: none; /* ✅ Hidden by default */
   margin-top: 10px;
   color: #444;
+  line-height: 1.5;
+}
+/* === department styles === */
+.department-section {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: var(--neutral-light);
+  border-radius: var(--radius);
 }
 
+.department-section h2 {
+  text-align: center;
+  color: var(--primary-blue);
+  margin-bottom: 20px;
+}
+
+.department-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.department-section ul li {
+  background: var(--neutral-white);
+  border: 1px solid var(--neutral-gray);
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: var(--radius);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.department-section p {
+  margin-top: 20px;
+  font-size: 16px;
+  color: var(--neutral-dark);
+}
+
+/* === our team === */
+.team-section {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .team-section .section-title {
+      font-size: 28px;
+      color: #1e40af;
+      margin-bottom: 30px;
+    }
+
+    .team-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .team-member {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background-color: #f4f4f4;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .team-member:hover {
+      transform: scale(1.02);
+    }
+
+    .team-member img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .member-info {
+      text-align: left;
+    }
+
+    .member-info h3 {
+      margin: 0 0 8px;
+      color: #1e40af;
+    }
+
+    .member-info p {
+      font-size: 14px;
+      color: #333;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 768px) {
+      .team-member {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .team-member img {
+        width: 100%;
+        max-width: 250px;
+      }
+
+      .member-info {
+        text-align: center;
+        padding-top: 10px;
+      }
+    }
 /* === Contact Page === */
 .contact-container {
   max-width: 1000px;
@@ -272,6 +523,7 @@ form button:hover {
   padding: 20px;
   border-radius: var(--radius);
   margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
 
 .contact-details p {
@@ -286,6 +538,7 @@ form button:hover {
   padding: 10px;
   border: 1px solid var(--neutral-gray);
   border-radius: 5px;
+  font-size: 15px;
 }
 
 .contact-form form button {
@@ -309,121 +562,90 @@ form button:hover {
   border: 0;
   border-radius: var(--radius);
 }
-/* === Our Team Section === */
-.team-section {
-  margin-top: 40px;
-  text-align: center;
+
+/* === Responsive Contact Page === */
+@media (max-width: 768px) {
+  .contact-container {
+    padding: 10px;
+  }
+
+  .contact-details,
+  .contact-form,
+  .map-container {
+    padding: 15px;
+  }
+
+  .contact-form form input,
+  .contact-form form textarea {
+    font-size: 14px;
+  }
 }
 
-.team-grid {
+/* register.css */
+.register-page {
+  background: #e8ecef;
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  gap: 30px;
-  margin-top: 30px;
+  align-items: center;
+  min-height: 100vh;
 }
 
-.team-member {
-  background-color: var(--neutral-light);
-  padding: 20px;
-  width: 220px;
-  border-radius: var(--radius);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-}
-
-.team-member:hover {
-  transform: scale(1.03);
-}
-
-.team-member img {
+.register-box {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
   width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-radius: var(--radius);
+  max-width: 450px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.team-member h3 {
-  margin: 10px 0 5px;
-  color: var(--primary-blue);
-}
-
-.team-member p {
-  font-size: 14px;
-  color: var(--neutral-dark);
-}
-.about-content {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
+.register-box h2 {
   text-align: center;
+  margin-bottom: 20px;
+  color: #1e40af;
 }
 
-.about-content ul {
-  list-style: none;
-  padding-left: 0;
-  margin-top: 20px;
-}
-
-.about-content ul li {
-  background-color: var(--neutral-light);
-  padding: 12px;
+.register-box form input,
+.register-box form select {
+  width: 100%;
+  padding: 10px;
   margin: 10px 0;
-  border-radius: var(--radius);
-  text-align: left;
-  border: 1px solid var(--neutral-gray);
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 15px;
 }
-/* === Patient Dashboard Styling === */
-.portal-dashboard {
-  margin-top: 40px;
+
+.register-box form button {
+  width: 100%;
+  background-color: #15803d;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.register-box form button:hover {
+  background-color: #1e40af;
+}
+
+.register-box .links {
   text-align: center;
+  margin-top: 15px;
 }
 
-.portal-dashboard .section-title {
-  font-size: 24px;
-  margin-bottom: 30px;
-  color: var(--primary-blue);
-}
-
-.dashboard-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 25px;
-}
-
-.feature-box {
-  background-color: var(--neutral-light);
-  border: 1px solid var(--neutral-gray);
-  border-radius: var(--radius);
-  padding: 20px;
-  text-align: center;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+.register-box .links a {
+  color: #f97316;
   text-decoration: none;
-  color: inherit;
-}
-
-.feature-box:hover {
-  transform: scale(1.03);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  background-color: #fff;
-}
-
-.feature-box .icon {
-  width: 40px;
-  height: 40px;
-  margin-bottom: 10px;
-}
-
-.feature-box h3 {
-  margin: 10px 0 5px;
-  color: var(--primary-blue);
-}
-
-.feature-box p {
   font-size: 14px;
-  color: var(--neutral-dark);
 }
 
 
 
+
+
+
+  

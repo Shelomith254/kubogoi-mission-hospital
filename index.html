@@ -1,12 +1,14 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kobujoi Mission Hospital</title>
   <link rel="stylesheet" href="css/styles.css" />
- 
 </head>
 <body>
+
   <!-- Header -->
   <header class="top-header">
     <div class="container">
@@ -15,22 +17,29 @@
     </div>
   </header>
 
-  <!-- Navigation -->
-   <!-- Home → About → Departments → Book Appointment → News → Team → Contact → Login -->
- <nav class="navbar">
-  <div class="container">
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="departments.html">Departments</a>
-  <a href="appointment.html">Book Appointment</a>
-  <a href="our-team.html">Our Team</a>
-  <a href="contact.html">Contact</a>
-  <a href="login.html">Login</a>
-  </div>
-</nav>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html">Home</a>
+      <a href="login.html">Login</a>
+      <a href="about.html">About</a>
+      <a href="departments.html">Departments</a>
+      <a href="appointment.html">Book Appointment</a>
+      <a href="our-team.html">Our Team</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
 
+  <!-- Banner Section -->
+  <section class="banner">
+    <div class="banner-content container">
+      <h2>Welcome to Kobujoi Mission Hospital</h2>
+      <p>Serving the community with compassion, care, and excellence.</p>
+      <a href="appointment.html" class="banner-btn">Book an Appointment</a>
+    </div>
+  </section>
 
-  <!-- Services -->
+  <!-- Core Services -->
   <section class="services container">
     <h2 class="section-title">Our Core Services</h2>
     <div class="card"><strong>🧪 Laboratory:</strong> Full diagnostics and lab testing available on site.</div>
@@ -40,47 +49,19 @@
     <div class="card"><strong>🩺 Specialist Clinics:</strong> ENT, Dental, Maternity and more.</div>
   </section>
 
-  <!-- Latest News -->
+  <!-- News -->
   <section class="news container">
     <h2 class="section-title">Latest News & Updates</h2>
     <div class="card">✅ <strong>July 2025:</strong> New maternity wing launched with 12 beds.</div>
     <div class="card">💉 <strong>September 2025:</strong> Free cancer screening camp — 120 residents served.</div>
-    <div class="card">🧠 <strong>Mayn 2025:</strong> Mental health awareness week successfully held.</div>
+    <div class="card">🧠 <strong>May 2025:</strong> Mental health awareness week successfully held.</div>
   </section>
-
-  <!-- Telemedicine -->
-  <section class="telemedicine container">
-    <h2 class="section-title">Book a Telemedicine Appointment</h2>
-    <form>
-      <input type="text" placeholder="Full Name" required />
-      <input type="email" placeholder="Email Address" required />
-      <input type="tel" placeholder="Phone Number" required />
-      <textarea rows="4" placeholder="Brief description of your concern..." required></textarea>
-      <button type="submit">Submit Booking</button>
-    </form>
-  </section>
-
- <!-- Chatbot Button -->
-<div class="chatbot-widget" id="chatbotBtn">
-  🤖 Chat with Nurse Cielo
-</div>
-
-<!-- Chat Box -->
-<div id="chatBox" class="chatbox" style="display: none;">
-  <div class="chatbox-header">
-    Nurse Aisha AI Assistant
-    <span id="closeChat" style="float: right; cursor: pointer;">✖</span>
-  </div>
-  <div class="chatbox-body">
-    <p>Hello! How can I assist you today?</p>
-    <input type="text" placeholder="Type your message..." />
-  </div>
-</div>
 
   <!-- Footer -->
   <footer class="footer container">
     <p>&copy; 2025 Kobujoi Mission Hospital. All rights reserved.</p>
   </footer>
-  <script src="js/scripts.js"></script>
+
 </body>
 </html>
+a

@@ -1,66 +1,172 @@
-<!-- patient/profile.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Profile - Kobujoi Mission Hospital</title>
-  <link rel="stylesheet" href="../css/styles.css">
+  <style>
+    :root {
+      --primary-blue: #1e40af;
+      --primary-green: #15803d;
+      --neutral-light: #f4f4f4;
+      --neutral-white: #ffffff;
+      --text-dark: #333;
+      --radius: 8px;
+    }
+    @media (max-width: 768px) {
+  .team-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .team-member {
+    width: 90%;
+    max-width: 350px;
+  }
+}
+
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: var(--neutral-light);
+    }
+
+    header {
+      background-color: var(--primary-blue);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+      gap: 15px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--primary-blue);
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: var(--primary-green);
+    }
+
+    main {
+      max-width: 600px;
+      margin: 40px auto;
+      background: var(--neutral-white);
+      padding: 30px;
+      border-radius: var(--radius);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: var(--primary-blue);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .profile-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 6px;
+      color: var(--text-dark);
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      border-radius: var(--radius);
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    button {
+      background-color: var(--primary-green);
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: var(--radius);
+      font-weight: bold;
+      font-size: 15px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: var(--primary-blue);
+    }
+
+    footer {
+      background-color: #e8ecef;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+      margin-top: 40px;
+    }
+  </style>
 </head>
 <body>
-  <header class="top-header">
-    <div class="container">
-      <h1><img src="../images/profile.svg" class="icon"> My Profile</h1>
-      <p>Edit and manage your personal details</p>
-    </div>
+  <header>
+    <h1>My Profile</h1>
+    <p>Manage your personal information</p>
   </header>
 
-  <nav class="navbar">
-    <div class="container">
-      <h3><a href="portal.html">Dashboard</a></h3>
-      <h3><a href="profile.html" class="active">Profile</a></h3>
-      <h3><a href="bills.html">Bills</a></h3>
-      <h3><a href="notifications.html">Notifications</a></h3>
-      <h3><a href="../login.html">Logout</a></h3>
-    </div>
+  <nav>
+    <a href="portal.html">Dashboard</a>
+    <a href="profile.html">My Profile</a>
+    <a href="appointments.html">Appointments</a>
+    <a href="billing.html">Billing</a>
+    <a href="prescriptions.html">Prescriptions</a>
+    <a href="notifications.html">Notifications</a>
   </nav>
 
-  <main class="container">
-    <div class="section update-form">
-      <h2>Edit Profile Information</h2>
-      <form>
-        <label for="fullname">Full Name:</label>
-        <input type="text" id="fullname" placeholder="e.g. Cielo Anyango" required>
+  <main>
+    <h2>Edit Profile</h2>
+    <form>
+      <div class="profile-group">
+        <label for="full-name">Full Name</label>
+        <input type="text" id="full-name" name="full-name" value="John Doe" required />
+      </div>
 
-        <label for="email">Email Address:</label>
-        <input type="email" id="email" placeholder="e.g. cielo@example.com" required>
+      <div class="profile-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" value="john@example.com" required />
+      </div>
 
-        <label for="phone">Phone Number:</label>
-        <input type="tel" id="phone" placeholder="e.g. +254 712 345 678" required>
+      <div class="profile-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" value="0712345678" />
+      </div>
 
-        <label for="dob">Date of Birth:</label>
-        <input type="date" id="dob" required>
-
-        <label for="gender">Gender:</label>
-        <select id="gender" required>
-          <option value="">-- Select Gender --</option>
-          <option value="female">Female</option>
+      <div class="profile-group">
+        <label for="gender">Gender</label>
+        <select id="gender" name="gender">
           <option value="male">Male</option>
+          <option value="female">Female</option>
           <option value="other">Other</option>
         </select>
+      </div>
 
-        <label for="address">Address:</label>
-        <input type="text" id="address" placeholder="e.g. Kobujoi, Nandi County">
+      <div class="profile-group">
+        <label for="dob">Date of Birth</label>
+        <input type="date" id="dob" name="dob" />
+      </div>
 
-        <label for="history">Medical History:</label>
-        <textarea id="history" rows="4" placeholder="e.g. Hypertension, Asthma"></textarea>
-
-        <button type="submit" class="cta-button">Save Changes</button>
-      </form>
-    </div>
+      <button type="submit">Update Profile</button>
+    </form>
   </main>
 
-  <footer class="footer container">
-    <p>&copy; 2025 Kobujoi Mission Hospital. All rights reserved.</p>
-  </footer>
-</body>
-</html>
+  <footer>
+    &copy; 2025 Kobu

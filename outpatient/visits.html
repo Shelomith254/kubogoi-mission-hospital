@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Outpatient Visits - Kobujoi Mission Hospital</title>
+  <style>
+    :root {
+      --primary-blue: #1e40af;
+      --primary-green: #15803d;
+      --neutral-white: #ffffff;
+      --neutral-light: #f4f4f4;
+      --text-dark: #333;
+      --radius: 8px;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: var(--neutral-light);
+    }
+
+    header {
+      background-color: var(--primary-blue);
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    nav {
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      padding: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--primary-blue);
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: var(--primary-green);
+    }
+
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      background-color: var(--neutral-white);
+      padding: 30px;
+      border-radius: var(--radius);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: var(--primary-blue);
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+    }
+
+    th {
+      background-color: var(--neutral-light);
+      color: var(--primary-blue);
+    }
+
+    .btn {
+      padding: 6px 10px;
+      font-size: 14px;
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+    }
+
+    .btn-complete {
+      background-color: var(--primary-green);
+      color: white;
+    }
+
+    .btn-cancel {
+      background-color: #dc2626;
+      color: white;
+    }
+
+    footer {
+      background-color: #e8ecef;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Outpatient Visit Log</h1>
+    <p>Track all outpatient services and visits</p>
+  </header>
+
+  <nav>
+    <a href="portal.html">Dashboard</a>
+    <a href="records.html">Visit Records</a>
+    <a href="visits.html">Visit Log</a>
+    <a href="notifications.html">Notifications</a>
+  </nav>
+
+  <main>
+    <h2>Visit History</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Patient</th>
+          <th>Doctor</th>
+          <th>Diagnosis</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2025-07-12</td>
+          <td>Mary Wanjiku</td>
+          <td>Dr. Kimani</td>
+          <td>Flu and Cold</td>
+          <td>
+            <button class="btn btn-complete">Mark Reviewed</button>
+            <button class="btn btn-cancel">Remove</button>
+          </td>
+        </tr>
+        <tr>
+          <td>2025-07-13</td>
+          <td>Brian Otieno</td>
+          <td>Dr. Achieng</td>
+          <td>Back Pain</td>
+          <td>
+            <button class="btn btn-complete">Mark Reviewed</button>
+            <button class="btn btn-cancel">Remove</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+
+  <footer>
+    &copy; 2025 Kobujoi Mission Hospital. All rights reserved.
+  </footer>
+</body>
+</html>

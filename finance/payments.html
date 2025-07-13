@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finance Payments - Kobujoi Mission Hospital</title>
+  <style>
+    :root {
+      --primary-blue: #1e40af;
+      --primary-green: #15803d;
+      --neutral-white: #ffffff;
+      --neutral-light: #f4f4f4;
+      --text-dark: #333;
+      --radius: 8px;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: var(--neutral-light);
+    }
+
+    header {
+      background-color: var(--primary-blue);
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    nav {
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      padding: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--primary-blue);
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: var(--primary-green);
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 40px auto;
+      background-color: var(--neutral-white);
+      padding: 30px;
+      border-radius: var(--radius);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: var(--primary-blue);
+      margin-bottom: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+    }
+
+    th {
+      background-color: var(--neutral-light);
+      color: var(--primary-blue);
+    }
+
+    .btn {
+      padding: 6px 12px;
+      font-size: 14px;
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+    }
+
+    .btn-receipt {
+      background-color: var(--primary-green);
+      color: white;
+    }
+
+    .btn-flag {
+      background-color: #dc2626;
+      color: white;
+    }
+
+    footer {
+      background-color: #e8ecef;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Payment Records</h1>
+    <p>View and manage billing payments</p>
+  </header>
+
+  <nav>
+    <a href="portal.html">Dashboard</a>
+    <a href="payments.html">Payments</a>
+    <a href="claims.html">Claims</a>]
+    <a href="profile.html">Profile</a>
+    
+  </nav>
+
+  <main>
+    <h2>Recent Payments</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Patient</th>
+          <th>Amount</th>
+          <th>Method</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2025-07-11</td>
+          <td>Mary Achieng</td>
+          <td>KES 2,500</td>
+          <td>MPESA</td>
+          <td>Confirmed</td>
+          <td>
+            <button class="btn btn-receipt">Receipt</button>
+            <button class="btn btn-flag">Flag</button>
+          </td>
+        </tr>
+        <tr>
+          <td>2025-07-10</td>
+          <td>Brian Otieno</td>
+          <td>KES 4,800</td>
+          <td>Cash</td>
+          <td>Pending</td>
+          <td>
+            <button class="btn btn-receipt">Receipt</button>
+            <button class="btn btn-flag">Flag</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+
+  <footer>
+    &copy; 2025 Kobujoi Mission Hospital. All rights reserved.
+  </footer>
+</body>
+</html>

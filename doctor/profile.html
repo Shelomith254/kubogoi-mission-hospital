@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doctor Profile - Kobujoi Mission Hospital</title>
+  <style>
+    :root {
+      --primary-blue: #1e40af;
+      --primary-green: #15803d;
+      --neutral-light: #f4f4f4;
+      --neutral-white: #ffffff;
+      --neutral-gray: #ddd;
+      --radius: 8px;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: var(--neutral-light);
+    }
+
+    header {
+      background-color: var(--primary-blue);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      padding: 10px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--primary-blue);
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: var(--primary-green);
+    }
+
+    main {
+      max-width: 700px;
+      margin: 40px auto;
+      background-color: var(--neutral-white);
+      padding: 30px;
+      border-radius: var(--radius);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: var(--primary-blue);
+    }
+
+    .profile-info {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .profile-info label {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .profile-info input {
+      padding: 10px;
+      border-radius: var(--radius);
+      border: 1px solid var(--neutral-gray);
+    }
+
+    .profile-info textarea {
+      padding: 10px;
+      border-radius: var(--radius);
+      border: 1px solid var(--neutral-gray);
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px;
+      background-color: var(--primary-green);
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #11632f;
+    }
+
+    footer {
+      background-color: var(--neutral-gray);
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Doctor Profile</h1>
+    <p>Manage your professional information</p>
+  </header>
+
+  <nav>
+    <a href="portal.html">Dashboard</a>
+    <a href="patients.html">Patients</a>
+    <a href="notifications.html">Notifications</a>
+    <a href="profile.html">Profile</a>
+     <a href="../login.html">Logout</a>
+  </nav>
+
+  <main>
+    <h2>Personal Information</h2>
+    <form class="profile-info">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" placeholder="Dr. Achieng Anyango">
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" placeholder="dr.achieng@kobujoi.org">
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" placeholder="+254 700 123 456">
+
+      <label for="specialty">Specialization</label>
+      <input type="text" id="specialty" placeholder="Internal Medicine">
+
+      <label for="bio">Short Bio</label>
+      <textarea id="bio" rows="4" placeholder="Brief professional background..."></textarea>
+
+      <button type="submit">Update Profile</button>
+    </form>
+  </main>
+
+  <footer>
+    &copy; 2025 Kobujoi Mission Hospital. All rights reserved.
+  </footer>
+</body>
+</html>

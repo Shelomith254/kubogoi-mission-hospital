@@ -1,0 +1,140 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prescriptions - Kobujoi Mission Hospital</title>
+  <style>
+    :root {
+      --primary-blue: #1e40af;
+      --primary-green: #15803d;
+      --neutral-light: #f4f4f4;
+      --neutral-white: #ffffff;
+      --text-dark: #333;
+      --radius: 8px;
+    }body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--neutral-light);
+}
+
+header {
+  background-color: var(--primary-blue);
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+nav {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  gap: 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--primary-blue);
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: var(--primary-green);
+}
+
+main {
+  max-width: 900px;
+  margin: 40px auto;
+  background: var(--neutral-white);
+  padding: 30px;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+h2 {
+  color: var(--primary-blue);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: var(--neutral-light);
+  color: var(--primary-blue);
+}
+
+.status-filled {
+  color: green;
+  font-weight: bold;
+}
+
+.status-pending {
+  color: red;
+  font-weight: bold;
+}
+
+footer {
+  background-color: #e8ecef;
+  text-align: center;
+  padding: 15px;
+  font-size: 14px;
+  margin-top: 40px;
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>My Prescriptions</h1>
+    <p>Review your active and past prescriptions</p>
+  </header>  <nav>
+    <a href="portal.html">Dashboard</a>
+    <a href="profile.html">My Profile</a>
+    <a href="appointments.html">Appointments</a>
+    <a href="billing.html">Billing</a>
+    <a href="prescriptions.html">Prescriptions</a>
+    <a href="notifications.html">Notifications</a>
+  </nav>  <main>
+    <h2>Prescription History</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Medication</th>
+          <th>Dosage</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2025-07-05</td>
+          <td>Paracetamol 500mg</td>
+          <td>1 tablet 3x a day</td>
+          <td class="status-pending">Pending</td>
+        </tr>
+        <tr>
+          <td>2025-06-22</td>
+          <td>Amoxicillin 250mg</td>
+          <td>1 capsule 3x a day</td>
+          <td class="status-filled">Filled</td>
+        </tr>
+        <tr>
+          <td>2025-06-10</td>
+          <td>Loratadine 10mg</td>
+          <td>1 tablet daily</td>
+          <td class="status-filled">Filled</td>
+        </tr>
+      </tbody>
+    </table>
+  </main>  <footer>

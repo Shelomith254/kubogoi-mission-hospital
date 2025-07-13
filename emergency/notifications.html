@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emergency Notifications - Kobujoi Mission Hospital</title>
+  <style>
+    :root {
+      --primary-blue: #1e40af;
+      --primary-green: #15803d;
+      --neutral-white: #ffffff;
+      --neutral-light: #f4f4f4;
+      --neutral-gray: #ddd;
+      --text-dark: #333;
+      --radius: 8px;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: var(--neutral-light);
+    }
+
+    header {
+      background-color: var(--primary-blue);
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    nav {
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      padding: 10px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--primary-blue);
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: var(--primary-green);
+    }
+
+    main {
+      max-width: 800px;
+      margin: 40px auto;
+      background: var(--neutral-white);
+      padding: 30px;
+      border-radius: var(--radius);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: var(--primary-blue);
+      margin-bottom: 20px;
+    }
+
+    .notification {
+      border-left: 5px solid var(--primary-green);
+      background-color: #fefefe;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: var(--radius);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    .notification h4 {
+      margin: 0 0 5px;
+      color: var(--primary-blue);
+    }
+
+    .notification time {
+      font-size: 12px;
+      color: #888;
+    }
+
+    footer {
+      background-color: var(--neutral-gray);
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Emergency Notifications</h1>
+    <p>Alerts and recent updates from the emergency department</p>
+  </header>
+
+  <nav>
+    <a href="portal.html">Dashboard</a>
+    <a href="cases.html">Emergency Cases</a>
+    <a href="ambulance.html">Ambulance Dispatch</a>
+    <a href="../login.html">Logout</a>
+  </nav>
+
+  <main>
+    <h2>Recent Alerts</h2>
+
+    <div class="notification">
+      <h4>🚨 Mass Casualty Alert</h4>
+      <p>Multiple patients incoming from a road accident along Kobujoi Highway. Prepare trauma bay.</p>
+      <time>2025-07-11 10:15 AM</time>
+    </div>
+
+    <div class="notification">
+      <h4>🔥 Fire Incident Response</h4>
+      <p>Dispatch team alerted to a fire outbreak near Kobujoi Market. Evacuation ongoing.</p>
+      <time>2025-07-11 09:45 AM</time>
+    </div>
+
+    <div class="notification">
+      <h4>📱 Ambulance Maintenance Due</h4>
+      <p>Ambulance #KOB-102 to undergo scheduled service today at 2:00 PM.</p>
+      <tim
