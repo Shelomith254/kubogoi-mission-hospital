@@ -1,179 +1,194 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pharmacy Inventory - Kobujoi Mission Hospital</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Inventory - Pharmacist Panel</title>
   <style>
     :root {
       --primary-blue: #1e40af;
-      --primary-green: #15803d;
-      --neutral-white: #ffffff;
-      --neutral-light: #f4f4f4;
-      --text-dark: #333;
-      --radius: 8px;
-    }body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  background-color: var(--neutral-light);
-}
+      --light-blue: #e0e7ff;
+      --white: #ffffff;
+      --bg-color: #f4f6f8;
+      --gray: #6b7280;
+      --red: #dc2626;
+      --green: #15803d;
+    }
 
-header {
-  background-color: var(--primary-blue);
-  color: white;
-  text-align: center;
-  padding: 20px;
-}
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: var(--bg-color);
+    }
 
-nav {
-  background-color: white;
-  display: flex;
-  justify-content: center;
-  padding: 10px;
-  gap: 15px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-}
+    header {
+      background-color: var(--primary-blue);
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
 
-nav a {
-  text-decoration: none;
-  color: var(--primary-blue);
-  font-weight: bold;
-}
+    nav {
+      background-color: var(--light-blue);
+      padding: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
 
-nav a:hover {
-  color: var(--primary-green);
-}
+    nav a {
+      color: var(--primary-blue);
+      font-weight: bold;
+      text-decoration: none;
+    }
 
-main {
-  max-width: 900px;
-  margin: 40px auto;
-  background-color: var(--neutral-white);
-  padding: 30px;
-  border-radius: var(--radius);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
+    nav a:hover {
+      color: #1e3a8a;
+    }
 
-h2 {
-  color: var(--primary-blue);
-  text-align: center;
-  margin-bottom: 20px;
-}
+    .container {
+      padding: 2rem;
+    }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
+    h2 {
+      color: var(--primary-blue);
+      text-align: center;
+    }
 
-th, td {
-  padding: 12px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-}
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: var(--white);
+      margin-top: 1.5rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
 
-th {
-  background-color: var(--neutral-light);
-  color: var(--primary-blue);
-}
+    th, td {
+      padding: 1rem;
+      border-bottom: 1px solid #ccc;
+      text-align: left;
+    }
 
-.low-stock {
-  color: red;
-  font-weight: bold;
-}
+    th {
+      background-color: var(--light-blue);
+      color: var(--primary-blue);
+    }
 
-.sufficient {
-  color: green;
-}
+    .low {
+      color: var(--red);
+      font-weight: bold;
+    }
 
-.actions button {
-  margin-right: 6px;
-  padding: 6px 10px;
-  border: none;
-  border-radius: 5px;
-  font-size: 13px;
-  cursor: pointer;
-}
+    .ok {
+      color: var(--green);
+      font-weight: bold;
+    }
 
-.edit-btn {
-  background-color: var(--primary-blue);
-  color: white;
-}
+    footer {
+      background-color: var(--primary-blue);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
 
-.delete-btn {
-  background-color: #dc2626;
-  color: white;
-}
+    @media (max-width: 600px) {
+      .container {
+        padding: 1rem;
+      }
 
-footer {
-  background-color: #e8ecef;
-  text-align: center;
-  padding: 15px;
-  margin-top: 40px;
-  font-size: 14px;
-}
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
 
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      thead {
+        display: none;
+      }
+
+      tr {
+        background-color: var(--white);
+        margin-bottom: 1rem;
+        padding: 1rem;
+        border-radius: 10px;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+      }
+
+      td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+      }
+
+      td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 1rem;
+        font-weight: bold;
+        color: var(--primary-blue);
+      }
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Pharmacy Inventory</h1>
-    <p>Track and manage available stock</p>
-  </header>  <nav>
-    <a href="portal.html">Dashboard</a>
-    <a href="inventory.html">Inventory</a>
-    <a href="prescriptions.html">Prescriptions</a>
-    <a href="orders.html">Orders</a>
-    <a href="notifications.html">Notifications</a>
-  </nav>  <main>
-    <h2>Current Medicine Stock</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Medicine</th>
-          <th>Quantity</th>
-          <th>Status</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Paracetamol 500mg</td>
-          <td>180</td>
-          <td class="sufficient">In Stock</td>
-          <td class="actions">
-            <button class="edit-btn">Edit</button>
-            <button class="delete-btn">Delete</button>
-          </td>
-        </tr>
-        <tr>
-          <td>Amoxicillin 250mg</td>
-          <td>25</td>
-          <td class="low-stock">Low Stock</td>
-          <td class="actions">
-            <button class="edit-btn">Edit</button>
-            <button class="delete-btn">Delete</button>
-          </td>
-        </tr>
-        <tr>
-          <td>Cough Syrup</td>
-          <td>90</td>
-          <td class="sufficient">In Stock</td>
-          <td class="actions">
-            <button class="edit-btn">Edit</button>
-            <button class="delete-btn">Delete</button>
-          </td>
-        </tr>
-        <tr>
-          <td>Insulin</td>
-          <td>8</td>
-          <td class="low-stock">Low Stock</td>
-          <td class="actions">
-            <button class="edit-btn">Edit</button>
-            <button class="delete-btn">Delete</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </main>  <footer>
-    &copy; 2025 Kobujoi Mission Hospital. All rights reserved.
-  </footer>
+
+<header>
+  <h1>Inventory Management</h1>
+</header>
+
+<nav>
+  <a href="portal.html">Dashboard</a>
+  <a href="prescriptions.html">Prescriptions</a>
+  <a href="dispensed-records.html">Dispensed Records</a>
+  <a href="inventory.html">Inventory</a>
+  <a href="notifications.html">Notifications</a>
+  <a href="profile.html">Profile</a>
+  <a href="#">Logout</a>
+</nav>
+
+<div class="container">
+  <h2>Medicine Inventory</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Medicine</th>
+        <th>Quantity</th>
+        <th>Reorder Level</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td data-label="Medicine">Amoxicillin 500mg</td>
+        <td data-label="Quantity">120</td>
+        <td data-label="Reorder Level">50</td>
+        <td data-label="Status" class="ok">Sufficient</td>
+      </tr>
+      <tr>
+        <td data-label="Medicine">Paracetamol 500mg</td>
+        <td data-label="Quantity">30</td>
+        <td data-label="Reorder Level">60</td>
+        <td data-label="Status" class="low">Low Stock</td>
+      </tr>
+      <tr>
+        <td data-label="Medicine">Ciprofloxacin 250mg</td>
+        <td data-label="Quantity">8</td>
+        <td data-label="Reorder Level">20</td>
+        <td data-label="Status" class="low">Low Stock</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<footer>
+  &copy; 2025 Kobujoi Mission Hospital. Pharmacist Panel
+</footer>
+
 </body>
 </html>

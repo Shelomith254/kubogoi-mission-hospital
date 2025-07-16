@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>View Bills - Kobujoi Mission Hospital</title>
+  <title>Appointments - Kobujoi Admin</title>
   <style>
     :root {
       --primary-blue: #1e40af;
@@ -17,9 +17,9 @@
 
     body {
       font-family: Arial, sans-serif;
+      background-color: var(--bg-color);
       margin: 0;
       padding: 0;
-      background-color: var(--bg-color);
     }
 
     header {
@@ -60,9 +60,9 @@
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 1rem;
       background-color: var(--white);
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      margin-top: 1rem;
     }
 
     th, td {
@@ -76,12 +76,29 @@
       color: var(--primary-blue);
     }
 
-    .paid {
+    .btn {
+      padding: 0.4rem 0.8rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 0.85rem;
+      color: white;
+      cursor: pointer;
+    }
+
+    .confirm {
+      background-color: var(--green);
+    }
+
+    .cancel {
+      background-color: var(--red);
+    }
+
+    .status-confirmed {
       color: var(--green);
       font-weight: bold;
     }
 
-    .pending {
+    .status-pending {
       color: var(--red);
       font-weight: bold;
     }
@@ -95,13 +112,13 @@
     }
 
     @media (max-width: 600px) {
-      .container {
-        padding: 1rem;
-      }
-
       nav {
         flex-direction: column;
         align-items: center;
+      }
+
+      .container {
+        padding: 1rem;
       }
 
       table, thead, tbody, th, td, tr {
@@ -141,56 +158,61 @@
 <body>
 
   <header>
-    <h1>View Bills - Patient Portal</h1>
+    <h1>Appointments Panel - Admin</h1>
   </header>
 
   <nav>
     <a href="portal.html">Dashboard</a>
-    <a href="appointment.html">Book Appointment</a>
-    <a href="appointment-status.html">Appointment Status</a>
-    <a href="bills.html">View Bills</a>
-    <a href="results.html">Lab Results</a>
-    <a href="prescriptions.html">Prescriptions</a>
-    <a href="profile.html">Profile</a>
-    <a href="notifications.html">Notifications</a>
+    <a href="users.html">Users</a>
+    <a href="appointments.html">Appointments</a>
+    <a href="billing.html">Billing</a>
+    <a href="reports.html">Reports</a>
+    <a href="inventory.html">Inventory</a>
+    <a href="settings.html">Settings</a>
+    <a href="#">Logout</a>
   </nav>
 
   <div class="container">
-    <h2>Your Billing Summary</h2>
+    <h2>All Appointments</h2>
+
     <table>
       <thead>
         <tr>
+          <th>Patient</th>
           <th>Date</th>
-          <th>Service</th>
-          <th>Amount (KES)</th>
+          <th>Time</th>
+          <th>Doctor</th>
           <th>Status</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td data-label="Date">2025-07-10</td>
-          <td data-label="Service">General Consultation</td>
-          <td data-label="Amount">1500</td>
-          <td data-label="Status" class="paid">Paid</td>
+          <td data-label="Patient">Shelomith Anyango</td>
+          <td data-label="Date">2025-07-20</td>
+          <td data-label="Time">10:00 AM</td>
+          <td data-label="Doctor">Dr. Sarah Otieno</td>
+          <td data-label="Status" class="status-confirmed">Confirmed</td>
+          <td data-label="Actions">
+            <button class="btn cancel">Cancel</button>
+          </td>
         </tr>
         <tr>
-          <td data-label="Date">2025-07-12</td>
-          <td data-label="Service">Lab Test - Blood</td>
-          <td data-label="Amount">2000</td>
-          <td data-label="Status" class="pending">Pending</td>
-        </tr>
-        <tr>
-          <td data-label="Date">2025-07-14</td>
-          <td data-label="Service">Pharmacy - Antibiotics</td>
-          <td data-label="Amount">1200</td>
-          <td data-label="Status" class="paid">Paid</td>
+          <td data-label="Patient">Brian K.</td>
+          <td data-label="Date">2025-07-22</td>
+          <td data-label="Time">2:00 PM</td>
+          <td data-label="Doctor">Assign...</td>
+          <td data-label="Status" class="status-pending">Pending</td>
+          <td data-label="Actions">
+            <button class="btn confirm">Confirm</button>
+          </td>
         </tr>
       </tbody>
     </table>
   </div>
 
   <footer>
-    &copy; 2025 Kobujoi Mission Hospital. All rights reserved.
+    &copy; 2025 Kobujoi Mission Hospital. Admin Panel
   </footer>
 
 </body>

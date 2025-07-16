@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>View Bills - Kobujoi Mission Hospital</title>
+  <title>Inventory - Admin Panel</title>
   <style>
     :root {
       --primary-blue: #1e40af;
@@ -11,14 +11,13 @@
       --light-blue: #e0e7ff;
       --bg-color: #f4f6f8;
       --white: #ffffff;
-      --green: #15803d;
       --red: #dc2626;
+      --green: #15803d;
     }
 
     body {
       font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
       background-color: var(--bg-color);
     }
 
@@ -53,14 +52,27 @@
     }
 
     h2 {
-      color: var(--primary-blue);
       text-align: center;
+      color: var(--primary-blue);
+    }
+
+    .actions {
+      text-align: right;
+      margin-bottom: 1rem;
+    }
+
+    .actions button {
+      background-color: var(--primary-blue);
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 1rem;
       background-color: var(--white);
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
@@ -76,13 +88,13 @@
       color: var(--primary-blue);
     }
 
-    .paid {
-      color: var(--green);
+    .low-stock {
+      color: var(--red);
       font-weight: bold;
     }
 
-    .pending {
-      color: var(--red);
+    .in-stock {
+      color: var(--green);
       font-weight: bold;
     }
 
@@ -131,7 +143,6 @@
         position: absolute;
         left: 1rem;
         width: 45%;
-        text-align: left;
         font-weight: bold;
         color: var(--primary-blue);
       }
@@ -141,56 +152,61 @@
 <body>
 
   <header>
-    <h1>View Bills - Patient Portal</h1>
+    <h1>Inventory - Admin Panel</h1>
   </header>
 
   <nav>
     <a href="portal.html">Dashboard</a>
-    <a href="appointment.html">Book Appointment</a>
-    <a href="appointment-status.html">Appointment Status</a>
-    <a href="bills.html">View Bills</a>
-    <a href="results.html">Lab Results</a>
-    <a href="prescriptions.html">Prescriptions</a>
-    <a href="profile.html">Profile</a>
-    <a href="notifications.html">Notifications</a>
+    <a href="users.html">Users</a>
+    <a href="appointments.html">Appointments</a>
+    <a href="billing.html">Billing</a>
+    <a href="AI-insights.html">AI Insights</a>
+    <a href="inventory.html">Inventory</a>
+    <a href="settings.html">Settings</a>
+    <a href="#">Logout</a>
   </nav>
 
   <div class="container">
-    <h2>Your Billing Summary</h2>
+    <h2>Inventory Stock Levels</h2>
+
+    <div class="actions">
+      <button onclick="alert('Add inventory functionality')">+ Add Item</button>
+    </div>
+
     <table>
       <thead>
         <tr>
-          <th>Date</th>
-          <th>Service</th>
-          <th>Amount (KES)</th>
+          <th>Item</th>
+          <th>Category</th>
+          <th>Quantity</th>
           <th>Status</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td data-label="Date">2025-07-10</td>
-          <td data-label="Service">General Consultation</td>
-          <td data-label="Amount">1500</td>
-          <td data-label="Status" class="paid">Paid</td>
+          <td data-label="Item">Paracetamol 500mg</td>
+          <td data-label="Category">Medicine</td>
+          <td data-label="Quantity">120</td>
+          <td data-label="Status" class="in-stock">In Stock</td>
         </tr>
         <tr>
-          <td data-label="Date">2025-07-12</td>
-          <td data-label="Service">Lab Test - Blood</td>
-          <td data-label="Amount">2000</td>
-          <td data-label="Status" class="pending">Pending</td>
+          <td data-label="Item">Surgical Gloves</td>
+          <td data-label="Category">Equipment</td>
+          <td data-label="Quantity">15</td>
+          <td data-label="Status" class="low-stock">Low</td>
         </tr>
         <tr>
-          <td data-label="Date">2025-07-14</td>
-          <td data-label="Service">Pharmacy - Antibiotics</td>
-          <td data-label="Amount">1200</td>
-          <td data-label="Status" class="paid">Paid</td>
+          <td data-label="Item">IV Drips</td>
+          <td data-label="Category">Supplies</td>
+          <td data-label="Quantity">0</td>
+          <td data-label="Status" class="low-stock">Out of Stock</td>
         </tr>
       </tbody>
     </table>
   </div>
 
   <footer>
-    &copy; 2025 Kobujoi Mission Hospital. All rights reserved.
+    &copy; 2025 Kobujoi Mission Hospital. Admin Panel
   </footer>
 
 </body>

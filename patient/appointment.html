@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book Appointment - Kobujoi Mission Hospital</title>
+  <style>
+    :root {
+      --primary-blue: #1e40af;
+      --deep-blue: #1e3a8a;
+      --light-blue: #e0e7ff;
+      --bg-color: #f4f6f8;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-color);
+    }
+
+    header {
+      background-color: var(--primary-blue);
+      color: var(--white);
+      padding: 1rem;
+      text-align: center;
+    }
+
+    nav {
+      background-color: var(--light-blue);
+      padding: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--primary-blue);
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: var(--deep-blue);
+    }
+
+    .container {
+      padding: 2rem;
+    }
+
+    h2 {
+      color: var(--primary-blue);
+      text-align: center;
+    }
+
+    form {
+      background-color: var(--white);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      max-width: 500px;
+      margin: auto;
+    }
+
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.5rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      margin-top: 1.5rem;
+      background-color: var(--primary-blue);
+      color: var(--white);
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: var(--deep-blue);
+    }
+
+    footer {
+      background-color: var(--primary-blue);
+      color: var(--white);
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 1rem;
+      }
+
+      form {
+        padding: 1rem;
+      }
+
+      header h1 {
+        font-size: 1.2rem;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Book Appointment - Patient Portal</h1>
+  </header>
+
+  <nav>
+    <a href="portal.html">Dashboard</a>
+    <a href="appointment.html">Book Appointment</a>
+    <a href="appointment-status.html">Appointment Status</a>
+    <a href="bills.html">View Bills</a>
+    <a href="results.html">Lab Results</a>
+    <a href="prescriptions.html">Prescriptions</a>
+    <a href="profile.html">Profile</a>
+    <a href="notifications.html">Notifications</a>
+  </nav>
+
+  <div class="container">
+    <h2>Book a New Appointment</h2>
+    <form>
+      <label for="date">Select Date</label>
+      <input type="date" id="date" name="date" required />
+
+      <label for="time">Select Time</label>
+      <input type="time" id="time" name="time" required />
+     
+      <!--department section-->
+
+      <label for="department">Select Department</label>
+      <select id="department" name="department" required>
+        <option value="">-- Select --</option>
+        <option value="general">General Medicine</option>
+        <option value="pediatrics">Pediatrics</option>
+        <option value="gynecology">Gynecology</option>
+        <option value="radiology">  Radiology</option>
+      </select>
+     
+      <!--doctors section-->
+
+      <label for="doctor">Select Doctor</label>
+      <select id="doctor" name="doctor" required>
+        <option value="">-- Select --</option>
+        <option value="dr_sarah">Dr. Sarah Otieno</option>
+        <option value="dr_kimani">Dr. Kimani Mugo</option>
+        <option value="dr_ali">Dr. Ali Hassan</option>
+      </select>
+
+      <button type="submit">Book Appointment</button>
+    </form>
+  </div>
+
+  <footer>
+    &copy; 2025 Kobujoi Mission Hospital. All rights reserved.
+  </footer>
+
+</body>
+</html>

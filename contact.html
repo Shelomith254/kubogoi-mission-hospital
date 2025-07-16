@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Contact Us - Kobujoi Mission Hospital</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
+
+  <!-- Header -->
   <header class="top-header">
     <div class="container">
       <h1><img src="images/hospital.png" alt="" class="icon"> Contact Us</h1>
@@ -15,50 +16,57 @@
     </div>
   </header>
 
-<nav class="navbar">
-  <div class="container">
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="departments.html">Departments</a>
-  <a href="appointment.html">Book Appointment</a>
-  <a href="our-team.html">Our Team</a>
-  <a href="contact.html">Contact</a>
-  <a href="login.html">Login</a>
-  </div>
-</nav>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="departments.html">Departments</a>
+      <a href="appointment.html">Book Appointment</a>
+      <a href="our-team.html">Our Team</a>
+      <a href="contact.html" class="active">Contact</a>
+      <a href="login.html">Login</a>
+    </div>
+  </nav>
 
-
+  <!-- Contact Content -->
   <main class="contact-container">
+    <!-- Contact Details -->
     <section class="contact-details">
-      <h2>Contact Information</h2>
+      <h2 class="section-title">Contact Information</h2>
       <p><strong>Email:</strong> <a href="mailto:info@kobujoihealth.org">info@kobujoihealth.org</a></p>
       <p><strong>Phone:</strong> +254 712 345 678</p>
       <p><strong>Location:</strong> Kobujoi, Nandi County, Kenya</p>
     </section>
 
+    <!-- Contact Form -->
     <section class="contact-form">
-      <h2>Send Us a Message</h2>
+      <h2 class="section-title">Send Us a Message</h2>
       <form>
-        <input type="text" placeholder="Full Name" required>
-        <input type="email" placeholder="Email Address" required>
-        <textarea rows="4" placeholder="Your Message..." required></textarea>
+        <input type="text" name="name" placeholder="Full Name" required />
+        <input type="email" name="email" placeholder="Email Address" required />
+        <textarea name="message" rows="4" placeholder="Your Message..." required></textarea>
         <button type="submit">Send Message</button>
       </form>
     </section>
 
+    <!-- Map -->
     <section class="map-container">
-      <h2>Find Us on the Map</h2>
+      <h2 class="section-title">Find Us on the Map</h2>
       <iframe 
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31814.1574097169!2d35.140232483178345!3d-0.13048900494800432!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x18297eec6e0cb289%3A0x8ef58fcbe6242a9!2sKobujoi%2C%20Kenya!5e0!3m2!1sen!2ske!4v1700000000000"
         allowfullscreen=""
         loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Kobujoi Location">
       </iframe>
     </section>
   </main>
 
+  <!-- Footer -->
   <footer class="footer container">
     <p>&copy; 2025 Kobujoi Mission Hospital. All rights reserved.</p>
   </footer>
+
 </body>
 </html>

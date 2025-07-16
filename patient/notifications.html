@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Notifications - Kobujoi Mission Hospital</title>
+  <style>
+    :root {
+      --primary-blue: #1e40af;
+      --deep-blue: #1e3a8a;
+      --light-blue: #e0e7ff;
+      --bg-color: #f4f6f8;
+      --white: #ffffff;
+      --green: #15803d;
+      --red: #dc2626;
+      --gray: #6b7280;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-color);
+    }
+
+    header {
+      background-color: var(--primary-blue);
+      color: var(--white);
+      padding: 1rem;
+      text-align: center;
+    }
+
+    nav {
+      background-color: var(--light-blue);
+      padding: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--primary-blue);
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: var(--deep-blue);
+    }
+
+    .container {
+      padding: 2rem;
+    }
+
+    h2 {
+      color: var(--primary-blue);
+      text-align: center;
+    }
+
+    .notification {
+      background-color: var(--white);
+      padding: 1rem 1.5rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+      border-left: 5px solid var(--primary-blue);
+    }
+
+    .notification.success {
+      border-left-color: var(--green);
+    }
+
+    .notification.warning {
+      border-left-color: var(--red);
+    }
+
+    .notification p {
+      margin: 0.2rem 0;
+    }
+
+    .notification small {
+      color: var(--gray);
+    }
+
+    footer {
+      background-color: var(--primary-blue);
+      color: var(--white);
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 1rem;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Notifications - Patient Portal</h1>
+  </header>
+
+  <nav>
+    <a href="portal.html">Dashboard</a>
+    <a href="appointment.html">Book Appointment</a>
+    <a href="appointment-status.html">Appointment Status</a>
+    <a href="bills.html">View Bills</a>
+    <a href="results.html">Lab Results</a>
+    <a href="prescriptions.html">Prescriptions</a>
+    <a href="profile.html">Profile</a>
+    <a href="notifications.html">Notifications</a>
+  </nav>
+
+  <div class="container">
+    <h2>Your Notifications</h2>
+
+    <div class="notification success">
+      <p><strong>Appointment Confirmed:</strong> You have an appointment with Dr. Sarah on July 20, 2025 at 10:00 AM.</p>
+      <small>Received: July 13, 2025</small>
+    </div>
+
+    <div class="notification">
+      <p><strong>Test Result Ready:</strong> Your blood test result is available in the Lab Results section.</p>
+      <small>Received: July 12, 2025</small>
+    </div>
+
+    <div class="notification warning">
+      <p><strong>Payment Reminder:</strong> You have a pending bill of KES 2000 for Lab Test - Blood.</p>
+      <small>Received: July 11, 2025</small>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Kobujoi Mission Hospital. All rights reserved.
+  </footer>
+
+</body>
+</html>

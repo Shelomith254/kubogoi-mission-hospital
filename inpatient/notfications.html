@@ -32,6 +32,7 @@
     nav {
       background-color: white;
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
       gap: 15px;
       padding: 10px;
@@ -113,6 +114,19 @@
       font-size: 14px;
       margin-top: 40px;
     }
+
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+
+      main {
+        padding: 20px;
+        margin: 20px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -120,36 +134,38 @@
     <h1>Inpatient Notifications</h1>
     <p>Stay updated on ward activities and alerts</p>
   </header>
+<nav><a href="portal.html">📊 Dashboard</a>
+<a href="beds.html">🛏️ Beds</a>
+<a href="admissions.html">📝 Admissions</a>
+<a href="notfications.html">🔔 Notifications</a>
+<a href="#">🚪 Logout</a>
+</nav>
 
-<nav>
-    <a href="portal.html">Dashboard</a>
-    <a href="beds.html">Beds</a>
-    <a href="admissions.html">Admitted Patients</a>
-    <a href="notifications.html">Notifications</a>
-  </nav>
+
+
   <main>
     <h2>Recent Notifications</h2>
 
     <div class="notification critical">
-      <h4>Emergency Discharge</h4>
+      <h4>🚨 Emergency Discharge</h4>
       <p>Patient Mary Atieno in Ward B, Bed 4, was discharged due to a critical condition transfer.</p>
       <small>10 minutes ago</small>
     </div>
 
     <div class="notification warning">
-      <h4>Pending Bed Cleaning</h4>
+      <h4>⚠️ Pending Bed Cleaning</h4>
       <p>Ward A, Bed 3 needs to be cleaned before the next admission.</p>
       <small>30 minutes ago</small>
     </div>
 
     <div class="notification success">
-      <h4>New Admission</h4>
+      <h4>✅ New Admission</h4>
       <p>John Mwangi has been admitted to Ward C, Bed 2.</p>
       <small>45 minutes ago</small>
     </div>
 
     <div class="notification">
-      <h4>Bed Assignment Change</h4>
+      <h4>🔄 Bed Assignment Change</h4>
       <p>Patient Alice Njeri moved from Ward A, Bed 1 to Ward B, Bed 5.</p>
       <small>1 hour ago</small>
     </div>

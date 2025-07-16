@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lab Notifications - Kobujoi</title>
+  <style>
+    :root {
+      --primary-blue: #1e40af;
+      --light-blue: #e0e7ff;
+      --white: #ffffff;
+      --gray: #6b7280;
+      --red: #dc2626;
+      --green: #15803d;
+      --bg-color: #f4f6f8;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: var(--bg-color);
+    }
+
+    header {
+      background-color: var(--primary-blue);
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    nav {
+      background-color: var(--light-blue);
+      padding: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    nav a {
+      color: var(--primary-blue);
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: #1e3a8a;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    h2 {
+      text-align: center;
+      color: var(--primary-blue);
+    }
+
+    .notification {
+      background-color: var(--white);
+      padding: 1rem 1.5rem;
+      margin-bottom: 1rem;
+      border-left: 5px solid var(--primary-blue);
+      border-radius: 6px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .notification.success {
+      border-left-color: var(--green);
+    }
+
+    .notification.warning {
+      border-left-color: var(--red);
+    }
+
+    .notification p {
+      margin: 0.3rem 0;
+    }
+
+    .notification small {
+      color: var(--gray);
+      font-style: italic;
+    }
+
+    footer {
+      background-color: var(--primary-blue);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 1rem;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Lab Notifications</h1>
+</header>
+
+<nav>
+  <a href="portal.html">Dashboard</a>
+  <a href="lab-requests.html">Lab Requests</a>
+  <a href="enter-results.html">Enter Results</a>
+  <a href="completed-tests.html">Completed Tests</a>
+  <a href="notifications.html">Notifications</a>
+  <a href="profile.html">Profile</a>
+  <a href="#">Logout</a>
+</nav>
+
+<div class="container">
+  <h2>Recent Notifications</h2>
+
+  <div class="notification">
+    <p><strong>New Test Request:</strong> Malaria smear for Patient: Brian K.</p>
+    <small>Received: July 14, 2025 at 11:05 AM</small>
+  </div>
+
+  <div class="notification success">
+    <p><strong>Test Accepted:</strong> Results submitted for Patient: Shelomith Anyango</p>
+    <small>Submitted: July 14, 2025 at 10:30 AM</small>
+  </div>
+
+  <div class="notification warning">
+    <p><strong>Reminder:</strong> Widal test for Patient ID #142 is overdue.</p>
+    <small>Due: July 13, 2025</small>
+  </div>
+</div>
+
+<footer>
+  &copy; 2025 Kobujoi Mission Hospital. Lab Technician Panel
+</footer>
+
+</body>
+</html>

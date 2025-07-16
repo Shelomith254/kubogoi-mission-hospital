@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Settings - Admin Panel</title>
+  <title>Lab Test Request - Doctor Panel</title>
   <style>
     :root {
       --primary-blue: #1e40af;
@@ -15,14 +15,14 @@
     }
 
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
+      font-family: Arial, sans-serif;
       background-color: var(--bg-color);
     }
 
     header {
       background-color: var(--primary-blue);
-      color: var(--white);
+      color: white;
       padding: 1rem;
       text-align: center;
     }
@@ -37,8 +37,8 @@
     }
 
     nav a {
-      text-decoration: none;
       color: var(--primary-blue);
+      text-decoration: none;
       font-weight: bold;
     }
 
@@ -53,8 +53,8 @@
     }
 
     h2 {
-      text-align: center;
       color: var(--primary-blue);
+      text-align: center;
     }
 
     label {
@@ -64,12 +64,23 @@
       color: var(--primary-blue);
     }
 
-    select, input {
+    select, input[type="text"], textarea {
       width: 100%;
       padding: 0.6rem;
       margin-top: 0.5rem;
       border-radius: 5px;
       border: 1px solid #ccc;
+      resize: vertical;
+    }
+
+    .checkbox-group {
+      margin-top: 1rem;
+    }
+
+    .checkbox-group label {
+      display: block;
+      font-weight: normal;
+      color: var(--gray);
     }
 
     button {
@@ -88,7 +99,7 @@
 
     footer {
       background-color: var(--primary-blue);
-      color: var(--white);
+      color: white;
       text-align: center;
       padding: 1rem;
       margin-top: 2rem;
@@ -109,50 +120,26 @@
 <body>
 
   <header>
-    <h1>Settings - Admin Panel</h1>
+    <h1>Request Lab Test</h1>
   </header>
 
   <nav>
     <a href="portal.html">Dashboard</a>
-    <a href="users.html">Users</a>
-    <a href="appointments.html">Appointments</a>
-    <a href="billing.html">Billing</a>
-    <a href="AI-insights.html">AI Insights</a>
-    <a href="inventory.html">Inventory</a>
-    <a href="settings.html">Settings</a>
+    <a href="view-appointments.html">Appointments</a>
+    <a href="patients-medical-history.html">Patients</a>
+    <a href="issue-prescription.html">Prescriptions</a>
+    <a href="lab-test-request.html">Lab Requests</a>
+    <a href="notifications.html">Notifications</a>
+    <a href="profile.html">Profile</a>
     <a href="#">Logout</a>
   </nav>
 
   <div class="container">
-    <h2>System Settings</h2>
+    <h2>Lab Request Form</h2>
 
     <form>
-      <label for="language">Interface Language</label>
-      <select id="language" name="language">
-        <option value="en">English</option>
-        <option value="sw">Swahili</option>
-        <option value="fr">French</option>
-      </select>
-
-      <label for="theme">Theme Mode</label>
-      <select id="theme" name="theme">
-        <option value="light">Light</option>
-        <option value="dark">Dark</option>
-      </select>
-
-      <label for="password">New Password</label>
-      <input type="password" id="password" placeholder="Enter new password" />
-
-      <label for="confirm">Confirm Password</label>
-      <input type="password" id="confirm" placeholder="Re-type password" />
-
-      <button type="submit">Save Settings</button>
-    </form>
-  </div>
-
-  <footer>
-    &copy; 2025 Kobujoi Mission Hospital. Admin Panel
-  </footer>
-
-</body>
-</html>
+      <label for="patient">Select Patient</label>
+      <select id="patient">
+        <option value="">-- Select Patient --</option>
+        <option value="shelomith">Shelomith Anyango</option>
+        <option value="brian">

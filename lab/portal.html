@@ -1,199 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Lab Portal - Kobujoi Mission Hospital</title>
-  <link rel="stylesheet" href="../css/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lab Dashboard - Kobujoi</title>
   <style>
-    .lab-form {
-      background-color: var(--neutral-light);
-      padding: 20px;
-      margin-top: 20px;
-      border-radius: var(--radius);
+    :root {
+      --primary-blue: #1e40af;
+      --light-blue: #e0e7ff;
+      --bg-color: #f4f6f8;
+      --white: #ffffff;
+      --gray: #6b7280;
+      --deep-blue: #1e3a8a;
     }
 
-    .lab-form input, .lab-form select {
-      margin: 10px;
-      padding: 10px;
-      width: 200px;
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: var(--bg-color);
     }
 
-    .lab-form button {
-      padding: 10px 20px;
-      background-color: var(--primary-green);
+    header {
+      background-color: var(--primary-blue);
       color: white;
-      border: none;
-      border-radius: var(--radius);
-    }
-
-    .lab-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-    }
-
-    .lab-table th, .lab-table td {
-      border: 1px solid var(--neutral-gray);
-      padding: 10px;
-      font-size: 14px;
-    }
-
-    .lab-table th {
-      background-color: var(--neutral-light);
-    }
-
-    .empty-msg {
+      padding: 1rem;
       text-align: center;
-      font-style: italic;
-      color: var(--neutral-dark);
-      margin-top: 30px;
     }
 
-    .action-buttons button {
-      padding: 6px 12px;
-      font-size: 13px;
-      margin: 2px;
-      border-radius: 5px;
+    nav {
+      background-color: var(--light-blue);
+      padding: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--primary-blue);
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: var(--deep-blue);
+    }
+
+    .container {
+      padding: 2rem;
+    }
+
+    h2 {
+      text-align: center;
+      color: var(--primary-blue);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background-color: var(--white);
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+    }
+
+    .card h3 {
+      margin: 0;
+      color: var(--primary-blue);
+    }
+
+    .card p {
+      margin-top: 0.5rem;
+      color: var(--gray);
+    }
+
+    footer {
+      background-color: var(--primary-blue);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .container {
+        padding: 1rem;
+      }
     }
   </style>
 </head>
 <body>
-  <header class="top-header">
-    <div class="container">
-      <h1><img src="../images/lab.png" class="icon"> Lab Portal</h1>
-      <p>Track lab tests, patients, and results</p>
-    </div>
+
+  <header>
+    <h1>Lab Technician Dashboard</h1>
   </header>
 
-  <nav class="navbar">
-    <div class="container">
-      <a href="portal.html">Dashboard</a>
-    <a href="tests.html">Test Requests</a>
-    <a href="results.html">Upload Results</a>
-    </div>
+  <nav>
+    <a href="portal.html">Dashboard</a>
+    <a href="lab-requests.html">Lab Requests</a>
+    <a href="enter-results.html">Enter Results</a>
+    <a href="completed-tests.html">Completed Tests</a>
+    <a href="notifications.html">Notifications</a>
+    <a href="profile.html">Profile</a>
+    <a href="#">Logout</a>
   </nav>
 
-  <main class="container">
-    <section class="lab-form">
-      <h2>Add Lab Test</h2>
-      <form id="labForm">
-        <input type="text" id="testName" placeholder="Test Name" required>
-        <input type="text" id="patientName" placeholder="Patient Name" required>
-        <input type="date" id="testDate" required>
-        <select id="testStatus" required>
-          <option value="">-- Status --</option>
-          <option value="Pending">Pending</option>
-          <option value="Completed">Completed</option>
-        </select>
-        <button type="submit">Add Test</button>
-      </form>
-    </section>
+  <div class="container">
+    <h2>Welcome, Lab Tech Joyce</h2>
 
-    <section class="lab-records">
-      <h2>All Lab Tests</h2>
-      <p class="empty-msg" id="noTests">No lab tests added yet.</p>
+    <div class="grid">
+      <div class="card">
+        <h3>Pending Lab Requests</h3>
+        <p><strong>6</strong> new test requests</p>
+      </div>
+      <div class="card">
+        <h3>Completed Today</h3>
+        <p><strong>12</strong> lab results entered</p>
+      </div>
+      <div class="card">
+        <h3>Tests Awaiting Entry</h3>
+        <p><strong>3</strong> reports pending</p>
+      </div>
+      <div class="card">
+        <h3>Notifications</h3>
+        <p><strong>2</strong> urgent messages</p>
+      </div>
+    </div>
+  </div>
 
-      <table class="lab-table" id="labTable" style="display: none;">
-        <thead>
-          <tr>
-            <th>Test Name</th>
-            <th>Patient</th>
-            <th>Date</th>
-            <th>Status</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody id="labTableBody"></tbody>
-      </table>
-    </section>
-  </main>
-
-  <footer class="footer container">
-    <p>&copy; 2025 Kobujoi Mission Hospital. All rights reserved.</p>
+  <footer>
+    &copy; 2025 Kobujoi Mission Hospital. Lab Technician Panel
   </footer>
 
-  <script>
-    const labForm = document.getElementById("labForm");
-    const labTable = document.getElementById("labTable");
-    const labBody = document.getElementById("labTableBody");
-    const noTests = document.getElementById("noTests");
-
-    labForm.addEventListener("submit", function(e) {
-      e.preventDefault();
-
-      const test = document.getElementById("testName").value;
-      const patient = document.getElementById("patientName").value;
-      const date = document.getElementById("testDate").value;
-      const status = document.getElementById("testStatus").value;
-
-      const row = document.createElement("tr");
-      row.innerHTML = `
-        <td>${test}</td>
-        <td>${patient}</td>
-        <td>${date}</td>
-        <td>${status}</td>
-        <td class="action-buttons">
-          <button onclick="editRow(this)">Edit</button>
-          <button onclick="deleteRow(this)">Delete</button>
-        </td>
-      `;
-
-      labBody.appendChild(row);
-      labTable.style.display = "table";
-      noTests.style.display = "none";
-      labForm.reset();
-    });
-
-    function deleteRow(button) {
-      const row = button.parentElement.parentElement;
-      row.remove();
-
-      if (labBody.children.length === 0) {
-        labTable.style.display = "none";
-        noTests.style.display = "block";
-      }
-    }
-
-    function editRow(button) {
-      const row = button.parentElement.parentElement;
-      const cells = row.querySelectorAll("td");
-
-      const test = cells[0].innerText;
-      const patient = cells[1].innerText;
-      const date = cells[2].innerText;
-      const status = cells[3].innerText;
-
-      cells[0].innerHTML = `<input type="text" value="${test}">`;
-      cells[1].innerHTML = `<input type="text" value="${patient}">`;
-      cells[2].innerHTML = `<input type="date" value="${date}">`;
-      cells[3].innerHTML = `
-        <select>
-          <option value="Pending" ${status === "Pending" ? "selected" : ""}>Pending</option>
-          <option value="Completed" ${status === "Completed" ? "selected" : ""}>Completed</option>
-        </select>`;
-      cells[4].innerHTML = `<button onclick="saveRow(this)">Save</button>`;
-    }
-
-    function saveRow(button) {
-      const row = button.parentElement.parentElement;
-      const inputs = row.querySelectorAll("input, select");
-
-      const test = inputs[0].value;
-      const patient = inputs[1].value;
-      const date = inputs[2].value;
-      const status = inputs[3].value;
-
-      row.innerHTML = `
-        <td>${test}</td>
-        <td>${patient}</td>
-        <td>${date}</td>
-        <td>${status}</td>
-        <td class="action-buttons">
-          <button onclick="editRow(this)">Edit</button>
-          <button onclick="deleteRow(this)">Delete</button>
-        </td>
-      `;
-    }
-  </script>
 </body>
 </html>

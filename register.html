@@ -1,4 +1,3 @@
-<!-- register.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,10 +10,12 @@
 
   <div class="register-box">
     <h2>Create an Account</h2>
+
     <form action="register.php" method="POST">
       <input type="text" name="full_name" placeholder="Full Name" required />
       <input type="email" name="email" placeholder="Email Address" required />
       <input type="tel" name="phone" placeholder="Phone Number" required />
+
       <select name="role" required>
         <option value="">Select Role</option>
         <option value="patient">Patient</option>
@@ -23,8 +24,10 @@
         <option value="pharmacy">Pharmacy</option>
         <option value="lab">Lab Technician</option>
       </select>
+
       <input type="password" name="password" placeholder="Create Password" required />
       <input type="password" name="confirm_password" placeholder="Confirm Password" required />
+
       <button type="submit">Register</button>
     </form>
 

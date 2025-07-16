@@ -3,26 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Settings - Admin Panel</title>
+  <title>Issue Prescription - Doctor Panel</title>
   <style>
     :root {
       --primary-blue: #1e40af;
-      --deep-blue: #1e3a8a;
       --light-blue: #e0e7ff;
-      --bg-color: #f4f6f8;
       --white: #ffffff;
+      --bg-color: #f4f6f8;
       --gray: #6b7280;
+      --deep-blue: #1e3a8a;
     }
 
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
+      font-family: Arial, sans-serif;
       background-color: var(--bg-color);
     }
 
     header {
       background-color: var(--primary-blue);
-      color: var(--white);
+      color: white;
       padding: 1rem;
       text-align: center;
     }
@@ -64,19 +64,20 @@
       color: var(--primary-blue);
     }
 
-    select, input {
+    select, input, textarea {
       width: 100%;
       padding: 0.6rem;
       margin-top: 0.5rem;
       border-radius: 5px;
       border: 1px solid #ccc;
+      resize: vertical;
     }
 
     button {
       margin-top: 2rem;
-      padding: 0.7rem 1.5rem;
       background-color: var(--primary-blue);
       color: white;
+      padding: 0.7rem 1.5rem;
       border: none;
       border-radius: 5px;
       cursor: pointer;
@@ -88,7 +89,7 @@
 
     footer {
       background-color: var(--primary-blue);
-      color: var(--white);
+      color: white;
       text-align: center;
       padding: 1rem;
       margin-top: 2rem;
@@ -109,49 +110,46 @@
 <body>
 
   <header>
-    <h1>Settings - Admin Panel</h1>
+    <h1>Issue Prescription</h1>
   </header>
 
   <nav>
     <a href="portal.html">Dashboard</a>
-    <a href="users.html">Users</a>
-    <a href="appointments.html">Appointments</a>
-    <a href="billing.html">Billing</a>
-    <a href="AI-insights.html">AI Insights</a>
-    <a href="inventory.html">Inventory</a>
-    <a href="settings.html">Settings</a>
+    <a href="view-appointments.html">Appointments</a>
+    <a href="patients-medical-history.html">Patients</a>
+    <a href="issue-prescription.html">Prescriptions</a>
+    <a href="lab-test-request.html">Lab Requests</a>
+    <a href="notifications.html">Notifications</a>
+    <a href="profile.html">Profile</a>
     <a href="#">Logout</a>
   </nav>
 
   <div class="container">
-    <h2>System Settings</h2>
+    <h2>Prescribe Medication</h2>
 
     <form>
-      <label for="language">Interface Language</label>
-      <select id="language" name="language">
-        <option value="en">English</option>
-        <option value="sw">Swahili</option>
-        <option value="fr">French</option>
+      <label for="patient">Select Patient</label>
+      <select id="patient">
+        <option value="">-- Select Patient --</option>
+        <option value="shelomith">Shelomith Anyango</option>
+        <option value="brian">Brian K.</option>
       </select>
 
-      <label for="theme">Theme Mode</label>
-      <select id="theme" name="theme">
-        <option value="light">Light</option>
-        <option value="dark">Dark</option>
-      </select>
+      <label for="medication">Medication Name</label>
+      <input type="text" id="medication" placeholder="e.g. Amoxicillin 500mg" />
 
-      <label for="password">New Password</label>
-      <input type="password" id="password" placeholder="Enter new password" />
+      <label for="dosage">Dosage Instructions</label>
+      <input type="text" id="dosage" placeholder="e.g. 1 capsule every 8 hours for 5 days" />
 
-      <label for="confirm">Confirm Password</label>
-      <input type="password" id="confirm" placeholder="Re-type password" />
+      <label for="notes">Additional Notes (optional)</label>
+      <textarea id="notes" rows="4" placeholder="e.g. Take after meals, avoid dairy..."></textarea>
 
-      <button type="submit">Save Settings</button>
+      <button type="submit">Submit Prescription</button>
     </form>
   </div>
 
   <footer>
-    &copy; 2025 Kobujoi Mission Hospital. Admin Panel
+    &copy; 2025 Kobujoi Mission Hospital. Doctor Panel
   </footer>
 
 </body>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Settings - Admin Panel</title>
+  <title>AI Insights - Admin Panel</title>
   <style>
     :root {
       --primary-blue: #1e40af;
@@ -17,6 +17,7 @@
     body {
       font-family: Arial, sans-serif;
       margin: 0;
+      padding: 0;
       background-color: var(--bg-color);
     }
 
@@ -48,8 +49,6 @@
 
     .container {
       padding: 2rem;
-      max-width: 600px;
-      margin: auto;
     }
 
     h2 {
@@ -57,33 +56,40 @@
       color: var(--primary-blue);
     }
 
-    label {
-      display: block;
-      margin-top: 1rem;
-      font-weight: bold;
+    .insights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background-color: var(--white);
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .card h3 {
+      margin: 0;
       color: var(--primary-blue);
     }
 
-    select, input {
-      width: 100%;
-      padding: 0.6rem;
+    .card p {
       margin-top: 0.5rem;
-      border-radius: 5px;
-      border: 1px solid #ccc;
+      color: var(--gray);
     }
 
-    button {
-      margin-top: 2rem;
-      padding: 0.7rem 1.5rem;
-      background-color: var(--primary-blue);
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: var(--deep-blue);
+    .chart-placeholder {
+      height: 150px;
+      background-color: #e5e7eb;
+      margin-top: 1rem;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6b7280;
+      font-size: 0.9rem;
     }
 
     footer {
@@ -109,7 +115,7 @@
 <body>
 
   <header>
-    <h1>Settings - Admin Panel</h1>
+    <h1>AI Insights - Admin Panel</h1>
   </header>
 
   <nav>
@@ -117,37 +123,41 @@
     <a href="users.html">Users</a>
     <a href="appointments.html">Appointments</a>
     <a href="billing.html">Billing</a>
+    <a href="reports.html">Reports</a>
     <a href="AI-insights.html">AI Insights</a>
-    <a href="inventory.html">Inventory</a>
     <a href="settings.html">Settings</a>
     <a href="#">Logout</a>
   </nav>
 
   <div class="container">
-    <h2>System Settings</h2>
+    <h2>AI-Powered Trends</h2>
 
-    <form>
-      <label for="language">Interface Language</label>
-      <select id="language" name="language">
-        <option value="en">English</option>
-        <option value="sw">Swahili</option>
-        <option value="fr">French</option>
-      </select>
+    <div class="insights">
+      <div class="card">
+        <h3>Top 3 Common Conditions</h3>
+        <ul>
+          <li>Malaria</li>
+          <li>Typhoid</li>
+          <li>Hypertension</li>
+        </ul>
+      </div>
 
-      <label for="theme">Theme Mode</label>
-      <select id="theme" name="theme">
-        <option value="light">Light</option>
-        <option value="dark">Dark</option>
-      </select>
+      <div class="card">
+        <h3>Patient Visits Trend</h3>
+        <div class="chart-placeholder">[Visits Over Time Chart]</div>
+      </div>
 
-      <label for="password">New Password</label>
-      <input type="password" id="password" placeholder="Enter new password" />
+      <div class="card">
+        <h3>Revenue Trend</h3>
+        <div class="chart-placeholder">[KES Chart Placeholder]</div>
+      </div>
 
-      <label for="confirm">Confirm Password</label>
-      <input type="password" id="confirm" placeholder="Re-type password" />
-
-      <button type="submit">Save Settings</button>
-    </form>
+      <div class="card">
+        <h3>High-Traffic Hours</h3>
+        <p>Most appointments: 9AM - 11AM</p>
+        <p>Least activity: 2PM - 3PM</p>
+      </div>
+    </div>
   </div>
 
   <footer>

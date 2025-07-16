@@ -3,148 +3,155 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Doctor Profile - Kobujoi Mission Hospital</title>
+  <title>Doctor Profile - Kobujoi</title>
   <style>
     :root {
       --primary-blue: #1e40af;
-      --primary-green: #15803d;
-      --neutral-light: #f4f4f4;
-      --neutral-white: #ffffff;
-      --neutral-gray: #ddd;
-      --radius: 8px;
+      --light-blue: #e0e7ff;
+      --bg-color: #f4f6f8;
+      --white: #ffffff;
+      --gray: #6b7280;
+      --deep-blue: #1e3a8a;
     }
 
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background-color: var(--neutral-light);
+      background-color: var(--bg-color);
     }
 
     header {
       background-color: var(--primary-blue);
       color: white;
-      padding: 20px;
+      padding: 1rem;
       text-align: center;
     }
 
     nav {
-      background-color: white;
+      background-color: var(--light-blue);
+      padding: 1rem;
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
-      gap: 15px;
-      padding: 10px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      gap: 1rem;
     }
 
     nav a {
-      text-decoration: none;
       color: var(--primary-blue);
+      text-decoration: none;
       font-weight: bold;
     }
 
     nav a:hover {
-      color: var(--primary-green);
+      color: var(--deep-blue);
     }
 
-    main {
-      max-width: 700px;
-      margin: 40px auto;
-      background-color: var(--neutral-white);
-      padding: 30px;
-      border-radius: var(--radius);
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    .container {
+      max-width: 600px;
+      margin: auto;
+      padding: 2rem;
     }
 
     h2 {
+      color: var(--primary-blue);
       text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
       color: var(--primary-blue);
     }
 
-    .profile-info {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-
-    .profile-info label {
-      font-weight: bold;
-      margin-top: 10px;
-    }
-
-    .profile-info input {
-      padding: 10px;
-      border-radius: var(--radius);
-      border: 1px solid var(--neutral-gray);
-    }
-
-    .profile-info textarea {
-      padding: 10px;
-      border-radius: var(--radius);
-      border: 1px solid var(--neutral-gray);
+    input {
+      width: 100%;
+      padding: 0.6rem;
+      margin-top: 0.5rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
     }
 
     button {
-      margin-top: 20px;
-      padding: 12px;
-      background-color: var(--primary-green);
+      margin-top: 2rem;
+      padding: 0.7rem 1.5rem;
+      background-color: var(--primary-blue);
       color: white;
-      font-weight: bold;
       border: none;
-      border-radius: var(--radius);
+      border-radius: 5px;
       cursor: pointer;
     }
 
     button:hover {
-      background-color: #11632f;
+      background-color: var(--deep-blue);
     }
 
     footer {
-      background-color: var(--neutral-gray);
+      background-color: var(--primary-blue);
+      color: white;
       text-align: center;
-      padding: 15px;
-      font-size: 14px;
-      margin-top: 40px;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 1rem;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
     }
   </style>
 </head>
 <body>
+
   <header>
     <h1>Doctor Profile</h1>
-    <p>Manage your professional information</p>
   </header>
 
   <nav>
     <a href="portal.html">Dashboard</a>
-    <a href="patients.html">Patients</a>
+    <a href="view-appointments.html">Appointments</a>
+    <a href="patients-medical-history.html">Patients</a>
+    <a href="issue-prescription.html">Prescriptions</a>
+    <a href="lab-test-request.html">Lab Requests</a>
     <a href="notifications.html">Notifications</a>
     <a href="profile.html">Profile</a>
-     <a href="../login.html">Logout</a>
+    <a href="#">Logout</a>
   </nav>
 
-  <main>
-    <h2>Personal Information</h2>
-    <form class="profile-info">
-      <label for="name">Full Name</label>
-      <input type="text" id="name" placeholder="Dr. Achieng Anyango">
+  <div class="container">
+    <h2>Your Profile</h2>
 
-      <label for="email">Email Address</label>
-      <input type="email" id="email" placeholder="dr.achieng@kobujoi.org">
+    <form>
+      <label for="fullname">Full Name</label>
+      <input type="text" id="fullname" value="Dr. Sarah Otieno" />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" value="sarah.otieno@kobujoi.or.ke" />
+
+      <label for="specialization">Specialization</label>
+      <input type="text" id="specialization" value="General Physician" />
 
       <label for="phone">Phone Number</label>
-      <input type="tel" id="phone" placeholder="+254 700 123 456">
+      <input type="tel" id="phone" value="+254712345678" />
 
-      <label for="specialty">Specialization</label>
-      <input type="text" id="specialty" placeholder="Internal Medicine">
+      <label for="password">New Password</label>
+      <input type="password" id="password" placeholder="••••••••••••" />
 
-      <label for="bio">Short Bio</label>
-      <textarea id="bio" rows="4" placeholder="Brief professional background..."></textarea>
+      <label for="confirm">Confirm Password</label>
+      <input type="password" id="confirm" placeholder="••••••••••••" />
 
       <button type="submit">Update Profile</button>
     </form>
-  </main>
+  </div>
 
   <footer>
-    &copy; 2025 Kobujoi Mission Hospital. All rights reserved.
+    &copy; 2025 Kobujoi Mission Hospital. Doctor Panel
   </footer>
+
 </body>
 </html>

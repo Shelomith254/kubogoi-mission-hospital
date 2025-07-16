@@ -1,10 +1,10 @@
-<!-- prescriptions.html -->
+<!-- dispensed-records.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>💊 Pending Prescriptions - Kobujoi</title>
+  <title>📦 Dispensed Records - Kobujoi</title>
   <style>
     /* same CSS as before... */
   </style>
@@ -12,7 +12,7 @@
 <body>
 
 <header>
-  <h1>💊 Pending Prescriptions</h1>
+  <h1>📦 Dispensed Prescriptions</h1>
 </header>
 
 <nav>
@@ -26,7 +26,7 @@
 </nav>
 
 <div class="container">
-  <h2>Prescriptions Awaiting Fulfillment</h2>
+  <h2>Dispensed Records</h2>
 
   <table>
     <thead>
@@ -34,24 +34,24 @@
         <th>Patient</th>
         <th>Medication</th>
         <th>Dosage</th>
-        <th>Date</th>
-        <th>Action</th>
+        <th>Date Dispensed</th>
+        <th>Status</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td>Shelomith Anyango</td>
         <td>Amoxicillin 500mg</td>
-        <td>1 capsule, 3x daily</td>
+        <td>1 capsule 3x daily</td>
         <td>2025-07-14</td>
-        <td><button class="btn">Dispense</button></td>
+        <td class="status">Dispensed</td>
       </tr>
       <tr>
         <td>Brian K.</td>
         <td>Paracetamol 500mg</td>
         <td>2 tablets after meals</td>
         <td>2025-07-13</td>
-        <td><button class="btn">Dispense</button></td>
+        <td class="status">Dispensed</td>
       </tr>
     </tbody>
   </table>

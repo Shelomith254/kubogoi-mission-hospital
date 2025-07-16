@@ -2,43 +2,44 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Outpatient Visits - Kobujoi Mission Hospital</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>📋 Outpatient Visits - Kobujoi</title>
   <style>
     :root {
       --primary-blue: #1e40af;
       --primary-green: #15803d;
-      --neutral-white: #ffffff;
-      --neutral-light: #f4f4f4;
-      --text-dark: #333;
+      --light-blue: #e0e7ff;
+      --white: #ffffff;
+      --gray: #6b7280;
+      --bg-color: #f9fafb;
       --radius: 8px;
     }
 
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background-color: var(--neutral-light);
+      background-color: var(--bg-color);
     }
 
     header {
       background-color: var(--primary-blue);
       color: white;
       text-align: center;
-      padding: 20px;
+      padding: 1.5rem;
     }
 
     nav {
-      background-color: white;
+      background-color: var(--light-blue);
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
-      gap: 15px;
-      padding: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      gap: 1rem;
+      padding: 1rem;
     }
 
     nav a {
-      text-decoration: none;
       color: var(--primary-blue);
+      text-decoration: none;
       font-weight: bold;
     }
 
@@ -46,116 +47,179 @@
       color: var(--primary-green);
     }
 
-    main {
-      max-width: 900px;
-      margin: 40px auto;
-      background-color: var(--neutral-white);
-      padding: 30px;
+    .container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background-color: var(--white);
       border-radius: var(--radius);
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
     h2 {
-      color: var(--primary-blue);
       text-align: center;
-      margin-bottom: 20px;
+      color: var(--primary-blue);
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
+      margin-top: 1.5rem;
     }
 
     th, td {
-      padding: 12px;
-      border-bottom: 1px solid #ddd;
       text-align: left;
+      padding: 1rem;
+      border-bottom: 1px solid #ddd;
     }
 
     th {
-      background-color: var(--neutral-light);
+      background-color: var(--light-blue);
       color: var(--primary-blue);
     }
 
+    .status {
+      font-weight: bold;
+      padding: 0.3rem 0.6rem;
+      border-radius: 5px;
+      display: inline-block;
+    }
+
+    .checked-in {
+      background-color: #e6f9ec;
+      color: var(--primary-green);
+    }
+
+    .in-consultation {
+      background-color: #fffbe6;
+      color: #d97706;
+    }
+
+    .completed {
+      background-color: #e2e8f0;
+      color: #1e293b;
+    }
+
     .btn {
-      padding: 6px 10px;
-      font-size: 14px;
+      padding: 0.4rem 0.8rem;
+      background-color: var(--primary-blue);
+      color: white;
       border: none;
-      border-radius: var(--radius);
+      border-radius: 4px;
       cursor: pointer;
+      font-size: 0.85rem;
+      margin-right: 5px;
     }
 
-    .btn-complete {
-      background-color: var(--primary-green);
-      color: white;
+    .btn:hover {
+      background-color: #1e3a8a;
     }
 
-    .btn-cancel {
-      background-color: #dc2626;
-      color: white;
+    @media (max-width: 600px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      thead {
+        display: none;
+      }
+
+      tr {
+        background-color: var(--white);
+        margin-bottom: 1rem;
+        padding: 1rem;
+        border-radius: var(--radius);
+        box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+      }
+
+      td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+      }
+
+      td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 1rem;
+        font-weight: bold;
+        color: var(--primary-blue);
+      }
     }
 
     footer {
-      background-color: #e8ecef;
+      background-color: var(--primary-blue);
+      color: white;
       text-align: center;
-      padding: 15px;
-      margin-top: 40px;
-      font-size: 14px;
+      padding: 1rem;
+      margin-top: 2rem;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Outpatient Visit Log</h1>
-    <p>Track all outpatient services and visits</p>
-  </header>
 
-  <nav>
-    <a href="portal.html">Dashboard</a>
-    <a href="records.html">Visit Records</a>
-    <a href="visits.html">Visit Log</a>
-    <a href="notifications.html">Notifications</a>
-  </nav>
+<header>
+  <h1>📋 Outpatient Visits</h1>
+  <p>Track and manage today's patient visits</p>
+</header>
 
-  <main>
-    <h2>Visit History</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Date</th>
-          <th>Patient</th>
-          <th>Doctor</th>
-          <th>Diagnosis</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>2025-07-12</td>
-          <td>Mary Wanjiku</td>
-          <td>Dr. Kimani</td>
-          <td>Flu and Cold</td>
-          <td>
-            <button class="btn btn-complete">Mark Reviewed</button>
-            <button class="btn btn-cancel">Remove</button>
-          </td>
-        </tr>
-        <tr>
-          <td>2025-07-13</td>
-          <td>Brian Otieno</td>
-          <td>Dr. Achieng</td>
-          <td>Back Pain</td>
-          <td>
-            <button class="btn btn-complete">Mark Reviewed</button>
-            <button class="btn btn-cancel">Remove</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </main>
+<nav>
+  <a href="portal.html">📋 Dashboard</a>
+  <a href="appointments.html">📅 Appointments</a>
+  <a href="visits.html">📋 Visits</a>
+  <a href="records.html">📑 Visit Records</a>
+  <a href="notifications.html">🔔 Notifications</a>
+  <a href="#">🚪 Logout</a>
+</nav>
 
-  <footer>
-    &copy; 2025 Kobujoi Mission Hospital. All rights reserved.
-  </footer>
+<div class="container">
+  <h2>Today's Visits</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Patient</th>
+        <th>Time</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+  <tr>
+    <td data-label="Patient">👤 Shelomith Anyango</td>
+    <td data-label="Time">🕘 09:00 AM</td>
+    <td data-label="Status"><span class="status checked-in">🟢 Checked-In</span></td>
+    <td data-label="Action">
+      <button class="btn">👁️ View</button>
+      <button class="btn">✅ Complete</button>
+    </td>
+  </tr>
+  <tr>
+    <td data-label="Patient">👤 Brian Otieno</td>
+    <td data-label="Time">🕙 10:15 AM</td>
+    <td data-label="Status"><span class="status in-consultation">🟡 In Consultation</span></td>
+    <td data-label="Action">
+      <button class="btn">👁️ View</button>
+      <button class="btn">✅ Complete</button>
+    </td>
+  </tr>
+  <tr>
+    <td data-label="Patient">👤 Catherine Wanja</td>
+    <td data-label="Time">🕣 08:30 AM</td>
+    <td data-label="Status"><span class="status completed">🔵 Completed</span></td>
+    <td data-label="Action">
+      <button class="btn">👁️ View</button>
+    </td>
+  </tr>
+</tbody>
+
+  
+  </table>
+</div>
+
+<footer>
+  &copy; 2025 Kobujoi Mission Hospital. Outpatient Panel
+</footer>
+
 </body>
 </html>

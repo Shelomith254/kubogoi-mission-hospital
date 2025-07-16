@@ -1,146 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Doctor Portal - Kobujoi Mission Hospital</title>
-  <link rel="stylesheet" href="../css/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Doctor Dashboard - Kobujoi</title>
   <style>
     :root {
-      --primary-green: #15803d;
-      --neutral-light: #f4f4f4;
-      --neutral-gray: #ddd;
-      --neutral-dark: #333;
-      --radius: 8px;
+      --primary-blue: #1e40af;
+      --deep-blue: #1e3a8a;
+      --light-blue: #e0e7ff;
+      --bg-color: #f4f6f8;
+      --white: #ffffff;
+      --gray: #6b7280;
     }
 
-    .doctor-form {
-      background-color: var(--neutral-light);
-      padding: 20px;
-      margin-top: 20px;
-      border-radius: var(--radius);
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: var(--bg-color);
     }
 
-    .doctor-form input, .doctor-form select {
-      margin: 10px;
-      padding: 10px;
-      width: 220px;
-    }
-
-    .doctor-form button {
-      padding: 10px 20px;
-      background-color: var(--primary-green);
+    header {
+      background-color: var(--primary-blue);
       color: white;
-      border: none;
-      border-radius: var(--radius);
-    }
-
-    .doctor-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-    }
-
-    .doctor-table th, .doctor-table td {
-      border: 1px solid var(--neutral-gray);
-      padding: 10px;
-      font-size: 14px;
-    }
-
-    .doctor-table th {
-      background-color: var(--neutral-light);
-    }
-
-    .empty-msg {
+      padding: 1rem;
       text-align: center;
-      font-style: italic;
-      color: var(--neutral-dark);
-      margin-top: 30px;
-    }
-
-    .action-buttons button {
-      padding: 6px 12px;
-      font-size: 13px;
-      margin: 2px;
-      border-radius: 5px;
     }
 
     nav {
-      background-color: white;
+      background-color: var(--light-blue);
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
-      gap: 20px;
-      padding: 12px;
-      font-weight: bold;
-      border-bottom: 1px solid var(--neutral-gray);
+      gap: 1rem;
+      padding: 1rem;
     }
 
     nav a {
       text-decoration: none;
-      color: #1e40af;
+      color: var(--primary-blue);
+      font-weight: bold;
     }
 
     nav a:hover {
-      color: var(--primary-green);
+      color: var(--deep-blue);
+    }
+
+    .container {
+      padding: 2rem;
+    }
+
+    h2 {
+      color: var(--primary-blue);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background-color: var(--white);
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+    }
+
+    .card h3 {
+      margin: 0;
+      color: var(--primary-blue);
+    }
+
+    .card p {
+      color: var(--gray);
+      margin-top: 0.5rem;
+    }
+
+    footer {
+      background-color: var(--primary-blue);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .container {
+        padding: 1rem;
+      }
     }
   </style>
 </head>
 <body>
-  <header class="top-header">
-    <div class="container">
-      <h1><img src="../images/surgeon.png" class="icon"> Doctor Portal</h1>
-      <p>Manage doctor records and schedules</p>
-    </div>
+
+  <header>
+    <h1>Doctor Dashboard</h1>
   </header>
 
   <nav>
     <a href="portal.html">Dashboard</a>
-    <a href="patients.html">Patients</a>
+    <a href="view-appiontments.html">Appointments</a>
+    <a href="patients-medical-history.html">Patients</a>
+    <a href="issue-prescription.html">Prescriptions</a>
+    <a href="lab-test-request.html">Lab Requests</a>
     <a href="notifications.html">Notifications</a>
     <a href="profile.html">Profile</a>
-    <a href="../login.html">Logout</a>
+    <a href="#">Logout</a>
   </nav>
 
-  <main class="container">
-    <section class="doctor-form">
-      <h2>Add Doctor</h2>
-      <form id="doctorForm">
-        <input type="text" id="docName" placeholder="Full Name" required>
-        <input type="text" id="department" placeholder="Specialization" required>
-        <input type="text" id="contact" placeholder="Contact Info" required>
-        <input type="text" id="availability" placeholder="Availability (e.g. Mon-Fri, 8am-5pm)" required>
-        <select id="status" required>
-          <option value="">-- Status --</option>
-          <option value="Active">Active</option>
-          <option value="On Leave">On Leave</option>
-        </select>
-        <button type="submit">Add Doctor</button>
-      </form>
-    </section>
+  <div class="container">
+    <h2>Welcome, Dr. Sarah Otieno</h2>
 
-    <section class="doctor-list">
-      <h2>Registered Doctors</h2>
-      <p class="empty-msg" id="noDoctors">No doctors added yet.</p>
+    <div class="cards">
+      <div class="card">
+        <h3>Today's Appointments</h3>
+        <p>You have <strong>5</strong> appointments scheduled today.</p>
+      </div>
 
-      <table class="doctor-table" id="doctorTable" style="display: none;">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Specialization</th>
-            <th>Contact</th>
-            <th>Availability</th>
-            <th>Status</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody id="doctorBody">
-          <!-- JS will populate rows here -->
-        </tbody>
-      </table>
-    </section>
-  </main>
+      <div class="card">
+        <h3>Pending Lab Results</h3>
+        <p><strong>2</strong> patient lab results need review.</p>
+      </div>
 
-  <footer class="footer container">
-    <p>&copy; 2025 Kobujoi Mission Hospital. All rights reserved.</p>
+      <div class="card">
+        <h3>Prescriptions Issued</h3>
+        <p><strong>18</strong> prescriptions issued this week.</p>
+      </div>
+
+      <div class="card">
+        <h3>Patients Seen This Week</h3>
+        <p><strong>23</strong> patients treated.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Kobujoi Mission Hospital. Doctor Panel
   </footer>
+
 </body>
 </html>

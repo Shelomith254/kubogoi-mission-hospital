@@ -158,5 +158,28 @@
   <footer>
     &copy; 2025 Kobujoi Mission Hospital. All rights reserved.
   </footer>
+  
 </body>
+<script>
+  // Handle "Attend" button click
+  document.querySelectorAll('.btn-attend').forEach(button => {
+    button.addEventListener('click', () => {
+      const row = button.closest('tr');
+      const statusCell = row.querySelector('td:nth-child(4)');
+      statusCell.textContent = 'Being Attended';
+      alert('Patient marked as attended.');
+    });
+  });
+
+  // Handle "Escalate" button click
+  document.querySelectorAll('.btn-escalate').forEach(button => {
+    button.addEventListener('click', () => {
+      const row = button.closest('tr');
+      const statusCell = row.querySelector('td:nth-child(4)');
+      statusCell.textContent = 'Escalated';
+      alert('Case escalated to senior staff.');
+    });
+  });
+</script>
+
 </html>

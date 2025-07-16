@@ -1,188 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Admin Portal - Kobujoi Mission Hospital</title>
-  <link rel="stylesheet" href="../css/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Manage Users - Kobujoi Admin</title>
   <style>
-    .admin-form {
-      background-color: var(--neutral-light);
-      padding: 20px;
-      margin-top: 20px;
-      border-radius: var(--radius);
+    :root {
+      --primary-blue: #1e40af;
+      --deep-blue: #1e3a8a;
+      --light-blue: #e0e7ff;
+      --white: #ffffff;
+      --bg-color: #f4f6f8;
     }
 
-    .admin-form input, .admin-form select {
-      margin: 10px;
-      padding: 10px;
-      width: 200px;
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-color);
     }
 
-    .admin-form button {
-      padding: 10px 20px;
-      background-color: var(--primary-green);
+    header {
+      background-color: var(--primary-blue);
+      color: var(--white);
+      padding: 1rem;
+      text-align: center;
+    }
+
+    nav {
+      background-color: var(--light-blue);
+      padding: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--primary-blue);
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: var(--deep-blue);
+    }
+
+    .container {
+      padding: 2rem;
+    }
+
+    h2 {
+      color: var(--primary-blue);
+      text-align: center;
+    }
+
+    .actions {
+      text-align: right;
+      margin-bottom: 1rem;
+    }
+
+    .actions button {
+      background-color: var(--primary-blue);
       color: white;
       border: none;
-      border-radius: var(--radius);
+      padding: 0.6rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
     }
 
-    .admin-table {
+    .actions button:hover {
+      background-color: var(--deep-blue);
+    }
+
+    table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 20px;
+      background-color: var(--white);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
-    .admin-table th, .admin-table td {
-      border: 1px solid var(--neutral-gray);
-      padding: 10px;
-      font-size: 14px;
+    th, td {
+      padding: 1rem;
+      border-bottom: 1px solid #ccc;
+      text-align: left;
     }
 
-    .admin-table th {
-      background-color: var(--neutral-light);
+    th {
+      background-color: var(--light-blue);
+      color: var(--primary-blue);
     }
 
-    .empty-msg {
+    .btn {
+      padding: 0.3rem 0.7rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      color: white;
+    }
+
+    .edit {
+      background-color: #10b981;
+    }
+
+    .delete {
+      background-color: #ef4444;
+    }
+
+    footer {
+      background-color: var(--primary-blue);
+      color: white;
       text-align: center;
-      font-style: italic;
-      color: var(--neutral-dark);
-      margin-top: 30px;
+      padding: 1rem;
+      margin-top: 2rem;
     }
 
-    .action-buttons button {
-      padding: 6px 12px;
-      font-size: 13px;
-      margin: 2px;
-      border-radius: 5px;
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .container {
+        padding: 1rem;
+      }
+
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      thead {
+        display: none;
+      }
+
+      tr {
+        background-color: white;
+        border-radius: 10px;
+        margin-bottom: 1rem;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+        padding: 1rem;
+      }
+
+      td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+      }
+
+      td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 1rem;
+        width: 45%;
+        text-align: left;
+        font-weight: bold;
+        color: var(--primary-blue);
+      }
     }
   </style>
 </head>
 <body>
-  <header class="top-header">
-    <div class="container">
-      <h1><img src="../images/icons8-user-30.png" class="icon"> Admin Portal</h1>
-      <p>Manage user accounts and hospital staff</p>
-    </div>
+
+  <header>
+    <h1>Manage Users - Admin Panel</h1>
   </header>
 
-  <nav class="navbar">
-    <div class="container">
-     <h1>Admin Dashboard</h1>
-  <a href="portal.html">Dashboard</a>
-  <a href="users.html">Manage Users</a>
-  <a href="settings.html">System Settings</a>
-  <a href="../index.html">Logout</a>
-
-    </div>
+  <nav>
+    <a href="portal.html">Dashboard</a>
+    <a href="users.html">Users</a>
+    <a href="appointments.html">Appointments</a>
+    <a href="billing.html">Billing</a>
+    <a href="reports.html">Reports</a>
+    <a href="inventory.html">Inventory</a>
+    <a href="settings.html">Settings</a>
+    <a href="#">Logout</a>
   </nav>
 
-  <main class="container">
-    <section class="admin-form">
-      <h2>Add User</h2>
-      <form id="adminForm">
-        <input type="text" id="fullName" placeholder="Full Name" required>
-        <input type="text" id="username" placeholder="Username" required>
-        <input type="email" id="email" placeholder="Email" required>
-        <select id="role" required>
-          <option value="">-- Role --</option>
-          <option value="Doctor">Doctor</option>
-          <option value="Nurse">Nurse</option>
-          <option value="Pharmacist">Pharmacist</option>
-          <option value="Lab Technician">Lab Technician</option>
-          <option value="Receptionist">Receptionist</option>
-        </select>
-        <select id="status" required>
-          <option value="">-- Status --</option>
-          <option value="Active">Active</option>
-          <option value="Disabled">Disabled</option>
-        </select>
-        <button type="submit">Add User</button>
-      </form>
-    </section>
+  <div class="container">
+    <h2>User List</h2>
 
-    <section class="admin-list">
-      <h2>User Accounts</h2>
-      <p class="empty-msg" id="noUsers">No users added yet.</p>
+    <div class="actions">
+      <button onclick="alert('Open add-user form here')">+ Add User</button>
+    </div>
 
-      <table class="admin-table" id="adminTable" style="display: none;">
-        <thead>
-          <tr>
-            <th>Full Name</th>
-            <th>Username</th>
-            <th>Email</th>
-            <th>Role</th>
-            <th>Status</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody id="adminBody"></tbody>
-      </table>
-    </section>
-  </main>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="Name">Shelomith Anyango</td>
+          <td data-label="Email">shelo@example.com</td>
+          <td data-label="Role">Patient</td>
+          <td data-label="Actions">
+            <button class="btn edit">Edit</button>
+            <button class="btn delete">Delete</button>
+          </td>
+        </tr>
+        <tr>
+          <td data-label="Name">Dr. Sarah Otieno</td>
+          <td data-label="Email">sarah@hospital.com</td>
+          <td data-label="Role">Doctor</td>
+          <td data-label="Actions">
+            <button class="btn edit">Edit</button>
+            <button class="btn delete">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-  <footer class="footer container">
-    <p>&copy; 2025 Kobujoi Mission Hospital. All rights reserved.</p>
+  <footer>
+    &copy; 2025 Kobujoi Mission Hospital. Admin Panel
   </footer>
 
-  <script>
-    const form = document.getElementById("adminForm");
-    const table = document.getElementById("adminTable");
-    const body = document.getElementById("adminBody");
-    const noMsg = document.getElementById("noUsers");
-
-    form.addEventListener("submit", function(e) {
-      e.preventDefault();
-
-      const fullName = document.getElementById("fullName").value;
-      const username = document.getElementById("username").value;
-      const email = document.getElementById("email").value;
-      const role = document.getElementById("role").value;
-      const status = document.getElementById("status").value;
-
-      const row = document.createElement("tr");
-      row.innerHTML = `
-        <td>${fullName}</td>
-        <td>${username}</td>
-        <td>${email}</td>
-        <td>${role}</td>
-        <td>${status}</td>
-        <td class="action-buttons">
-          <button onclick="editRow(this)">Edit</button>
-          <button onclick="deleteRow(this)">Delete</button>
-        </td>
-      `;
-
-      body.appendChild(row);
-      table.style.display = "table";
-      noMsg.style.display = "none";
-      form.reset();
-    });
-
-    function deleteRow(button) {
-      const row = button.parentElement.parentElement;
-      row.remove();
-      if (body.children.length === 0) {
-        table.style.display = "none";
-        noMsg.style.display = "block";
-      }
-    }
-
-    function editRow(button) {
-      const row = button.parentElement.parentElement;
-      const cells = row.querySelectorAll("td");
-
-      const fullName = cells[0].innerText;
-      const username = cells[1].innerText;
-      const email = cells[2].innerText;
-      const role = cells[3].innerText;
-      const status = cells[4].innerText;
-
-      cells[0].innerHTML = `<input type="text" value="${fullName}">`;
-      cells[1].innerHTML = `<input type="text" value="${username}">`;
-      cells[2].innerHTML = `<input type="email" value="${email}">`;
-      cells[3].innerHTML = `
-        <select>
-          <option value="Doctor" ${role === "Doctor" ? "selected" : ""}>Doctor</option>
-          <option value="Nurse" ${role === "Nurse" ? "selected" : ""}>Nurse</option>
-          <option value="Pharmacist" ${role === "Pharmacist" ? "selected" : ""}>Pharmacist</option>
-          <o
+</body>
+</html>

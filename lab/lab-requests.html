@@ -3,28 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>View Bills - Kobujoi Mission Hospital</title>
+  <title>Lab Requests - Kobujoi</title>
   <style>
     :root {
       --primary-blue: #1e40af;
-      --deep-blue: #1e3a8a;
       --light-blue: #e0e7ff;
       --bg-color: #f4f6f8;
       --white: #ffffff;
       --green: #15803d;
-      --red: #dc2626;
+      --gray: #6b7280;
     }
 
     body {
       font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
       background-color: var(--bg-color);
     }
 
     header {
       background-color: var(--primary-blue);
-      color: var(--white);
+      color: white;
       padding: 1rem;
       text-align: center;
     }
@@ -39,13 +37,13 @@
     }
 
     nav a {
-      text-decoration: none;
       color: var(--primary-blue);
       font-weight: bold;
+      text-decoration: none;
     }
 
     nav a:hover {
-      color: var(--deep-blue);
+      color: #1e3a8a;
     }
 
     .container {
@@ -60,15 +58,15 @@
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 1rem;
       background-color: var(--white);
+      margin-top: 1.5rem;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
     th, td {
       padding: 1rem;
-      border-bottom: 1px solid #ccc;
       text-align: left;
+      border-bottom: 1px solid #ccc;
     }
 
     th {
@@ -76,32 +74,32 @@
       color: var(--primary-blue);
     }
 
-    .paid {
-      color: var(--green);
-      font-weight: bold;
-    }
-
-    .pending {
-      color: var(--red);
-      font-weight: bold;
+    .btn {
+      padding: 0.4rem 0.8rem;
+      background-color: var(--green);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      cursor: pointer;
     }
 
     footer {
       background-color: var(--primary-blue);
-      color: var(--white);
+      color: white;
       text-align: center;
       padding: 1rem;
       margin-top: 2rem;
     }
 
     @media (max-width: 600px) {
-      .container {
-        padding: 1rem;
-      }
-
       nav {
         flex-direction: column;
         align-items: center;
+      }
+
+      .container {
+        padding: 1rem;
       }
 
       table, thead, tbody, th, td, tr {
@@ -113,11 +111,11 @@
       }
 
       tr {
-        margin-bottom: 1rem;
         background: var(--white);
-        border-radius: 10px;
-        box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+        margin-bottom: 1rem;
         padding: 1rem;
+        border-radius: 8px;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.05);
       }
 
       td {
@@ -130,8 +128,6 @@
         content: attr(data-label);
         position: absolute;
         left: 1rem;
-        width: 45%;
-        text-align: left;
         font-weight: bold;
         color: var(--primary-blue);
       }
@@ -141,56 +137,50 @@
 <body>
 
   <header>
-    <h1>View Bills - Patient Portal</h1>
+    <h1>Lab Requests</h1>
   </header>
 
   <nav>
     <a href="portal.html">Dashboard</a>
-    <a href="appointment.html">Book Appointment</a>
-    <a href="appointment-status.html">Appointment Status</a>
-    <a href="bills.html">View Bills</a>
-    <a href="results.html">Lab Results</a>
-    <a href="prescriptions.html">Prescriptions</a>
-    <a href="profile.html">Profile</a>
+    <a href="lab-requests.html">Lab Requests</a>
+    <a href="enter-results.html">Enter Results</a>
+    <a href="completed-tests.html">Completed Tests</a>
     <a href="notifications.html">Notifications</a>
+    <a href="profile.html">Profile</a>
+    <a href="#">Logout</a>
   </nav>
 
   <div class="container">
-    <h2>Your Billing Summary</h2>
+    <h2>Pending Lab Requests</h2>
+
     <table>
       <thead>
         <tr>
+          <th>Patient</th>
+          <th>Requested Tests</th>
           <th>Date</th>
-          <th>Service</th>
-          <th>Amount (KES)</th>
-          <th>Status</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td data-label="Date">2025-07-10</td>
-          <td data-label="Service">General Consultation</td>
-          <td data-label="Amount">1500</td>
-          <td data-label="Status" class="paid">Paid</td>
-        </tr>
-        <tr>
-          <td data-label="Date">2025-07-12</td>
-          <td data-label="Service">Lab Test - Blood</td>
-          <td data-label="Amount">2000</td>
-          <td data-label="Status" class="pending">Pending</td>
-        </tr>
-        <tr>
+          <td data-label="Patient">Shelomith Anyango</td>
+          <td data-label="Requested Tests">Blood Test, Malaria Smear</td>
           <td data-label="Date">2025-07-14</td>
-          <td data-label="Service">Pharmacy - Antibiotics</td>
-          <td data-label="Amount">1200</td>
-          <td data-label="Status" class="paid">Paid</td>
+          <td data-label="Action"><button class="btn">View</button></td>
+        </tr>
+        <tr>
+          <td data-label="Patient">Brian K.</td>
+          <td data-label="Requested Tests">Widal, Urine Test</td>
+          <td data-label="Date">2025-07-13</td>
+          <td data-label="Action"><button class="btn">View</button></td>
         </tr>
       </tbody>
     </table>
   </div>
 
   <footer>
-    &copy; 2025 Kobujoi Mission Hospital. All rights reserved.
+    &copy; 2025 Kobujoi Mission Hospital. Lab Technician Panel
   </footer>
 
 </body>

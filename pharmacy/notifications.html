@@ -1,124 +1,52 @@
-<!DOCTYPE html><html lang="en">
+<!-- notifications.html -->
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pharmacy Notifications - Kobujoi Mission Hospital</title>
+  <title>🔔 Notifications - Kobujoi</title>
   <style>
-    :root {
-      --primary-blue: #1e40af;
-      --primary-green: #15803d;
-      --neutral-white: #ffffff;
-      --neutral-light: #f4f4f4;
-      --text-dark: #333;
-      --radius: 8px;
-    }body {
-  font-family: Arial, sans-serif;
-  background-color: var(--neutral-light);
-  margin: 0;
-}
-
-header {
-  background-color: var(--primary-blue);
-  color: white;
-  padding: 20px;
-  text-align: center;
-}
-
-nav {
-  background-color: white;
-  display: flex;
-  justify-content: center;
-  padding: 10px;
-  gap: 15px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-}
-
-nav a {
-  text-decoration: none;
-  color: var(--primary-blue);
-  font-weight: bold;
-}
-
-nav a:hover {
-  color: var(--primary-green);
-}
-
-main {
-  max-width: 800px;
-  margin: 40px auto;
-  background: var(--neutral-white);
-  padding: 30px;
-  border-radius: var(--radius);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-h2 {
-  color: var(--primary-blue);
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.notification {
-  border-left: 5px solid var(--primary-green);
-  background-color: var(--neutral-light);
-  padding: 15px;
-  margin-bottom: 15px;
-  border-radius: var(--radius);
-}
-
-.notification.urgent {
-  border-left-color: red;
-  background-color: #fff8f8;
-}
-
-.notification h4 {
-  margin: 0 0 5px;
-  color: var(--primary-blue);
-}
-
-.notification p {
-  margin: 0;
-  color: var(--text-dark);
-}
-
-footer {
-  background-color: #e8ecef;
-  text-align: center;
-  padding: 15px;
-  font-size: 14px;
-  margin-top: 40px;
-}
-
+    /* same CSS as before... */
   </style>
 </head>
 <body>
-  <header>
-    <h1>Pharmacy Notifications</h1>
-    <p>Keep up with inventory alerts and prescription updates</p>
-  </header>  <nav>
-    <a href="portal.html">Dashboard</a>
-    <a href="inventory.html">Inventory</a>
-    <a href="prescriptions.html">Prescriptions</a>
-    <a href="orders.html">Orders</a>
-    <a href="notifications.html">Notifications</a>
-  </nav>  <main>
-    <h2>Recent Notifications</h2><div class="notification urgent">
-  <h4>⚠️ Low Stock Alert</h4>
-  <p>Insulin stock is below threshold. Please restock immediately.</p>
+
+<header>
+  <h1>🔔 Pharmacist Notifications</h1>
+</header>
+
+<nav>
+  <a href="portal.html">📊 Dashboard</a>
+  <a href="prescriptions.html">💊 Prescriptions</a>
+  <a href="dispensed-records.html">📦 Dispensed Records</a>
+  <a href="inventory.html">🗃️ Inventory</a>
+  <a href="notifications.html">🔔 Notifications</a>
+  <a href="profile.html">👤 Profile</a>
+  <a href="#">🚪 Logout</a>
+</nav>
+
+<div class="container">
+  <h2>Recent Alerts</h2>
+
+  <div class="notification warning">
+    <p><strong>Low Stock:</strong> Ciprofloxacin 250mg is below reorder level.</p>
+    <small>Received: July 14, 2025 at 9:00 AM</small>
+  </div>
+
+  <div class="notification success">
+    <p><strong>Dispense Confirmed:</strong> Prescription for Shelomith Anyango logged.</p>
+    <small>Logged: July 13, 2025 at 4:32 PM</small>
+  </div>
+
+  <div class="notification">
+    <p><strong>New Prescription:</strong> Dr. Otieno issued Paracetamol for Brian K.</p>
+    <small>Received: July 13, 2025 at 2:15 PM</small>
+  </div>
 </div>
 
-<div class="notification">
-  <h4>✅ Order Approved</h4>
-  <p>Your request for 20 IV drips has been approved by admin.</p>
-</div>
+<footer>
+  &copy; 2025 Kobujoi Mission Hospital. Pharmacist Panel
+</footer>
 
-<div class="notification">
-  <h4>💡 Prescription Queue</h4>
-  <p>New prescription added for patient Jane Achieng.</p>
-</div>
-
-  </main>  <footer>
-    &copy; 2025 Kobujoi Mission Hospital. All rights reserved.
-  </footer>
 </body>
 </html>

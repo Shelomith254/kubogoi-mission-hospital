@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>View Bills - Kobujoi Mission Hospital</title>
+  <title>Prescriptions - Kobujoi Mission Hospital</title>
   <style>
     :root {
       --primary-blue: #1e40af;
@@ -12,7 +12,7 @@
       --bg-color: #f4f6f8;
       --white: #ffffff;
       --green: #15803d;
-      --red: #dc2626;
+      --gray: #6b7280;
     }
 
     body {
@@ -57,33 +57,31 @@
       text-align: center;
     }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 1rem;
+    .card {
       background-color: var(--white);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-radius: 10px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
-    th, td {
-      padding: 1rem;
-      border-bottom: 1px solid #ccc;
-      text-align: left;
-    }
-
-    th {
-      background-color: var(--light-blue);
+    .card h3 {
       color: var(--primary-blue);
+      margin: 0 0 0.5rem;
     }
 
-    .paid {
+    .card p {
+      margin: 0.3rem 0;
+    }
+
+    .status {
+      font-weight: bold;
       color: var(--green);
-      font-weight: bold;
     }
 
-    .pending {
-      color: var(--red);
-      font-weight: bold;
+    .note {
+      color: var(--gray);
+      font-style: italic;
     }
 
     footer {
@@ -103,45 +101,13 @@
         flex-direction: column;
         align-items: center;
       }
-
-      table, thead, tbody, th, td, tr {
-        display: block;
-      }
-
-      thead {
-        display: none;
-      }
-
-      tr {
-        margin-bottom: 1rem;
-        background: var(--white);
-        border-radius: 10px;
-        box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-        padding: 1rem;
-      }
-
-      td {
-        text-align: right;
-        padding-left: 50%;
-        position: relative;
-      }
-
-      td::before {
-        content: attr(data-label);
-        position: absolute;
-        left: 1rem;
-        width: 45%;
-        text-align: left;
-        font-weight: bold;
-        color: var(--primary-blue);
-      }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>View Bills - Patient Portal</h1>
+    <h1>Prescriptions - Patient Portal</h1>
   </header>
 
   <nav>
@@ -156,37 +122,24 @@
   </nav>
 
   <div class="container">
-    <h2>Your Billing Summary</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Date</th>
-          <th>Service</th>
-          <th>Amount (KES)</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td data-label="Date">2025-07-10</td>
-          <td data-label="Service">General Consultation</td>
-          <td data-label="Amount">1500</td>
-          <td data-label="Status" class="paid">Paid</td>
-        </tr>
-        <tr>
-          <td data-label="Date">2025-07-12</td>
-          <td data-label="Service">Lab Test - Blood</td>
-          <td data-label="Amount">2000</td>
-          <td data-label="Status" class="pending">Pending</td>
-        </tr>
-        <tr>
-          <td data-label="Date">2025-07-14</td>
-          <td data-label="Service">Pharmacy - Antibiotics</td>
-          <td data-label="Amount">1200</td>
-          <td data-label="Status" class="paid">Paid</td>
-        </tr>
-      </tbody>
-    </table>
+    <h2>Your Prescriptions</h2>
+
+    <div class="card">
+      <h3>Amoxicillin 500mg</h3>
+      <p><strong>Prescribed by:</strong> Dr. Sarah Otieno</p>
+      <p><strong>Date:</strong> 2025-07-12</p>
+      <p><strong>Dosage:</strong> 1 capsule, 3 times daily for 7 days</p>
+      <p class="status">Status: Dispensed</p>
+    </div>
+
+    <div class="card">
+      <h3>Paracetamol 500mg</h3>
+      <p><strong>Prescribed by:</strong> Dr. Kimani Mugo</p>
+      <p><strong>Date:</strong> 2025-07-14</p>
+      <p><strong>Dosage:</strong> 2 tablets, every 6 hours as needed</p>
+      <p class="status">Status: Not Dispensed</p>
+      <p class="note">* Please collect from pharmacy counter</p>
+    </div>
   </div>
 
   <footer>

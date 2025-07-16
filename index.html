@@ -1,4 +1,3 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,15 +11,15 @@
   <!-- Header -->
   <header class="top-header">
     <div class="container">
-      <h1><img src="images/hospital.png" alt=""> Kobujoi Mission Hospital</h1>
-      <h3><p>We Treat, God Heals</p></h3>
+      <h1><img src="images/hospital.png" alt="Hospital Logo"> Kobujoi Mission Hospital</h1>
+      <p class="motto">We Treat, God Heals</p>
     </div>
   </header>
 
   <!-- Navbar -->
   <nav class="navbar">
     <div class="container">
-      <a href="index.html">Home</a>
+      <a href="index.html" class="active">Home</a>
       <a href="login.html">Login</a>
       <a href="about.html">About</a>
       <a href="departments.html">Departments</a>
@@ -30,31 +29,77 @@
     </div>
   </nav>
 
-  <!-- Banner Section -->
-  <section class="banner">
-    <div class="banner-content container">
-      <h2>Welcome to Kobujoi Mission Hospital</h2>
-      <p>Serving the community with compassion, care, and excellence.</p>
-      <a href="appointment.html" class="banner-btn">Book an Appointment</a>
+  <!-- Slideshow -->
+  <section class="slideshow">
+    <div class="slide fade">
+      <img src="images/mbele.jpeg" alt="Hospital Front View" />
+      <div class="caption">Excellence in Community Health</div>
+    </div>
+    <div class="slide fade">
+      <img src="images/maternity.jpeg" alt="Maternity Wing" />
+      <div class="caption">Compassionate Maternity Services</div>
+    </div>
+    <div class="slide fade">
+      <img src="images/theatre.jpeg" alt="Theatre" />
+      <div class="caption">Modern Surgical Theatre</div>
     </div>
   </section>
 
   <!-- Core Services -->
   <section class="services container">
     <h2 class="section-title">Our Core Services</h2>
-    <div class="card"><strong>🧪 Laboratory:</strong> Full diagnostics and lab testing available on site.</div>
-    <div class="card"><strong>💊 Pharmacy:</strong> Stocked with essential and emergency medication.</div>
-    <div class="card"><strong>🛌 Inpatient Care:</strong> Comfortable wards and professional nursing.</div>
-    <div class="card"><strong>🚑 Emergency:</strong> 24/7 ambulance and trauma care.</div>
-    <div class="card"><strong>🩺 Specialist Clinics:</strong> ENT, Dental, Maternity and more.</div>
+    <div class="card-grid">
+      <div class="card service-card">
+        <span class="icon">🧪</span>
+        <h3>Laboratory</h3>
+        <p>Full diagnostics and lab testing available on site.</p>
+      </div>
+      <div class="card service-card">
+        <span class="icon">💊</span>
+        <h3>Pharmacy</h3>
+        <p>Stocked with essential and emergency medication.</p>
+      </div>
+      <div class="card service-card">
+        <span class="icon">🛌</span>
+        <h3>Inpatient Care</h3>
+        <p>Comfortable wards and professional nursing services.</p>
+      </div>
+      <div class="card service-card">
+        <span class="icon">🚑</span>
+        <h3>Emergency</h3>
+        <p>24/7 ambulance and trauma care services.</p>
+      </div>
+      <div class="card service-card">
+        <span class="icon">🩺</span>
+        <h3>Specialist Clinics</h3>
+        <p>ENT, Dental, Maternity, Pediatrics, and more.</p>
+      </div>
+    </div>
   </section>
 
   <!-- News -->
   <section class="news container">
     <h2 class="section-title">Latest News & Updates</h2>
-    <div class="card">✅ <strong>July 2025:</strong> New maternity wing launched with 12 beds.</div>
-    <div class="card">💉 <strong>September 2025:</strong> Free cancer screening camp — 120 residents served.</div>
-    <div class="card">🧠 <strong>May 2025:</strong> Mental health awareness week successfully held.</div>
+    <div class="card-grid">
+      <div class="card news-card">
+        <span class="icon">✅</span>
+        <div>
+          <strong>July 2025:</strong> New maternity wing launched with 12 beds.
+        </div>
+      </div>
+      <div class="card news-card">
+        <span class="icon">💉</span>
+        <div>
+          <strong>September 2025:</strong> Free cancer screening camp — 120 residents served.
+        </div>
+      </div>
+      <div class="card news-card">
+        <span class="icon">🧠</span>
+        <div>
+          <strong>May 2025:</strong> Mental health awareness week successfully held.
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- Footer -->
@@ -62,6 +107,19 @@
     <p>&copy; 2025 Kobujoi Mission Hospital. All rights reserved.</p>
   </footer>
 
+  <!-- Slideshow Script -->
+  <script>
+    let slideIndex = 0;
+    const showSlides = () => {
+      const slides = document.querySelectorAll('.slide');
+      slides.forEach(slide => slide.style.display = 'none');
+      slideIndex++;
+      if (slideIndex > slides.length) slideIndex = 1;
+      slides[slideIndex - 1].style.display = 'block';
+    };
+    setInterval(showSlides, 4000);
+    document.addEventListener("DOMContentLoaded", showSlides);
+  </script>
+
 </body>
 </html>
-a

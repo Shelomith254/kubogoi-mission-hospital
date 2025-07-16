@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🔔 Notifications - Kobujoi Outpatient</title>
+  <style>
+    :root {
+      --primary-blue: #1e40af;
+      --primary-green: #15803d;
+      --secondary-yellow: #d97706;
+      --secondary-red: #dc2626;
+      --neutral-light: #f4f4f4;
+      --white: #ffffff;
+      --gray: #6b7280;
+      --radius: 8px;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: var(--neutral-light);
+    }
+
+    header {
+      background-color: var(--primary-blue);
+      color: white;
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    nav {
+      background-color: #e0e7ff;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      padding: 1rem;
+    }
+
+    nav a {
+      color: var(--primary-blue);
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: var(--primary-green);
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      background-color: var(--white);
+      padding: 2rem;
+      border-radius: var(--radius);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: var(--primary-blue);
+    }
+
+    .notification {
+      padding: 1rem;
+      border-left: 6px solid var(--primary-blue);
+      background-color: #f0f6ff;
+      margin-bottom: 1rem;
+      border-radius: var(--radius);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+
+    .notification.critical {
+      border-left-color: var(--secondary-red);
+      background-color: #fff0f0;
+    }
+
+    .notification.warning {
+      border-left-color: var(--secondary-yellow);
+      background-color: #fffbe6;
+    }
+
+    .notification.success {
+      border-left-color: var(--primary-green);
+      background-color: #e6f9ec;
+    }
+
+    .notification h4 {
+      margin: 0 0 5px;
+      font-size: 16px;
+      color: var(--gray);
+    }
+
+    .notification p {
+      margin: 0;
+      font-size: 14px;
+      color: #444;
+    }
+
+    .notification small {
+      display: block;
+      margin-top: 6px;
+      font-size: 12px;
+      color: #888;
+    }
+
+    footer {
+      background-color: var(--primary-blue);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .container {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🔔 Notifications</h1>
+  <p>Stay updated on appointments and system alerts</p>
+</header>
+
+<nav>
+  <a href="portal.html">📋 Dashboard</a>
+  <a href="appointments.html">📅 Appointments</a>
+  <a href="visits.html">📋 Visits</a>
+  <a href="records.html">📑 Visit Records</a>
+  <a href="notifications.html">🔔 Notifications</a>
+  <a href="#">🚪 Logout</a>
+</nav>
+
+<div class="container">
+  <h2>Latest Updates</h2>
+
+  <div class="notification success">
+    <h4>✅ Appointment Confirmed</h4>
+    <p>John Mwangi has confirmed his 2:00 PM appointment for today.</p>
+    <small>10 mins ago</small>
+  </div>
+
+  <div class="notification warning">
+    <h4>⚠️ Patient Delay Alert</h4>
+    <p>Brian Otieno has called to inform he'll be 30 minutes late.</p>
+    <small>30 mins ago</small>
+  </div>
+
+  <div class="notification critical">
+    <h4>🚨 Appointment Cancellation</h4>
+    <p>Mary Atieno canceled her 11:00 AM booking due to illness.</p>
+    <small>1 hour ago</small>
+  </div>
+
+  <div class="notification">
+    <h4>🔄 System Notice</h4>
+    <p>Outpatient visit logs will be updated automatically by 5:00 PM.</p>
+    <small>Today at 8:00 AM</small>
+  </div>
+</div>
+
+<footer>
+  &copy; 2025 Kobujoi Mission Hospital. Outpatient Panel
+</footer>
+
+</body>
+</html>

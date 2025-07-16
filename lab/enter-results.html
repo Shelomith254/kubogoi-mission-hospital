@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Settings - Admin Panel</title>
+  <title>Enter Lab Results - Kobujoi</title>
   <style>
     :root {
       --primary-blue: #1e40af;
-      --deep-blue: #1e3a8a;
       --light-blue: #e0e7ff;
       --bg-color: #f4f6f8;
       --white: #ffffff;
       --gray: #6b7280;
+      --deep-blue: #1e3a8a;
     }
 
     body {
@@ -22,7 +22,7 @@
 
     header {
       background-color: var(--primary-blue);
-      color: var(--white);
+      color: white;
       padding: 1rem;
       text-align: center;
     }
@@ -37,9 +37,9 @@
     }
 
     nav a {
-      text-decoration: none;
       color: var(--primary-blue);
       font-weight: bold;
+      text-decoration: none;
     }
 
     nav a:hover {
@@ -64,12 +64,13 @@
       color: var(--primary-blue);
     }
 
-    select, input {
+    input, select, textarea {
       width: 100%;
       padding: 0.6rem;
       margin-top: 0.5rem;
       border-radius: 5px;
       border: 1px solid #ccc;
+      resize: vertical;
     }
 
     button {
@@ -88,7 +89,7 @@
 
     footer {
       background-color: var(--primary-blue);
-      color: var(--white);
+      color: white;
       text-align: center;
       padding: 1rem;
       margin-top: 2rem;
@@ -109,49 +110,45 @@
 <body>
 
   <header>
-    <h1>Settings - Admin Panel</h1>
+    <h1>Enter Lab Results</h1>
   </header>
 
   <nav>
     <a href="portal.html">Dashboard</a>
-    <a href="users.html">Users</a>
-    <a href="appointments.html">Appointments</a>
-    <a href="billing.html">Billing</a>
-    <a href="AI-insights.html">AI Insights</a>
-    <a href="inventory.html">Inventory</a>
-    <a href="settings.html">Settings</a>
+    <a href="lab-requests.html">Lab Requests</a>
+    <a href="enter-results.html">Enter Results</a>
+    <a href="completed-tests.html">Completed Tests</a>
+    <a href="notifications.html">Notifications</a>
+    <a href="profile.html">Profile</a>
     <a href="#">Logout</a>
   </nav>
 
   <div class="container">
-    <h2>System Settings</h2>
+    <h2>Submit Test Results</h2>
 
     <form>
-      <label for="language">Interface Language</label>
-      <select id="language" name="language">
-        <option value="en">English</option>
-        <option value="sw">Swahili</option>
-        <option value="fr">French</option>
+      <label for="patient">Select Patient</label>
+      <select id="patient">
+        <option value="">-- Choose Patient --</option>
+        <option>Shelomith Anyango</option>
+        <option>Brian K.</option>
       </select>
 
-      <label for="theme">Theme Mode</label>
-      <select id="theme" name="theme">
-        <option value="light">Light</option>
-        <option value="dark">Dark</option>
-      </select>
+      <label for="test1">Blood Test Result</label>
+      <textarea id="test1" rows="3" placeholder="e.g. Hemoglobin 13.5 g/dL, RBC normal"></textarea>
 
-      <label for="password">New Password</label>
-      <input type="password" id="password" placeholder="Enter new password" />
+      <label for="test2">Malaria Smear Result</label>
+      <textarea id="test2" rows="3" placeholder="e.g. Positive for P. falciparum"></textarea>
 
-      <label for="confirm">Confirm Password</label>
-      <input type="password" id="confirm" placeholder="Re-type password" />
+      <label for="notes">Lab Technician Notes (optional)</label>
+      <textarea id="notes" rows="3" placeholder="Additional comments..."></textarea>
 
-      <button type="submit">Save Settings</button>
+      <button type="submit">Submit Results</button>
     </form>
   </div>
 
   <footer>
-    &copy; 2025 Kobujoi Mission Hospital. Admin Panel
+    &copy; 2025 Kobujoi Mission Hospital. Lab Technician Panel
   </footer>
 
 </body>

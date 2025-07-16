@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>📑 Visit Records - Kobujoi Outpatient</title>
+  <title>📅 Appointments - Kobujoi Outpatient</title>
   <style>
     :root {
       --primary-blue: #1e40af;
-      --light-blue: #e0e7ff;
       --primary-green: #15803d;
+      --light-blue: #e0e7ff;
       --white: #ffffff;
-      --bg-color: #f9fafb;
       --gray: #6b7280;
+      --bg-color: #f9fafb;
       --radius: 8px;
     }
 
@@ -24,8 +24,8 @@
     header {
       background-color: var(--primary-blue);
       color: white;
-      text-align: center;
       padding: 1.5rem;
+      text-align: center;
     }
 
     nav {
@@ -86,6 +86,7 @@
       border-radius: 5px;
       cursor: pointer;
       font-size: 0.85rem;
+      margin-right: 5px;
     }
 
     .btn:hover {
@@ -136,8 +137,8 @@
 <body>
 
 <header>
-  <h1>📑 Visit Records</h1>
-  <p>View past outpatient visits</p>
+  <h1>📅 Appointments</h1>
+  <p>Manage all scheduled outpatient visits</p>
 </header>
 
 <nav>
@@ -150,39 +151,44 @@
 </nav>
 
 <div class="container">
-  <h2>Patient Visit History</h2>
+  <h2>Today's Appointments</h2>
 
   <table>
     <thead>
       <tr>
         <th>👤 Patient</th>
-        <th>📆 Date</th>
-        <th>👨‍⚕️ Doctor</th>
-        <th>📝 Summary</th>
-        <th>👁️ View</th>
+        <th>🕒 Time</th>
+        <th>📄 Reason</th>
+        <th>🛠️ Action</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td data-label="Patient">👤 Shelomith Anyango</td>
-        <td data-label="Date">2025-07-10</td>
-        <td data-label="Doctor">Dr. Otieno</td>
-        <td data-label="Summary">Routine checkup & mild fever</td>
-        <td data-label="View"><button class="btn">👁️ View</button></td>
+        <td data-label="Time">09:00 AM</td>
+        <td data-label="Reason">Routine Checkup</td>
+        <td data-label="Action">
+          <button class="btn">✅ Confirm</button>
+          <button class="btn">❌ Cancel</button>
+        </td>
       </tr>
       <tr>
         <td data-label="Patient">👤 Brian Otieno</td>
-        <td data-label="Date">2025-07-08</td>
-        <td data-label="Doctor">Dr. Kemunto</td>
-        <td data-label="Summary">Back pain - referred to ortho</td>
-        <td data-label="View"><button class="btn">👁️ View</button></td>
+        <td data-label="Time">10:30 AM</td>
+        <td data-label="Reason">Chest Pain</td>
+        <td data-label="Action">
+          <button class="btn">✅ Confirm</button>
+          <button class="btn">❌ Cancel</button>
+        </td>
       </tr>
       <tr>
         <td data-label="Patient">👤 Catherine Wanja</td>
-        <td data-label="Date">2025-07-06</td>
-        <td data-label="Doctor">Dr. Mwakio</td>
-        <td data-label="Summary">Follow-up after malaria treatment</td>
-        <td data-label="View"><button class="btn">👁️ View</button></td>
+        <td data-label="Time">11:15 AM</td>
+        <td data-label="Reason">Lab Follow-up</td>
+        <td data-label="Action">
+          <button class="btn">✅ Confirm</button>
+          <button class="btn">❌ Cancel</button>
+        </td>
       </tr>
     </tbody>
   </table>

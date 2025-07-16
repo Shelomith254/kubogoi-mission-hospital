@@ -3,17 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Doctor Notifications - Kobujoi</title>
+  <title>Patient Medical History - Doctor Panel</title>
   <style>
     :root {
       --primary-blue: #1e40af;
-      --deep-blue: #1e3a8a;
       --light-blue: #e0e7ff;
       --bg-color: #f4f6f8;
       --white: #ffffff;
       --gray: #6b7280;
-      --green: #15803d;
-      --red: #dc2626;
     }
 
     body {
@@ -40,17 +37,17 @@
 
     nav a {
       color: var(--primary-blue);
-      text-decoration: none;
       font-weight: bold;
+      text-decoration: none;
     }
 
     nav a:hover {
-      color: var(--deep-blue);
+      color: #1e3a8a;
     }
 
     .container {
       padding: 2rem;
-      max-width: 800px;
+      max-width: 900px;
       margin: auto;
     }
 
@@ -59,25 +56,28 @@
       text-align: center;
     }
 
-    .notification {
+    .card {
       background-color: var(--white);
-      padding: 1rem 1.5rem;
-      margin-bottom: 1rem;
-      border-left: 5px solid var(--primary-blue);
-      border-radius: 6px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      margin-bottom: 1.5rem;
     }
 
-    .notification.success { border-left-color: var(--green); }
-    .notification.warning { border-left-color: var(--red); }
+    .card h3 {
+      margin-top: 0;
+      color: var(--primary-blue);
+    }
 
-    .notification p {
+    .card p {
       margin: 0.3rem 0;
     }
 
-    .notification small {
+    .section-title {
+      font-size: 1.1rem;
+      margin-top: 1rem;
       color: var(--gray);
-      font-style: italic;
+      font-weight: bold;
     }
 
     footer {
@@ -103,7 +103,7 @@
 <body>
 
   <header>
-    <h1>Doctor Notifications</h1>
+    <h1>Patient Medical History</h1>
   </header>
 
   <nav>
@@ -118,21 +118,36 @@
   </nav>
 
   <div class="container">
-    <h2>Recent Notifications</h2>
+    <h2>Medical History - Shelomith Anyango</h2>
 
-    <div class="notification success">
-      <p><strong>Lab Result Ready:</strong> Blood test result for Brian K. is now available.</p>
-      <small>Received: July 14, 2025 at 10:20 AM</small>
+    <div class="card">
+      <h3>Visit: July 10, 2025</h3>
+      <p class="section-title">Symptoms</p>
+      <p>Fever, fatigue, joint pain</p>
+
+      <p class="section-title">Diagnosis</p>
+      <p>Malaria</p>
+
+      <p class="section-title">Prescription</p>
+      <p>Artemether 80mg for 3 days</p>
+
+      <p class="section-title">Lab Test</p>
+      <p>Blood smear - Positive</p>
     </div>
 
-    <div class="notification">
-      <p><strong>New Appointment:</strong> You have a consultation with Shelomith Anyango at 2:00 PM.</p>
-      <small>Received: July 14, 2025 at 9:50 AM</small>
-    </div>
+    <div class="card">
+      <h3>Visit: June 20, 2025</h3>
+      <p class="section-title">Symptoms</p>
+      <p>Stomach pain, headache</p>
 
-    <div class="notification warning">
-      <p><strong>Missed Review:</strong> Follow-up checkup for Patient ID #143 was not completed.</p>
-      <small>Received: July 13, 2025 at 5:15 PM</small>
+      <p class="section-title">Diagnosis</p>
+      <p>Typhoid</p>
+
+      <p class="section-title">Prescription</p>
+      <p>Ciprofloxacin 500mg, twice a day for 7 days</p>
+
+      <p class="section-title">Lab Test</p>
+      <p>Widal Test - Reactive</p>
     </div>
   </div>
 

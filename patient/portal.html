@@ -2,38 +2,56 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Patient Dashboard - Kobujoi Mission Hospital</title>
   <style>
     :root {
       --primary-blue: #1e40af;
-      --primary-green: #15803d;
-      --neutral-light: #f4f4f4;
-      --neutral-white: #ffffff;
-      --text-dark: #333;
-      --radius: 8px;
+      --deep-blue: #1e3a8a;
+      --light-blue: #e0e7ff;
+      --danger-red: #dc2626;
+      --white: #ffffff;
+      --bg-color: #f4f6f8;
     }
 
     body {
-      margin: 0;
       font-family: Arial, sans-serif;
-      background-color: var(--neutral-light);
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-color);
     }
 
     header {
       background-color: var(--primary-blue);
-      color: white;
-      padding: 20px;
+      color: var(--white);
+      padding: 1rem;
       text-align: center;
+      position: relative;
+    }
+
+    .logout-btn {
+      position: absolute;
+      right: 1rem;
+      top: 1rem;
+      background: var(--danger-red);
+      color: var(--white);
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .logout-btn:hover {
+      background-color: #b91c1c;
     }
 
     nav {
-      background-color: white;
+      background-color: var(--light-blue);
+      padding: 1rem;
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
-      padding: 10px;
-      gap: 15px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      gap: 1rem;
     }
 
     nav a {
@@ -43,87 +61,116 @@
     }
 
     nav a:hover {
-      color: var(--primary-green);
+      color: var(--deep-blue);
     }
 
-    .dashboard {
-      padding: 30px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
+    .container {
+      padding: 2rem;
     }
 
     .card {
-      background: var(--neutral-white);
-      padding: 20px;
-      border-radius: var(--radius);
+      background: var(--white);
+      padding: 1.5rem;
+      margin: 1rem 0;
+      border-radius: 10px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
-    .card h3 {
-      margin: 0 0 10px;
+    .card h2 {
+      margin-top: 0;
       color: var(--primary-blue);
     }
 
-    .card p {
-      margin: 0;
-      color: var(--text-dark);
+    footer {
+      background-color: var(--primary-blue);
+      color: var(--white);
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
     }
 
-    footer {
-      background-color: #e8ecef;
-      text-align: center;
-      padding: 15px;
-      font-size: 14px;
-      margin-top: 30px;
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    ul li {
+      margin: 0.5rem 0;
+    }
+
+    ul li a {
+      color: var(--primary-blue);
+    }
+
+    ul li a:hover {
+      color: var(--deep-blue);
     }
 
     @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.2rem;
+      }
+
+      .logout-btn {
+        position: static;
+        display: block;
+        width: 100%;
+        margin-top: 0.5rem;
+      }
+
       nav {
         flex-direction: column;
         align-items: center;
+      }
+
+      .container {
+        padding: 1rem;
       }
     }
   </style>
 </head>
 <body>
-
   <header>
-    <h1>Welcome, Patient</h1>
-    <p>Your Health Dashboard - Kobujoi Mission Hospital</p>
+    <h1>Kobujoi Mission Hospital - Patient Portal</h1>
+    <button class="logout-btn" onclick="logout()">Logout</button>
   </header>
 
   <nav>
     <a href="portal.html">Dashboard</a>
-    <a href="profile.html">My Profile</a>
-    <a href="appointments.html">Appointments</a>
-    <a href="billing.html">Billing</a>
+    <a href="appointment.html">Book Appointment</a>
+    <a href="appointment-status.html">Appointment Status</a>
+    <a href="bills.html">View Bills</a>
+    <a href="results.html">Lab Results</a>
     <a href="prescriptions.html">Prescriptions</a>
+    <a href="profile.html">Profile</a>
     <a href="notifications.html">Notifications</a>
   </nav>
 
-  <main class="dashboard">
+  <div class="container">
     <div class="card">
-      <h3>Upcoming Appointments</h3>
-      <p>2 appointments this week</p>
+      <h2>Welcome, [Patient Name]</h2>
+      <p>Your next appointment is on <strong>July 20, 2025</strong> with Dr. Sarah Otieno.</p>
+      <p>Lab result from July 10, 2025 is <strong>Ready</strong>.</p>
     </div>
+
     <div class="card">
-      <h3>Outstanding Bills</h3>
-      <p>KES 1,500 due</p>
+      <h2>Quick Actions</h2>
+      <ul>
+        <li><a href="#">Book a New Appointment</a></li>
+        <li><a href="#">View Payment History</a></li>
+        <li><a href="#">Check Notifications</a></li>
+      </ul>
     </div>
-    <div class="card">
-      <h3>Recent Prescriptions</h3>
-      <p>3 active medications</p>
-    </div>
-    <div class="card">
-      <h3>New Notifications</h3>
-      <p>1 unread message</p>
-    </div>
-  </main>
+  </div>
 
   <footer>
     &copy; 2025 Kobujoi Mission Hospital. All rights reserved.
   </footer>
 
+  <script>
+    function logout() {
+      alert("You have been logged out.");
+      window.location.href = "login.html";
+    }
+  </script>
 </body>
 </html>

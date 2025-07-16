@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About - Kobujoi Mission Hospital</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
 
@@ -21,7 +21,7 @@
     <div class="container">
       <a href="index.html">Home</a>
       <a href="login.html">Login</a>
-      <a href="about.html">About</a>
+      <a href="about.html" class="active">About</a>
       <a href="departments.html">Departments</a>
       <a href="book-appointment.html">Book Appointment</a>
       <a href="our-team.html">Our Team</a>
@@ -29,8 +29,10 @@
     </div>
   </nav>
 
-  <!-- About Content -->
+  <!-- Main Content -->
   <main class="container about-content">
+
+    <!-- Mission & Vision -->
     <section class="mission-vision">
       <h2>Our Mission</h2>
       <p>To offer affordable, quality healthcare services grounded in compassion, professionalism, and faith.</p>
@@ -39,8 +41,9 @@
       <p>To be the leading faith-based hospital in Western Kenya, promoting healing through service.</p>
     </section>
 
+    <!-- Core Principles -->
     <section class="principles">
-      <h2>Our Core Principles</h2>
+      <h2 class="section-title">Our Core Principles</h2>
 
       <div class="principle-item">
         <div class="principle-header">
@@ -93,12 +96,14 @@
       </div>
     </section>
 
+    <!-- Quick Contact -->
     <section class="contact-quick">
       <h2>Contact Information</h2>
       <p>Email: <a href="mailto:info@kobujoihealth.org">info@kobujoihealth.org</a></p>
       <p>Phone: +254 712 345 678</p>
       <p>Location: Kobujoi, Nandi County</p>
     </section>
+
   </main>
 
   <!-- Footer -->
@@ -106,18 +111,13 @@
     <p>&copy; 2025 Kobujoi Mission Hospital. All rights reserved.</p>
   </footer>
 
-  <!-- Script to Toggle Principles -->
+  <!-- Toggle Script -->
   <script>
     document.querySelectorAll('.toggle-btn').forEach((btn) => {
       btn.addEventListener('click', () => {
         const body = btn.parentElement.nextElementSibling;
-        if (body.style.display === 'block') {
-          body.style.display = 'none';
-          btn.textContent = '+';
-        } else {
-          body.style.display = 'block';
-          btn.textContent = '−';
-        }
+        const isOpen = body.classList.toggle('show');
+        btn.textContent = isOpen ? '−' : '+';
       });
     });
   </script>

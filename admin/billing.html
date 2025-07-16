@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>View Bills - Kobujoi Mission Hospital</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Billing - Admin Panel</title>
   <style>
     :root {
       --primary-blue: #1e40af;
@@ -53,16 +53,16 @@
     }
 
     h2 {
-      color: var(--primary-blue);
       text-align: center;
+      color: var(--primary-blue);
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 1rem;
       background-color: var(--white);
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      margin-top: 1.5rem;
     }
 
     th, td {
@@ -76,14 +76,27 @@
       color: var(--primary-blue);
     }
 
-    .paid {
+    .status-paid {
       color: var(--green);
       font-weight: bold;
     }
 
-    .pending {
+    .status-unpaid {
       color: var(--red);
       font-weight: bold;
+    }
+
+    .btn {
+      padding: 0.4rem 0.8rem;
+      border: none;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      color: white;
+      cursor: pointer;
+    }
+
+    .mark-paid {
+      background-color: var(--green);
     }
 
     footer {
@@ -95,13 +108,13 @@
     }
 
     @media (max-width: 600px) {
-      .container {
-        padding: 1rem;
-      }
-
       nav {
         flex-direction: column;
         align-items: center;
+      }
+
+      .container {
+        padding: 1rem;
       }
 
       table, thead, tbody, th, td, tr {
@@ -113,9 +126,9 @@
       }
 
       tr {
-        margin-bottom: 1rem;
         background: var(--white);
         border-radius: 10px;
+        margin-bottom: 1rem;
         box-shadow: 0 1px 4px rgba(0,0,0,0.1);
         padding: 1rem;
       }
@@ -131,7 +144,6 @@
         position: absolute;
         left: 1rem;
         width: 45%;
-        text-align: left;
         font-weight: bold;
         color: var(--primary-blue);
       }
@@ -141,56 +153,59 @@
 <body>
 
   <header>
-    <h1>View Bills - Patient Portal</h1>
+    <h1>Billing - Admin Panel</h1>
   </header>
 
   <nav>
     <a href="portal.html">Dashboard</a>
-    <a href="appointment.html">Book Appointment</a>
-    <a href="appointment-status.html">Appointment Status</a>
-    <a href="bills.html">View Bills</a>
-    <a href="results.html">Lab Results</a>
-    <a href="prescriptions.html">Prescriptions</a>
-    <a href="profile.html">Profile</a>
-    <a href="notifications.html">Notifications</a>
+    <a href="users.html">Users</a>
+    <a href="appointments.html">Appointments</a>
+    <a href="billing.html">Billing</a>
+    <a href="AI-insights.html">AI Insights</a>
+    <a href="inventory.html">Inventory</a>
+    <a href="settings.html">Settings</a>
+    <a href="#">Logout</a>
   </nav>
 
   <div class="container">
-    <h2>Your Billing Summary</h2>
+    <h2>Billing Summary</h2>
+
     <table>
       <thead>
         <tr>
-          <th>Date</th>
+          <th>Patient</th>
           <th>Service</th>
-          <th>Amount (KES)</th>
+          <th>Amount</th>
+          <th>Date</th>
           <th>Status</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
         <tr>
+          <td data-label="Patient">Shelomith Anyango</td>
+          <td data-label="Service">Consultation</td>
+          <td data-label="Amount">KES 1500</td>
           <td data-label="Date">2025-07-10</td>
-          <td data-label="Service">General Consultation</td>
-          <td data-label="Amount">1500</td>
-          <td data-label="Status" class="paid">Paid</td>
+          <td data-label="Status" class="status-paid">Paid</td>
+          <td data-label="Action">—</td>
         </tr>
         <tr>
-          <td data-label="Date">2025-07-12</td>
-          <td data-label="Service">Lab Test - Blood</td>
-          <td data-label="Amount">2000</td>
-          <td data-label="Status" class="pending">Pending</td>
-        </tr>
-        <tr>
-          <td data-label="Date">2025-07-14</td>
-          <td data-label="Service">Pharmacy - Antibiotics</td>
-          <td data-label="Amount">1200</td>
-          <td data-label="Status" class="paid">Paid</td>
+          <td data-label="Patient">Brian K.</td>
+          <td data-label="Service">Blood Test</td>
+          <td data-label="Amount">KES 2000</td>
+          <td data-label="Date">2025-07-11</td>
+          <td data-label="Status" class="status-unpaid">Unpaid</td>
+          <td data-label="Action">
+            <button class="btn mark-paid">Mark as Paid</button>
+          </td>
         </tr>
       </tbody>
     </table>
   </div>
 
   <footer>
-    &copy; 2025 Kobujoi Mission Hospital. All rights reserved.
+    &copy; 2025 Kobujoi Mission Hospital. Admin Panel
   </footer>
 
 </body>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>View Bills - Kobujoi Mission Hospital</title>
+  <title>Appointment Status - Kobujoi Mission Hospital</title>
   <style>
     :root {
       --primary-blue: #1e40af;
@@ -76,12 +76,12 @@
       color: var(--primary-blue);
     }
 
-    .paid {
+    .status-confirmed {
       color: var(--green);
       font-weight: bold;
     }
 
-    .pending {
+    .status-pending {
       color: var(--red);
       font-weight: bold;
     }
@@ -141,7 +141,7 @@
 <body>
 
   <header>
-    <h1>View Bills - Patient Portal</h1>
+    <h1>Appointment Status - Patient Portal</h1>
   </header>
 
   <nav>
@@ -156,34 +156,32 @@
   </nav>
 
   <div class="container">
-    <h2>Your Billing Summary</h2>
+    <h2>Your Appointment History</h2>
     <table>
       <thead>
         <tr>
           <th>Date</th>
-          <th>Service</th>
-          <th>Amount (KES)</th>
+          <th>Time</th>
+          <th>Doctor</th>
+          <th>Department</th>
           <th>Status</th>
         </tr>
       </thead>
+      <!--details of your appointment-->
       <tbody>
         <tr>
+          <td data-label="Date">2025-07-20</td>
+          <td data-label="Time">10:00 AM</td>
+          <td data-label="Doctor">Dr. Sarah Otieno</td>
+          <td data-label="Department">Cardiology</td>
+          <td data-label="Status" class="status-confirmed">Confirmed</td>
+        </tr>
+        <tr>
           <td data-label="Date">2025-07-10</td>
-          <td data-label="Service">General Consultation</td>
-          <td data-label="Amount">1500</td>
-          <td data-label="Status" class="paid">Paid</td>
-        </tr>
-        <tr>
-          <td data-label="Date">2025-07-12</td>
-          <td data-label="Service">Lab Test - Blood</td>
-          <td data-label="Amount">2000</td>
-          <td data-label="Status" class="pending">Pending</td>
-        </tr>
-        <tr>
-          <td data-label="Date">2025-07-14</td>
-          <td data-label="Service">Pharmacy - Antibiotics</td>
-          <td data-label="Amount">1200</td>
-          <td data-label="Status" class="paid">Paid</td>
+          <td data-label="Time">2:30 PM</td>
+          <td data-label="Doctor">Dr. Kimani Mugo</td>
+          <td data-label="Department">General Medicine</td>
+          <td data-label="Status" class="status-pending">Pending</td>
         </tr>
       </tbody>
     </table>

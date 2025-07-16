@@ -2,50 +2,38 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Profile - Kobujoi Mission Hospital</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Patient Profile - Kobujoi Mission Hospital</title>
   <style>
     :root {
       --primary-blue: #1e40af;
-      --primary-green: #15803d;
-      --neutral-light: #f4f4f4;
-      --neutral-white: #ffffff;
-      --text-dark: #333;
-      --radius: 8px;
+      --deep-blue: #1e3a8a;
+      --light-blue: #e0e7ff;
+      --bg-color: #f4f6f8;
+      --white: #ffffff;
     }
-    @media (max-width: 768px) {
-  .team-grid {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .team-member {
-    width: 90%;
-    max-width: 350px;
-  }
-}
-
 
     body {
-      margin: 0;
       font-family: Arial, sans-serif;
-      background-color: var(--neutral-light);
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-color);
     }
 
     header {
       background-color: var(--primary-blue);
-      color: white;
-      padding: 20px;
+      color: var(--white);
+      padding: 1rem;
       text-align: center;
     }
 
     nav {
-      background-color: white;
+      background-color: var(--light-blue);
+      padding: 1rem;
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
-      padding: 10px;
-      gap: 15px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      gap: 1rem;
     }
 
     nav a {
@@ -55,118 +43,129 @@
     }
 
     nav a:hover {
-      color: var(--primary-green);
+      color: var(--deep-blue);
     }
 
-    main {
-      max-width: 600px;
-      margin: 40px auto;
-      background: var(--neutral-white);
-      padding: 30px;
-      border-radius: var(--radius);
+    .container {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .card {
+      background-color: var(--white);
+      padding: 1.5rem;
+      border-radius: 10px;
+      margin-bottom: 2rem;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
-    h2 {
+    .card h2 {
+      margin-top: 0;
       color: var(--primary-blue);
-      margin-bottom: 20px;
-      text-align: center;
     }
 
-    .profile-group {
-      margin-bottom: 15px;
+    .profile-img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--primary-blue);
     }
 
     label {
       display: block;
+      margin-top: 1rem;
       font-weight: bold;
-      margin-bottom: 6px;
-      color: var(--text-dark);
     }
 
-    input, select {
+    input[type="file"], input[type="password"] {
+      margin-top: 0.5rem;
+      padding: 0.5rem;
       width: 100%;
-      padding: 10px;
-      border-radius: var(--radius);
+      border-radius: 5px;
       border: 1px solid #ccc;
-      font-size: 14px;
     }
 
-    button {
-      background-color: var(--primary-green);
-      color: white;
-      padding: 12px 20px;
-      border: none;
-      border-radius: var(--radius);
-      font-weight: bold;
-      font-size: 15px;
-      margin-top: 20px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: var(--primary-blue);
+    ul {
+      margin-top: 1rem;
+      padding-left: 1.2rem;
     }
 
     footer {
-      background-color: #e8ecef;
+      background-color: var(--primary-blue);
+      color: var(--white);
       text-align: center;
-      padding: 15px;
-      font-size: 14px;
-      margin-top: 40px;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 1rem;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .profile-img {
+        margin: auto;
+        display: block;
+      }
     }
   </style>
 </head>
 <body>
+
   <header>
-    <h1>My Profile</h1>
-    <p>Manage your personal information</p>
+    <h1>My Profile - Patient Portal</h1>
   </header>
 
   <nav>
     <a href="portal.html">Dashboard</a>
-    <a href="profile.html">My Profile</a>
-    <a href="appointments.html">Appointments</a>
-    <a href="billing.html">Billing</a>
+    <a href="appointment.html">Book Appointment</a>
+    <a href="appointment-status.html">Appointment Status</a>
+    <a href="bills.html">View Bills</a>
+    <a href="results.html">Lab Results</a>
     <a href="prescriptions.html">Prescriptions</a>
+    <a href="profile.html">Profile</a>
     <a href="notifications.html">Notifications</a>
   </nav>
 
-  <main>
-    <h2>Edit Profile</h2>
-    <form>
-      <div class="profile-group">
-        <label for="full-name">Full Name</label>
-        <input type="text" id="full-name" name="full-name" value="John Doe" required />
-      </div>
+  <div class="container">
 
-      <div class="profile-group">
-        <label for="email">Email Address</label>
-        <input type="email" id="email" name="email" value="john@example.com" required />
-      </div>
+    <div class="card">
+      <h2>Personal Information</h2>
+      <img src="images/default-profile.png" alt="Profile Picture" class="profile-img" />
+      <p><strong>Name:</strong> Shelomith Anyango</p>
+      <p><strong>Email:</strong> shelomith@example.com</p>
 
-      <div class="profile-group">
-        <label for="phone">Phone Number</label>
-        <input type="tel" id="phone" name="phone" value="0712345678" />
-      </div>
+      <label for="upload">Change Profile Picture</label>
+      <input type="file" id="upload" accept="image/*">
+    </div>
 
-      <div class="profile-group">
-        <label for="gender">Gender</label>
-        <select id="gender" name="gender">
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-          <option value="other">Other</option>
-        </select>
-      </div>
+    <div class="card">
+      <h2>Medical History</h2>
+      <ul>
+        <li><strong>Past Diseases:</strong> Malaria, Typhoid</li>
+        <li><strong>Past Treatments:</strong> IV Therapy, Antibiotics</li>
+        <li><strong>Prescriptions:</strong> Paracetamol, Ciprofloxacin</li>
+      </ul>
+    </div>
 
-      <div class="profile-group">
-        <label for="dob">Date of Birth</label>
-        <input type="date" id="dob" name="dob" />
-      </div>
+    <div class="card">
+      <h2>Security</h2>
+      <label for="password">Change Password</label>
+      <input type="password" id="password" placeholder="New Password">
+    </div>
 
-      <button type="submit">Update Profile</button>
-    </form>
-  </main>
+  </div>
 
   <footer>
-    &copy; 2025 Kobu
+    &copy; 2025 Kobujoi Mission Hospital. All rights reserved.
+  </footer>
+
+</body>
+</html>
